@@ -73,10 +73,10 @@ public void testRandomPersistence()
 @Test
 public void testAgentLoadAndGetAgentName()
 {
-    final PlatformerAIOptions platformerAIOptions = new PlatformerAIOptions("-vis off -lca off -ag org.platform.agents.controllers.ForwardJumpingAgent");
+    final PlatformerAIOptions platformerAIOptions = new PlatformerAIOptions("-vis off -lca off -ag org.platformer.agents.controllers.ForwardJumpingAgent");
     assertNotNull(platformerAIOptions.getAgent());
     assertEquals(platformerAIOptions.getAgent().getName(), "ForwardJumpingAgent");
-    assertEquals(platformerAIOptions.getAgentFullLoadName(), "org.platform.agents.controllers.ForwardJumpingAgent");
+    assertEquals(platformerAIOptions.getAgentFullLoadName(), "org.platformer.agents.controllers.ForwardJumpingAgent");
 }
 
 @Test
@@ -85,14 +85,14 @@ public void testAgentLoadHumanKeyboardAgent()
     final PlatformerAIOptions platformerAIOptions = new PlatformerAIOptions("-vis off -lca off");
     assertNotNull(platformerAIOptions.getAgent());
     assertEquals(platformerAIOptions.getAgent().getName(), "HumanKeyboardAgent");
-    assertEquals(platformerAIOptions.getAgentFullLoadName(), "org.platform.agents.controllers.human.HumanKeyboardAgent");
+    assertEquals(platformerAIOptions.getAgentFullLoadName(), "org.platformer.agents.controllers.human.HumanKeyboardAgent");
 }
 
 
 @Test
 public void testForwardJumpingAgentFitnessWithoutCreatures()
 {
-    final PlatformerAIOptions platformerAIOptions = new PlatformerAIOptions("-vis off -le off -ag org.platform.agents.controllers.ForwardJumpingAgent -echo on");
+    final PlatformerAIOptions platformerAIOptions = new PlatformerAIOptions("-vis off -le off -ag org.platformer.agents.controllers.ForwardJumpingAgent -echo on");
     final BasicTask basicTask = new BasicTask(platformerAIOptions);
     basicTask.setOptionsAndReset(platformerAIOptions);
     basicTask.runSingleEpisode(1);
@@ -103,7 +103,7 @@ public void testForwardJumpingAgentFitnessWithoutCreatures()
 @Test
 public void testForwardJumpingAgentFitnessWithDefaultCreatures()
 {
-    final PlatformerAIOptions platformerAIOptions = new PlatformerAIOptions("-vis off -ag org.platform.agents.controllers.ForwardJumpingAgent -echo on");
+    final PlatformerAIOptions platformerAIOptions = new PlatformerAIOptions("-vis off -ag org.platformer.agents.controllers.ForwardJumpingAgent -echo on");
     final BasicTask basicTask = new BasicTask(platformerAIOptions);
     basicTask.setOptionsAndReset(platformerAIOptions);
     basicTask.runSingleEpisode(1);
@@ -114,7 +114,7 @@ public void testForwardJumpingAgentFitnessWithDefaultCreatures()
 @Test
 public void testReceptiveField_1x2()
 {
-    final PlatformerAIOptions platformerAIOptions = new PlatformerAIOptions("-vis on -fps 75 -ag org.platform.agents.controllers.ForwardAgent -echo on -rfw 1 -rfh 2 -srf on");
+    final PlatformerAIOptions platformerAIOptions = new PlatformerAIOptions("-vis on -fps 75 -ag org.platformer.agents.controllers.ForwardAgent -echo on -rfw 1 -rfh 2 -srf on");
     final BasicTask basicTask = new BasicTask(platformerAIOptions);
     basicTask.setOptionsAndReset(platformerAIOptions);
     basicTask.runSingleEpisode(1);
@@ -125,7 +125,7 @@ public void testReceptiveField_1x2()
 @Test
 public void testReceptiveField_3x1()
 {
-    final PlatformerAIOptions platformerAIOptions = new PlatformerAIOptions("-vis off -ag org.platform.agents.controllers.ForwardAgent -echo on -rfw 3 -rfh 1 -srf on");
+    final PlatformerAIOptions platformerAIOptions = new PlatformerAIOptions("-vis off -ag org.platformer.agents.controllers.ForwardAgent -echo on -rfw 3 -rfh 1 -srf on");
     final BasicTask basicTask = new BasicTask(platformerAIOptions);
     basicTask.setOptionsAndReset(platformerAIOptions);
     basicTask.runSingleEpisode(1);
@@ -136,7 +136,7 @@ public void testReceptiveField_3x1()
 @Test
 public void testReceptiveField_1x1()
 {
-    final PlatformerAIOptions platformerAIOptions = new PlatformerAIOptions("-vis off -ag org.platform.agents.controllers.ForwardAgent -echo on -rfw 1 -rfh 1 -srf on");
+    final PlatformerAIOptions platformerAIOptions = new PlatformerAIOptions("-vis off -ag org.platformer.agents.controllers.ForwardAgent -echo on -rfw 1 -rfh 1 -srf on");
     final BasicTask basicTask = new BasicTask(platformerAIOptions);
     basicTask.setOptionsAndReset(platformerAIOptions);
     basicTask.runSingleEpisode(1);
@@ -147,7 +147,7 @@ public void testReceptiveField_1x1()
 @Test
 public void testForwardAgentFitnessWithDefaultCreatures()
 {
-    final PlatformerAIOptions platformerAIOptions = new PlatformerAIOptions("-vis off -ag org.platform.agents.controllers.ForwardAgent -echo on");
+    final PlatformerAIOptions platformerAIOptions = new PlatformerAIOptions("-vis off -ag org.platformer.agents.controllers.ForwardAgent -echo on");
     final BasicTask basicTask = new BasicTask(platformerAIOptions);
     basicTask.setOptionsAndReset(platformerAIOptions);
     basicTask.runSingleEpisode(1);
@@ -158,7 +158,7 @@ public void testForwardAgentFitnessWithDefaultCreatures()
 @Test
 public void testForwardAgentFitnessWithDefaultCreaturesVisual()
 {
-    final PlatformerAIOptions platformerAIOptions = new PlatformerAIOptions("-vis on -fps 100 -ag org.platform.agents.controllers.ForwardAgent -echo on");
+    final PlatformerAIOptions platformerAIOptions = new PlatformerAIOptions("-vis on -fps 100 -ag org.platformer.agents.controllers.ForwardAgent -echo on");
     final BasicTask basicTask = new BasicTask(platformerAIOptions);
     basicTask.setOptionsAndReset(platformerAIOptions);
     basicTask.runSingleEpisode(1);
@@ -175,7 +175,7 @@ public void testForwardAgentCoinsCollected()
 @Test
 public void testForwardAgentFitnessWithoutCreatures()
 {
-    final PlatformerAIOptions platformerAIOptions = new PlatformerAIOptions("-vis off -le 0 -ag org.platform.agents.controllers.ForwardAgent -echo on");
+    final PlatformerAIOptions platformerAIOptions = new PlatformerAIOptions("-vis off -le 0 -ag org.platformer.agents.controllers.ForwardAgent -echo on");
     final BasicTask basicTask = new BasicTask(platformerAIOptions);
     basicTask.setOptionsAndReset(platformerAIOptions);
     basicTask.runSingleEpisode(1);
@@ -196,7 +196,7 @@ public void testForwardJumpingAgentCoinsCollected()
 @Test
 public void testStopGameplay()
 {
-    final PlatformerAIOptions platformerAIOptions = new PlatformerAIOptions("-vis on -rfw 9 -rfh 5 -stop on -ll 100 -ag org.platform.agents.controllers.ForwardAgent -echo on");
+    final PlatformerAIOptions platformerAIOptions = new PlatformerAIOptions("-vis on -rfw 9 -rfh 5 -stop on -ll 100 -ag org.platformer.agents.controllers.ForwardAgent -echo on");
     assertEquals(true, platformerAIOptions.isStopGamePlay());
     final BasicTask basicTask = new BasicTask(platformerAIOptions);
     basicTask.setOptionsAndReset(platformerAIOptions);
@@ -206,7 +206,7 @@ public void testStopGameplay()
 @Test
 public void testScaredShooty_with10Goombas()
 {
-    final PlatformerAIOptions platformerAIOptions = new PlatformerAIOptions("-vis off -rfw 5 -rfh 5 -ag org.platform.agents.controllers.ScaredShooty -lf on -ltb off -lg off -lb off -i on -le g:10");
+    final PlatformerAIOptions platformerAIOptions = new PlatformerAIOptions("-vis off -rfw 5 -rfh 5 -ag org.platformer.agents.controllers.ScaredShooty -lf on -ltb off -lg off -lb off -i on -le g:10");
     final BasicTask basicTask = new BasicTask(platformerAIOptions);
     basicTask.setOptionsAndReset(platformerAIOptions);
     basicTask.runSingleEpisode(1);
@@ -216,7 +216,7 @@ public void testScaredShooty_with10Goombas()
 @Test
 public void testScaredShooty_with10Goombas5RedKoopas()
 {
-    final PlatformerAIOptions platformerAIOptions = new PlatformerAIOptions("-vis off -rfw 5 -rfh 5 -ag org.platform.agents.controllers.ScaredShooty -lf on -ltb off -lg off -lb off -i on -le g:10,rk:5");
+    final PlatformerAIOptions platformerAIOptions = new PlatformerAIOptions("-vis off -rfw 5 -rfh 5 -ag org.platformer.agents.controllers.ScaredShooty -lf on -ltb off -lg off -lb off -i on -le g:10,rk:5");
     final BasicTask basicTask = new BasicTask(platformerAIOptions);
     basicTask.setOptionsAndReset(platformerAIOptions);
     basicTask.runSingleEpisode(1);
@@ -226,7 +226,7 @@ public void testScaredShooty_with10Goombas5RedKoopas()
 @Test
 public void testScaredShooty_with10GoombasWinged10Goombas()
 {
-    final PlatformerAIOptions platformerAIOptions = new PlatformerAIOptions("-vis on -rfw 5 -rfh 5 -ag org.platform.agents.controllers.ScaredShooty -lf on -ltb off -lg off -lb off -i on -le g:10,gw:10");
+    final PlatformerAIOptions platformerAIOptions = new PlatformerAIOptions("-vis on -rfw 5 -rfh 5 -ag org.platformer.agents.controllers.ScaredShooty -lf on -ltb off -lg off -lb off -i on -le g:10,gw:10");
     final BasicTask basicTask = new BasicTask(platformerAIOptions);
     basicTask.setOptionsAndReset(platformerAIOptions);
     basicTask.runSingleEpisode(1);
@@ -236,7 +236,7 @@ public void testScaredShooty_with10GoombasWinged10Goombas()
 @Test
 public void testScaredShooty_with6Goombas3Spikies()
 {
-    final PlatformerAIOptions platformerAIOptions = new PlatformerAIOptions("-vis off -rfw 5 -rfh 5 -ag org.platform.agents.controllers.ScaredShooty -lf on -ltb off -lg off -lb off -i on -le g:6,s:3");
+    final PlatformerAIOptions platformerAIOptions = new PlatformerAIOptions("-vis off -rfw 5 -rfh 5 -ag org.platformer.agents.controllers.ScaredShooty -lf on -ltb off -lg off -lb off -i on -le g:6,s:3");
     final BasicTask basicTask = new BasicTask(platformerAIOptions);
     basicTask.setOptionsAndReset(platformerAIOptions);
     basicTask.runSingleEpisode(1);
@@ -271,7 +271,7 @@ public void testScale2XEnabledOnStartup()
 @Test
 public void testLevelCompletionRegression()
 {
-	final PlatformerAIOptions platformerAIOptions = new PlatformerAIOptions("-vis off -ag org.platform.agents.controllers.ForwardJumpingAgent -i on");
+	final PlatformerAIOptions platformerAIOptions = new PlatformerAIOptions("-vis off -ag org.platformer.agents.controllers.ForwardJumpingAgent -i on");
 	final BasicTask basicTask = new BasicTask(platformerAIOptions);
 	basicTask.setOptionsAndReset(platformerAIOptions);
 	basicTask.runSingleEpisode(1);

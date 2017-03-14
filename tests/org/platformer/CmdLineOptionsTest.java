@@ -73,7 +73,7 @@ public void testAllOptionsHaveDefaults()
 @Test
 public void testSetArgs() throws Exception
 {
-    String args = "-ag org.platform.agents.controllers.human.HumanKeyboardAgent" +
+    String args = "-ag org.platformer.agents.controllers.human.HumanKeyboardAgent" +
             //  " -amico off" +
             " -echo off" +
             " -ewf on" +
@@ -183,7 +183,7 @@ public void testSetMarioInvulnerable() throws Exception
 public void testDefaultAgent()
 {
     assertNotNull(platformerAIOptions.getAgent());
-    assertEquals("org.platform.agents.controllers.human.HumanKeyboardAgent", platformerAIOptions.getAgentFullLoadName());
+    assertEquals("org.platformer.agents.controllers.human.HumanKeyboardAgent", platformerAIOptions.getAgentFullLoadName());
     assertEquals("HumanKeyboardAgent", platformerAIOptions.getAgent().getName());
 }
 

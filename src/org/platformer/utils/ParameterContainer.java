@@ -232,7 +232,7 @@ public static void InitDefaults()
     {
         defaultOptionsHashMap = new HashMap<String, String>();
 //            AgentsPool.setCurrentAgent(new HumanKeyboardAgent());
-        defaultOptionsHashMap.put("-ag", "org.platform.agents.controllers.human.HumanKeyboardAgent");
+        defaultOptionsHashMap.put("-ag", "org.platformer.agents.controllers.human.HumanKeyboardAgent");
 //        defaultOptionsHashMap.put("-amico", "off");
         defaultOptionsHashMap.put("-echo", "off"); //defaultOptionsHashMap.put("-echo","off");
         defaultOptionsHashMap.put("-ewf", "on"); //defaultOptionsHashMap.put("-exitWhenFinished","off");

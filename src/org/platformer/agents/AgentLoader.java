@@ -9,7 +9,7 @@
  *     * Redistributions in binary form must reproduce the above copyright
  *       notice, this list of conditions and the following disclaimer in the
  *       documentation and/or other materials provided with the distribution.
- *     * Neither the name of the Mario AI nor the
+ *     * Neither the name of the Platformer AI nor the
  *       names of its contributors may be used to endorse or promote products
  *       derived from this software without specific prior written permission.
  *
@@ -63,27 +63,27 @@ public Agent loadAgent(String name, boolean isPunj)
             agent = (Agent) Class.forName(name).newInstance();
     } catch (ClassNotFoundException e)
     {
-        System.out.println("[~ Mario AI ~] :" + name + " is not a class name; trying to load a wox definition with that name.");
+        System.out.println("[~ Platformer AI ~] :" + name + " is not a class name; trying to load a wox definition with that name.");
         try
         {
             agent = (Agent) Easy.load(name);
         } catch (Exception ex)
         {
-            System.err.println("[~ Mario AI ~] :" + name + " is not a wox definition");
+            System.err.println("[~ Platformer AI ~] :" + name + " is not a wox definition");
             agent = null;
         }
 
         if (agent == null)
         {
-            System.err.println("[~ Mario AI ~] : wox definition has not been found as well. Loading <HumanKeyboardAgent> instead");
+            System.err.println("[~ Platformer AI ~] : wox definition has not been found as well. Loading <HumanKeyboardAgent> instead");
             agent = new HumanKeyboardAgent();
         }
-        System.out.println("[~ Mario AI ~] : agent = " + agent);
+        System.out.println("[~ Platformer AI ~] : agent = " + agent);
     } catch (Exception e)
     {
 //            e.printStackTrace ();
         agent = new HumanKeyboardAgent();
-        System.err.println("[~ Mario AI ~] : Agent is null. Loading agent with name " + name + " failed.");
+        System.err.println("[~ Platformer AI ~] : Agent is null. Loading agent with name " + name + " failed.");
         System.out.println("Agent has been set to default: " + agent);
 //            System.exit (1);
     }

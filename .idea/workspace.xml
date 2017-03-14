@@ -2,25 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e2b2631-3989-4bbf-b567-87af16817ad5" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rsrc/bgsheet.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rsrc/endscene.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rsrc/enemysheet.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rsrc/firemariosheet.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rsrc/font.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rsrc/itemsheet.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rsrc/logo.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rsrc/mapsheet.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rsrc/mariosheet.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rsrc/particlesheet.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rsrc/princess.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rsrc/racoonmariosheet.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rsrc/smallmariosheet.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/rsrc/worldmap.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ch/idsia/scenarios/DataAcquisistion.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ch/idsia/tools/RandomCreatureGenerator.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ch/idsia/tools/ReplayerOptions.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ch/idsia/tools/Scale2x.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ch/idsia/tools/StateEncoderDecoder.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/ch/idsia/tools/amico/AmiCoJavaPy.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/ch/idsia/unittests/CmdLineOptionsTest.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/ch/idsia/unittests/LevelGeneratorTest.java" afterPath="" />
@@ -30,158 +11,11 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/ch/idsia/utils/ErrorCodes.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/ch/idsia/utils/MathX.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/ch/idsia/utils/ParameterContainer.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/MarioAI.iml" afterPath="$PROJECT_DIR$/PlatformerAI.iml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/agents/Agent.java" afterPath="$PROJECT_DIR$/src/org/platformer/agents/Agent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/agents/AgentLoader.java" afterPath="$PROJECT_DIR$/src/org/platformer/agents/AgentLoader.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/agents/AgentsPool.java" afterPath="$PROJECT_DIR$/src/org/platformer/agents/AgentsPool.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/agents/AmiCoAgent.java" afterPath="$PROJECT_DIR$/src/org/platformer/agents/AmiCoAgent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/agents/BasicLearningAgent.java" afterPath="$PROJECT_DIR$/src/org/platformer/agents/BasicLearningAgent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/agents/LearningAgent.java" afterPath="$PROJECT_DIR$/src/org/platformer/agents/LearningAgent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/agents/MLPESLearningAgent.java" afterPath="$PROJECT_DIR$/src/org/platformer/agents/MLPESLearningAgent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/agents/SRNESLearningAgent.java" afterPath="$PROJECT_DIR$/src/org/platformer/agents/SRNESLearningAgent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/agents/SimpleAgent.java" afterPath="$PROJECT_DIR$/src/org/platformer/agents/SimpleAgent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/agents/controllers/BasicMarioAIAgent.java" afterPath="$PROJECT_DIR$/src/org/platformer/agents/controllers/BasicAgent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/agents/controllers/ForwardAgent.java" afterPath="$PROJECT_DIR$/src/org/platformer/agents/controllers/ForwardAgent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/agents/controllers/ForwardJumpingAgent.java" afterPath="$PROJECT_DIR$/src/org/platformer/agents/controllers/ForwardJumpingAgent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/agents/controllers/RandomAgent.java" afterPath="$PROJECT_DIR$/src/org/platformer/agents/controllers/RandomAgent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/agents/controllers/ReplayAgent.java" afterPath="$PROJECT_DIR$/src/org/platformer/agents/controllers/ReplayAgent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/agents/controllers/ScaredAgent.java" afterPath="$PROJECT_DIR$/src/org/platformer/agents/controllers/ScaredAgent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/agents/controllers/ScaredShooty.java" afterPath="$PROJECT_DIR$/src/org/platformer/agents/controllers/ScaredShooty.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/agents/controllers/TimingAgent.java" afterPath="$PROJECT_DIR$/src/org/platformer/agents/controllers/TimingAgent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/agents/controllers/forwardagent.py" afterPath="$PROJECT_DIR$/src/org/platformer/agents/controllers/forwardagent.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/agents/controllers/human/CheaterKeyboardAgent.java" afterPath="$PROJECT_DIR$/src/org/platformer/agents/controllers/human/CheaterKeyboardAgent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/agents/controllers/human/HumanKeyboardAgent.java" afterPath="$PROJECT_DIR$/src/org/platformer/agents/controllers/human/HumanKeyboardAgent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/agents/controllers/marioagent.py" afterPath="$PROJECT_DIR$/src/org/platformer/agents/controllers/marioagent.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/agents/learning/LargeMLPAgent.java" afterPath="$PROJECT_DIR$/src/org/platformer/agents/learning/LargeMLPAgent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/agents/learning/LargeSRNAgent.java" afterPath="$PROJECT_DIR$/src/org/platformer/agents/learning/LargeSRNAgent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/agents/learning/MediumMLPAgent.java" afterPath="$PROJECT_DIR$/src/org/platformer/agents/learning/MediumMLPAgent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/agents/learning/MediumSRNAgent.java" afterPath="$PROJECT_DIR$/src/org/platformer/agents/learning/MediumSRNAgent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/agents/learning/SRNAgent.java" afterPath="$PROJECT_DIR$/src/org/platformer/agents/learning/SRNAgent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/agents/learning/SimpleMLPAgent.java" afterPath="$PROJECT_DIR$/src/org/platformer/agents/learning/SimpleMLPAgent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/agents/learning/SmallMLPAgent.java" afterPath="$PROJECT_DIR$/src/org/platformer/agents/learning/SmallMLPAgent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/agents/learning/SmallSRNAgent.java" afterPath="$PROJECT_DIR$/src/org/platformer/agents/learning/SmallSRNAgent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/agents/simplepythonagent.py" afterPath="$PROJECT_DIR$/src/org/platformer/agents/simplepythonagent.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/experiments/EpisodicExperiment.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/experiments/EpisodicExperiment.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/experiments/Experiment.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/experiments/Experiment.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/engine/Art.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/Art.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/engine/BgRenderer.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/BgRenderer.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/engine/GeneralizerEnemies.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/GeneralizerEnemies.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/engine/GeneralizerLevelScene.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/GeneralizerLevelScene.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/engine/GlobalOptions.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/GlobalOptions.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/engine/LevelRenderer.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/LevelRenderer.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/engine/LevelScene.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/LevelScene.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/engine/MarioVisualComponent.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/MarioVisualComponent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/engine/Recorder.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/Recorder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/engine/Replayer.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/Replayer.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/engine/level/BgLevelGenerator.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/level/BgLevelGenerator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/engine/level/ILevelGenerator.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/level/ILevelGenerator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/engine/level/ImprovedNoise.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/level/ImprovedNoise.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/engine/level/Level.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/level/Level.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/engine/level/LevelGenerator.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/level/LevelGenerator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/engine/level/NewLevelGenerator.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/level/NewLevelGenerator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/engine/level/SpriteTemplate.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/level/SpriteTemplate.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/engine/mapedit/LevelEditView.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/mapedit/LevelEditView.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/engine/mapedit/LevelEditor.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/mapedit/LevelEditor.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/engine/mapedit/TilePicker.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/mapedit/TilePicker.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/engine/sprites/BulletBill.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/sprites/BulletBill.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/engine/sprites/CoinAnim.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/sprites/CoinAnim.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/engine/sprites/Enemy.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/sprites/Enemy.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/engine/sprites/FireFlower.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/sprites/FireFlower.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/engine/sprites/Fireball.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/sprites/Fireball.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/engine/sprites/FlowerEnemy.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/sprites/FlowerEnemy.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/engine/sprites/GreenMushroom.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/sprites/GreenMushroom.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/engine/sprites/Mario.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/sprites/Mario.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/engine/sprites/Mushroom.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/sprites/Mushroom.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/engine/sprites/Particle.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/sprites/Particle.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/engine/sprites/Princess.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/sprites/Princess.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/engine/sprites/Shell.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/sprites/Shell.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/engine/sprites/Sparkle.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/sprites/Sparkle.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/engine/sprites/Sprite.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/sprites/Sprite.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/engine/sprites/SpriteContext.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/sprites/SpriteContext.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/engine/sprites/WaveGoomba.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/sprites/WaveGoomba.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/environments/Environment.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/environments/Environment.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/environments/MarioEnvironment.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/environments/PlatformEnvironment.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/simulation/AmiCoSimulator.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/simulation/AmiCoSimulator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/mario/simulation/SimulationOptions.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/platform/simulation/SimulationOptions.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/tasks/BasicTask.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/tasks/BasicTask.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/tasks/GPMirrorTask.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/tasks/GPMirrorTask.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/tasks/GamePlayTask.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/tasks/GamePlayTask.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/tasks/LearningTask.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/tasks/LearningTask.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/tasks/MarioCustomSystemOfValues.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/tasks/MarioCustomSystemOfValues.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/tasks/MarioSystemOfValues.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/tasks/MarioSystemOfValues.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/tasks/MultiDifficultyProgressTask.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/tasks/MultiDifficultyProgressTask.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/tasks/MultiSeedProgressTask.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/tasks/MultiSeedProgressTask.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/tasks/MushroomTask.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/tasks/MushroomTask.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/tasks/ProgressTask.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/tasks/ProgressTask.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/tasks/ReplayTask.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/tasks/ReplayTask.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/tasks/SystemOfValues.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/tasks/SystemOfValues.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/benchmark/tasks/Task.java" afterPath="$PROJECT_DIR$/src/org/platformer/benchmark/tasks/Task.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/evolution/EA.java" afterPath="$PROJECT_DIR$/src/org/platformer/evolution/EA.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/evolution/Evolvable.java" afterPath="$PROJECT_DIR$/src/org/platformer/evolution/Evolvable.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/evolution/FA.java" afterPath="$PROJECT_DIR$/src/org/platformer/evolution/FA.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/evolution/MLP.java" afterPath="$PROJECT_DIR$/src/org/platformer/evolution/MLP.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/evolution/SRN.java" afterPath="$PROJECT_DIR$/src/org/platformer/evolution/SRN.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/evolution/ea/ES.java" afterPath="$PROJECT_DIR$/src/org/platformer/evolution/ea/ES.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/scenarios/Custom.java" afterPath="$PROJECT_DIR$/src/org/platformer/scenarios/Custom.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/scenarios/Main.java" afterPath="$PROJECT_DIR$/src/org/platformer/scenarios/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/scenarios/Play.java" afterPath="$PROJECT_DIR$/src/org/platformer/scenarios/Play.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/scenarios/Replay.java" afterPath="$PROJECT_DIR$/src/org/platformer/scenarios/Replay.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/scenarios/champ/GamePlayTrack.java" afterPath="$PROJECT_DIR$/src/org/platformer/scenarios/champ/GamePlayTrack.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/scenarios/champ/LearningTrack.java" afterPath="$PROJECT_DIR$/src/org/platformer/scenarios/champ/LearningTrack.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/scenarios/champ/TuringTestTrack.java" afterPath="$PROJECT_DIR$/src/org/platformer/scenarios/champ/TuringTestTrack.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/scenarios/oldscenarios/CompetitionScore.java" afterPath="$PROJECT_DIR$/src/org/platformer/scenarios/oldscenarios/CompetitionScore.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/scenarios/oldscenarios/Evolve.java" afterPath="$PROJECT_DIR$/src/org/platformer/scenarios/oldscenarios/Evolve.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/scenarios/oldscenarios/EvolveIncrementally.java" afterPath="$PROJECT_DIR$/src/org/platformer/scenarios/oldscenarios/EvolveIncrementally.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/scenarios/oldscenarios/EvolveMultiSeed.java" afterPath="$PROJECT_DIR$/src/org/platformer/scenarios/oldscenarios/EvolveMultiSeed.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/scenarios/oldscenarios/GeneralScenario.java" afterPath="$PROJECT_DIR$/src/org/platformer/scenarios/oldscenarios/GeneralScenario.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/scenarios/oldscenarios/MainRun.java" afterPath="$PROJECT_DIR$/src/org/platformer/scenarios/oldscenarios/MainRun.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/scenarios/oldscenarios/Stats.java" afterPath="$PROJECT_DIR$/src/org/platformer/scenarios/oldscenarios/Stats.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/scenarios/test/EvaluateJLink.java" afterPath="$PROJECT_DIR$/src/org/platformer/scenarios/test/EvaluateJLink.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/scenarios/test/EvolveSingle.java" afterPath="$PROJECT_DIR$/src/org/platformer/scenarios/test/EvolveSingle.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/scenarios/test/EvolveWithChangingSeeds.java" afterPath="$PROJECT_DIR$/src/org/platformer/scenarios/test/EvolveWithChangingSeeds.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/scenarios/test/PaperEvolve.java" afterPath="$PROJECT_DIR$/src/org/platformer/scenarios/test/PaperEvolve.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/scenarios/test/PaperEvolveBatch.java" afterPath="$PROJECT_DIR$/src/org/platformer/scenarios/test/PaperEvolveBatch.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/scenarios/test/PlayJLink.java" afterPath="$PROJECT_DIR$/src/org/platformer/scenarios/test/PlayJLink.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/scenarios/test/StatsJLink.java" afterPath="$PROJECT_DIR$/src/org/platformer/scenarios/test/StatsJLink.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/scenarios/test/StochasticityTest.java" afterPath="$PROJECT_DIR$/src/org/platformer/scenarios/test/StochasticityTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/tools/EvaluationInfo.java" afterPath="$PROJECT_DIR$/src/org/platformer/tools/EvaluationInfo.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/tools/EvaluationInfoStatisticalSummary.java" afterPath="$PROJECT_DIR$/src/org/platformer/tools/EvaluationInfoStatisticalSummary.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/tools/Evaluator.java" afterPath="$PROJECT_DIR$/src/org/platformer/tools/Evaluator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/tools/GameViewer.java" afterPath="$PROJECT_DIR$/src/org/platformer/tools/GameViewer.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/tools/MarioAIOptions.java" afterPath="$PROJECT_DIR$/src/org/platformer/tools/PlatformerAIOptions.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/tools/ToolsConfigurator.java" afterPath="$PROJECT_DIR$/src/org/platformer/tools/ToolsConfigurator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/tools/punj/PunctualJudge.java" afterPath="$PROJECT_DIR$/src/org/platformer/tools/punj/PunctualJudge.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/utils/statistics/StatisticalSummary.java" afterPath="$PROJECT_DIR$/src/org/platformer/utils/statistics/StatisticalSummary.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/utils/statistics/StatisticalTests.java" afterPath="$PROJECT_DIR$/src/org/platformer/utils/statistics/StatisticalTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/utils/statistics/Stats.java" afterPath="$PROJECT_DIR$/src/org/platformer/utils/statistics/Stats.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/utils/wox/serial/AccessTest.java" afterPath="$PROJECT_DIR$/src/org/platformer/utils/wox/serial/AccessTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/utils/wox/serial/ArrayListTest.java" afterPath="$PROJECT_DIR$/src/org/platformer/utils/wox/serial/ArrayListTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/utils/wox/serial/Easy.java" afterPath="$PROJECT_DIR$/src/org/platformer/utils/wox/serial/Easy.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/utils/wox/serial/EasyTest.java" afterPath="$PROJECT_DIR$/src/org/platformer/utils/wox/serial/EasyTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/utils/wox/serial/EncodeBase64.java" afterPath="$PROJECT_DIR$/src/org/platformer/utils/wox/serial/EncodeBase64.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/utils/wox/serial/ObjectReader.java" afterPath="$PROJECT_DIR$/src/org/platformer/utils/wox/serial/ObjectReader.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/utils/wox/serial/ObjectWriter.java" afterPath="$PROJECT_DIR$/src/org/platformer/utils/wox/serial/ObjectWriter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/utils/wox/serial/ReadTest.java" afterPath="$PROJECT_DIR$/src/org/platformer/utils/wox/serial/ReadTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/utils/wox/serial/Serial.java" afterPath="$PROJECT_DIR$/src/org/platformer/utils/wox/serial/Serial.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/utils/wox/serial/ShadowTest.java" afterPath="$PROJECT_DIR$/src/org/platformer/utils/wox/serial/ShadowTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/utils/wox/serial/SimpleReader.java" afterPath="$PROJECT_DIR$/src/org/platformer/utils/wox/serial/SimpleReader.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/utils/wox/serial/SimpleWriter.java" afterPath="$PROJECT_DIR$/src/org/platformer/utils/wox/serial/SimpleWriter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/utils/wox/serial/TestObject.java" afterPath="$PROJECT_DIR$/src/org/platformer/utils/wox/serial/TestObject.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/utils/wox/serial/Util.java" afterPath="$PROJECT_DIR$/src/org/platformer/utils/wox/serial/Util.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ch/idsia/utils/wox/serial/WriterTest.java" afterPath="$PROJECT_DIR$/src/org/platformer/utils/wox/serial/WriterTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/src/CmdLineOptions.tex" afterPath="$PROJECT_DIR$/doc/src/CmdLineOptions.tex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/src/Hotkeys.tex" afterPath="$PROJECT_DIR$/doc/src/Hotkeys.tex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/src/Makefile" afterPath="$PROJECT_DIR$/doc/src/Makefile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/src/marioai-lvlgen-options-usage.tex" afterPath="$PROJECT_DIR$/doc/src/marioai-lvlgen-options-usage.tex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/new/agent_class.py" afterPath="$PROJECT_DIR$/new/agent_class.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/new/load.py" afterPath="$PROJECT_DIR$/new/load.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/new/loader.sh" afterPath="$PROJECT_DIR$/new/loader.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/run.sh" afterPath="$PROJECT_DIR$/run.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scripts/catResults.sh" afterPath="$PROJECT_DIR$/target/scripts/catResults.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scripts/game-play-track-evaluation.sh" afterPath="$PROJECT_DIR$/target/scripts/game-play-track-evaluation.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scripts/learning-track-evaluation.sh" afterPath="$PROJECT_DIR$/target/scripts/learning-track-evaluation.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scripts/runClient.sh" afterPath="$PROJECT_DIR$/target/scripts/runClient.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/scripts/runExperiments.sh" afterPath="$PROJECT_DIR$/target/scripts/runExperiments.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/platformer/agents/AgentLoader.java" afterPath="$PROJECT_DIR$/src/org/platformer/agents/AgentLoader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/platformer/utils/ParameterContainer.java" afterPath="$PROJECT_DIR$/src/org/platformer/utils/ParameterContainer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/org/platformer/CmdLineOptionsTest.java" afterPath="$PROJECT_DIR$/tests/org/platformer/CmdLineOptionsTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/org/platformer/PlatformerAIBenchmarkTest.java" afterPath="$PROJECT_DIR$/tests/org/platformer/PlatformerAIBenchmarkTest.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -196,21 +30,109 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="LevelScene.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/LevelScene.java">
+      <file leaf-file-name="AgentLoader.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/platformer/agents/AgentLoader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="29" column="56" lean-forward="false" selection-start-line="29" selection-start-column="56" selection-end-line="29" selection-end-column="56" />
+              <folding>
+                <element signature="e#2170#2171#0" expanded="true" />
+                <element signature="e#2194#2195#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HumanKeyboardAgent.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/platformer/agents/controllers/human/HumanKeyboardAgent.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
-              <caret line="27" column="41" lean-forward="false" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="41" />
+              <caret line="27" column="47" lean-forward="false" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Level.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/level/Level.java">
+      <file leaf-file-name="CmdLineOptionsTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/org/platformer/CmdLineOptionsTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="104">
-              <caret line="173" column="0" lean-forward="false" selection-start-line="173" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
+              <caret line="75" column="37" lean-forward="false" selection-start-line="75" selection-start-column="37" selection-end-line="75" selection-end-column="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AgentsPool.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/platformer/agents/AgentsPool.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="179">
+              <caret line="54" column="25" lean-forward="true" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
+              <folding>
+                <element signature="e#2292#2293#0" expanded="true" />
+                <element signature="e#2342#2343#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EvolveIncrementally.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/platformer/scenarios/oldscenarios/EvolveIncrementally.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-8">
+              <caret line="59" column="52" lean-forward="true" selection-start-line="59" selection-start-column="52" selection-end-line="59" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EvolveWithChangingSeeds.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/org/platformer/scenarios/test/EvolveWithChangingSeeds.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="112">
+              <caret line="57" column="37" lean-forward="true" selection-start-line="57" selection-start-column="37" selection-end-line="57" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ParameterContainer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/platformer/utils/ParameterContainer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="104">
+              <caret line="234" column="56" lean-forward="false" selection-start-line="234" selection-start-column="56" selection-end-line="234" selection-end-column="56" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainRun.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/platformer/scenarios/oldscenarios/MainRun.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="112">
+              <caret line="90" column="25" lean-forward="false" selection-start-line="90" selection-start-column="25" selection-end-line="90" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CmdLineOptions.tex" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/doc/src/CmdLineOptions.tex">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="103">
+              <caret line="26" column="163" lean-forward="false" selection-start-line="26" selection-start-column="163" selection-end-line="26" selection-end-column="163" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PlatformerAIBenchmarkTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/org/platformer/PlatformerAIBenchmarkTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="74">
+              <caret line="273" column="104" lean-forward="false" selection-start-line="273" selection-start-column="104" selection-end-line="273" selection-end-column="104" />
               <folding />
             </state>
           </provider>
@@ -226,15 +148,22 @@
       <find>BasicPlatformerAIAgent</find>
       <find>&quot;resources/</find>
       <find>getResourceAsStream</find>
+      <find>cannot find wox definition</find>
+      <find>wox</find>
+      <find>addAgent(</find>
+      <find>HumanKeyboardAgent</find>
+      <find>org.platform.agents.controllers.human</find>
     </findStrings>
     <replaceStrings>
       <replace>org.platformer</replace>
       <replace>PlatformerAI</replace>
       <replace>BasicAgent</replace>
-      <replace>&quot;/art/</replace>
       <replace>platformerAI ERROR</replace>
+      <replace>&quot;/art/</replace>
+      <replace>Platformer AI</replace>
     </replaceStrings>
     <dirStrings>
+      <dir>$PROJECT_DIR$/src/org/platformer/agents/controllers/human</dir>
       <dir>$PROJECT_DIR$</dir>
     </dirStrings>
   </component>
@@ -265,6 +194,10 @@
         <option value="$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/LevelScene.java" />
         <option value="$PROJECT_DIR$/src/org/platformer/benchmark/platform/environments/MarioEnvironment.java" />
         <option value="$PROJECT_DIR$/src/org/platformer/benchmark/platform/environments/PlatformEnvironment.java" />
+        <option value="$PROJECT_DIR$/src/org/platformer/agents/AgentLoader.java" />
+        <option value="$PROJECT_DIR$/tests/org/platformer/PlatformerAIBenchmarkTest.java" />
+        <option value="$PROJECT_DIR$/tests/org/platformer/CmdLineOptionsTest.java" />
+        <option value="$PROJECT_DIR$/src/org/platformer/utils/ParameterContainer.java" />
       </list>
     </option>
   </component>
@@ -381,6 +314,84 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="benchmark" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="platformerAI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="platformerAI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="platformer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="agents" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="platformerAI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="platformerAI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="platformer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="agents" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="platformerAI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="platformerAI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="platformer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="agents" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="human" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -679,14 +690,14 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.4788479" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32967034" sideWeight="0.52835286" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32967034" sideWeight="0.53915393" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.48244825" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.4608461" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.49324933" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24932493" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32967034" sideWeight="0.47164717" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.45004502" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -715,8 +726,14 @@
           <properties />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/org/platformer/agents/AgentsPool.java</url>
+          <line>51</line>
+          <properties />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -730,16 +747,6 @@
         <state relative-caret-position="180">
           <caret line="37" column="18" lean-forward="false" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/platformer/utils/wox/serial/Easy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-105">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -833,26 +840,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/doc/src/CmdLineOptions.tex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="106" column="46" lean-forward="false" selection-start-line="106" selection-start-column="46" selection-end-line="106" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/org/platformer/CmdLineOptionsTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="45" column="13" lean-forward="false" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2255#2256#0" expanded="true" />
-            <element signature="e#2310#2311#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/platformer/agents/controllers/BasicAgent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -877,26 +864,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/org/platformer/PlatformerAIBenchmarkTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="48" column="44" lean-forward="false" selection-start-line="48" selection-start-column="19" selection-end-line="48" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/level/Level.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="104">
           <caret line="173" column="0" lean-forward="false" selection-start-line="173" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/platformer/agents/AgentLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="42" column="19" lean-forward="false" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -927,8 +898,115 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/platformer/benchmark/platform/engine/LevelScene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
+        <state relative-caret-position="-75">
           <caret line="27" column="41" lean-forward="false" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/platformer/utils/wox/serial/Easy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="53">
+          <caret line="64" column="23" lean-forward="true" selection-start-line="64" selection-start-column="23" selection-end-line="64" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/platformer/benchmark/platform/simulation/SimulationOptions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="156" column="43" lean-forward="false" selection-start-line="156" selection-start-column="43" selection-end-line="156" selection-end-column="43" />
+          <folding>
+            <element signature="e#4898#4899#0" expanded="true" />
+            <element signature="e#4970#4971#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/platformer/scenarios/oldscenarios/MainRun.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="90" column="25" lean-forward="false" selection-start-line="90" selection-start-column="25" selection-end-line="90" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doc/src/CmdLineOptions.tex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="26" column="163" lean-forward="false" selection-start-line="26" selection-start-column="163" selection-end-line="26" selection-end-column="163" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/platformer/agents/AgentLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="29" column="56" lean-forward="false" selection-start-line="29" selection-start-column="56" selection-end-line="29" selection-end-column="56" />
+          <folding>
+            <element signature="e#2170#2171#0" expanded="true" />
+            <element signature="e#2194#2195#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/platformer/agents/AgentsPool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="54" column="25" lean-forward="true" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
+          <folding>
+            <element signature="e#2292#2293#0" expanded="true" />
+            <element signature="e#2342#2343#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/platformer/scenarios/oldscenarios/EvolveIncrementally.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="59" column="52" lean-forward="true" selection-start-line="59" selection-start-column="52" selection-end-line="59" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/org/platformer/PlatformerAIBenchmarkTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="273" column="104" lean-forward="false" selection-start-line="273" selection-start-column="104" selection-end-line="273" selection-end-column="104" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/platformer/agents/controllers/human/HumanKeyboardAgent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="27" column="47" lean-forward="false" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/org/platformer/CmdLineOptionsTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="75" column="37" lean-forward="false" selection-start-line="75" selection-start-column="37" selection-end-line="75" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/platformer/utils/ParameterContainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="234" column="56" lean-forward="false" selection-start-line="234" selection-start-column="56" selection-end-line="234" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/platformer/scenarios/test/EvolveWithChangingSeeds.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="57" column="37" lean-forward="true" selection-start-line="57" selection-start-column="37" selection-end-line="57" selection-end-column="37" />
           <folding />
         </state>
       </provider>
