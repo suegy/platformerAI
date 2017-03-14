@@ -4,7 +4,7 @@ rm *.m
 # ./runServer.sh
 ATTEMPTS=5
 
-echo "MarioAI Benchmark: Starting Native Java Agents..."
+echo "PlatformerAI Benchmark: Starting Native Java Agents..."
 java -jar iMario.jar -m iMario1 -ag ForwardAgent -vlx 0 -vly 0 -an ${ATTEMPTS} -ld 5 -pw on -echo on -gv off -tc off -vis on -maxFPS on -ewf on -vaot on &
 java -jar iMario.jar -m iMario2 -ag ForwardJumpingAgent -vlx 330 -vly 0 -an ${ATTEMPTS} -ld 9 -pw on -echo on -gv off -tc off -vis on -maxFPS on -ewf on -vaot on &
 java -jar iMario.jar -m iMario3 -ag RandomAgent -vlx 660 -vly 0 -an ${ATTEMPTS} -ld 5 -pw on -echo on -gv off -tc off -vis on -maxFPS on -ewf on -vaot on &
@@ -17,7 +17,7 @@ VLX=0
 VLY=320
 
 echo "iMarioFramework: Starting ServerAgents..."
-# java -cp .:../../../trunk/lib/jdom.jar ch.idsia.scenarios.oldscenarios.MainRun -ag ServerAgent -vis on -ld 1 -pw on -maxFPS off -an 1 -vlx 400  -vaot on -ewf off
+# java -cp .:../../../trunk/lib/jdom.jar org.platformer.scenarios.oldscenarios.MainRun -ag ServerAgent -vis on -ld 1 -pw on -maxFPS off -an 1 -vlx 400  -vaot on -ewf off
 while [ $I -le $LIM ]
 do
     # echo $I $PORT $VLX $VLY	$(($I+3))

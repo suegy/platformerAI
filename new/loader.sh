@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /home/otranto/projects/marioai/downloads
-#python loader2.py /home/otranto/projects/marioai/downloads/archives/ /home/otranto/projects/marioai/out/production/Marioai /home/otranto/projects/marioai/log.txt /home/otranto/projects/marioai/out/production/Marioai/ yes
+cd /home/otranto/projects/PlatformerAI/downloads
+#python loader2.py /home/otranto/projects/PlatformerAI/downloads/archives/ /home/otranto/projects/PlatformerAI/out/production/PlatformerAI /home/otranto/projects/PlatformerAI/log.txt /home/otranto/projects/PlatformerAI/out/production/PlatformerAI/ yes
 
-python ./load.py -ufrom /home/otranto/projects/marioai/downloads/archives/ -uto /home/otranto/projects/marioai/out/production/Marioai -log /home/otranto/projects/marioai/log.txt -benchmark /home/otranto/projects/marioai/out/production/Marioai/ -delete no
+python ./load.py -ufrom /home/otranto/projects/PlatformerAI/downloads/archives/ -uto /home/otranto/projects/PlatformerAI/out/production/PlatformerAI -log /home/otranto/projects/PlatformerAI/log.txt -benchmark /home/otranto/projects/PlatformerAI/out/production/PlatformerAI/ -delete no

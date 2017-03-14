@@ -18,7 +18,7 @@ if __name__ == "__main__":
 			agent = AgentZip(zip)
 			if agent.is_valid()[0]:
 				agent.unzip(options['-uto'])
-				os.system('cd ' + options['-benchmark'] + '; java ch.idsia.scenarios.Main -ag ' +  options['-track'] + '.' + options['-event'] + '.' + agent.agent_package + '.' + agent.agent_class + ' > ' + options['-log'])
+				os.system('cd ' + options['-benchmark'] + '; java org.platformer.scenarios.Main -ag ' +  options['-track'] + '.' + options['-event'] + '.' + agent.agent_package + '.' + agent.agent_class + ' > ' + options['-log'])
 			else:
 				print agent.is_valid[1]
 		if options['-delete'] == 'yes':

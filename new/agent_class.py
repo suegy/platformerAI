@@ -9,7 +9,7 @@ from zipfile import ZipFile, is_zipfile
 from shutil import move
 
 class AgentZip(ZipFile):
-	'''Class for zip file with agent for MarioAi: two new methods and some new attributes. Required zipfile and os modules.'''
+	'''Class for zip file with agent for PlatformerAI: two new methods and some new attributes. Required zipfile and os modules.'''
 
 #	extlist = ['.xml', '.jar']
 
@@ -88,8 +88,8 @@ class AgentZip(ZipFile):
 				print 'IOError when ' + file 
 
 if __name__ == "__main__":
-	path = '/home/otranto/projects/marioai/downloads/archives/'
-	unzipto = '/home/otranto/projects/marioai/downloads/unpacked/'
+	path = '/home/otranto/projects/PlatformerAI/downloads/archives/'
+	unzipto = '/home/otranto/projects/PlatformerAI/downloads/unpacked/'
 	done = path + 'done'
 
 	for zip in os.listdir(path):

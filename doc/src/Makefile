@@ -14,6 +14,6 @@ endif
 all:
 	$(TOOL) Hotkeys.tex
 	$(TOOL) CmdLineOptions.tex
-	$(TOOL) marioai-lvlgen-options-usage.tex
+	$(TOOL) PlatformerAI-lvlgen-options-usage.tex
 	rm $(TO_REMOVE)
 	mv *.pdf ../
