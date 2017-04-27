@@ -120,6 +120,7 @@ public void startReplay(int fps)
             agent.setName(options.getAgent().getName());
             options.setAgent(agent);
             options.setFPS(fps);
+            environment.reset(options);
             agent.reset();
             agent.setReplayer(replayer);
 
