@@ -58,7 +58,7 @@ public LevelEditor()
     try
     {
         System.out.println("System.getProperty(\"user.dir()\") = " + System.getProperty("user.dir"));
-        Level.loadBehaviors(new DataInputStream(LevelScene.class.getResourceAsStream("resources/tiles.dat")));
+        Level.loadBehaviors(new DataInputStream(LevelEditor.class.getResourceAsStream("/tiles.dat")));
 //            Level.loadBehaviors(new DataInputStream(new FileInputStream("ch/idsia/platform/resources/tiles.dat")));
     }
     catch (Exception e)
