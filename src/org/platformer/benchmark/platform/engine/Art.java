@@ -46,12 +46,6 @@ public static Image[][] particles;
 public static Image[][] font;
 public static Image[][] bg;
 public static Image[][] princess;
-//    public static Image[][] map;
-//    public static Image[][] endScene;
-//    public static Image[][] gameOver;
-//    public static Image logo;
-//    public static Image titleScreen;
-//    final static String curDir = System.getProperty("user.dir");
 
 public static void init(GraphicsConfiguration gc)
 {
@@ -64,15 +58,10 @@ public static void init(GraphicsConfiguration gc)
         enemies = cutImage(gc, "/art/enemysheet.png", 16, 32);
         items = cutImage(gc, "/art/itemsheet.png", 16, 16);
         level = cutImage(gc, "/art/mapsheet.png", 16, 16);
-//            map = cutImage(gc, "/art/worldmap.png", 16, 16);
         particles = cutImage(gc, "/art/particlesheet.png", 8, 8);
         bg = cutImage(gc, "/art/bgsheet.png", 32, 32);
-//            logo = getImage(gc, "/art/logo.gif");
-//            titleScreen = getImage(gc, "/art/title.gif");
         font = cutImage(gc, "/art/font.gif", 8, 8);
         princess = cutImage(gc, "/art/princess.png", 32, 32);
-//            endScene = cutImage(gc, "/art/endscene.gif", 96, 96);
-//            gameOver = cutImage(gc, "/art/gameovergost.gif", 96, 64);
     }
     catch (Exception e)
     {

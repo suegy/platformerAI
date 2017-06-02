@@ -133,8 +133,8 @@ public void printStatistics()
 {
     System.out.println("\n[PlatformerAI] ~ Evaluation Results for Task: " + localEvaluationInfo.getTaskName() +
             "\n         Weighted Fitness : " + df.format(localEvaluationInfo.computeWeightedFitness()) +
-            "\n             Mario Status : " + localEvaluationInfo.marioStatus +
-            "\n               Mario Mode : " + localEvaluationInfo.marioMode +
+            "\n             Plumber Status : " + localEvaluationInfo.marioStatus +
+            "\n               Plumber Mode : " + localEvaluationInfo.marioMode +
             "\nCollisions with creatures : " + localEvaluationInfo.collisionsWithCreatures +
             "\n     Passed (Cells, Phys) : " + localEvaluationInfo.distancePassedCells + " of " + localEvaluationInfo.levelLength + ", " + df.format(localEvaluationInfo.distancePassedPhys) + " of " + df.format(localEvaluationInfo.levelLength * 16) + " (" + localEvaluationInfo.distancePassedCells * 100 / localEvaluationInfo.levelLength + "% passed)" +
             "\n Time Spent(marioseconds) : " + localEvaluationInfo.timeSpent +
@@ -149,7 +149,7 @@ public void printStatistics()
             "\n           kills By Stomp : " + localEvaluationInfo.killsByStomp +
             "\n        difqualifications : " + difqualifications);
 //    System.out.println(localEvaluationInfo.toString());
-//    System.out.println("Mario status sum: " + localEvaluationInfo.marioStatus);
-//    System.out.println("Mario mode sum: " + localEvaluationInfo.marioMode);
+//    System.out.println("Plumber status sum: " + localEvaluationInfo.marioStatus);
+//    System.out.println("Plumber mode sum: " + localEvaluationInfo.marioMode);
 }
 }

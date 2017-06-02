@@ -27,7 +27,7 @@
 
 package org.platformer.agents;
 
-import org.platformer.benchmark.platform.engine.sprites.Mario;
+import org.platformer.benchmark.platform.engine.sprites.Plumber;
 import org.platformer.benchmark.platform.environments.Environment;
 
 /**
@@ -65,8 +65,8 @@ public void giveIntermediateReward(float intermediateReward)
 public void reset()
 {
     Action = new boolean[Environment.numberOfKeys];
-    Action[Mario.KEY_RIGHT] = true;
-    Action[Mario.KEY_SPEED] = true;
+    Action[Plumber.KEY_RIGHT] = true;
+    Action[Plumber.KEY_SPEED] = true;
 }
 
 public void setObservationDetails(final int rfWidth, final int rfHeight, final int egoRow, final int egoCol)
@@ -74,7 +74,7 @@ public void setObservationDetails(final int rfWidth, final int rfHeight, final i
 
 public boolean[] getAction(Environment observation)
 {
-    Action[Mario.KEY_SPEED] = Action[Mario.KEY_JUMP] = observation.isMarioAbleToJump() || !observation.isMarioOnGround();
+    Action[Plumber.KEY_SPEED] = Action[Plumber.KEY_JUMP] = observation.isMarioAbleToJump() || !observation.isMarioOnGround();
     return Action;
 }
 

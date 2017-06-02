@@ -29,7 +29,7 @@ package org.platformer.benchmark.platform.environments;
 
 import org.platformer.agents.Agent;
 import org.platformer.benchmark.platform.engine.Replayer;
-import org.platformer.benchmark.platform.engine.sprites.Mario;
+import org.platformer.benchmark.platform.engine.sprites.Plumber;
 import org.platformer.tools.EvaluationInfo;
 import org.platformer.tools.PlatformerAIOptions;
 
@@ -45,14 +45,14 @@ public interface Environment
 {
 public static final int numberOfKeys = 6;
 
-public static final int MARIO_KEY_DOWN = Mario.KEY_DOWN;
-public static final int MARIO_KEY_JUMP = Mario.KEY_JUMP;
-public static final int MARIO_KEY_LEFT = Mario.KEY_LEFT;
-public static final int MARIO_KEY_RIGHT = Mario.KEY_RIGHT;
-public static final int MARIO_KEY_SPEED = Mario.KEY_SPEED;
-public static final int MARIO_STATUS_WIN = Mario.STATUS_WIN;
-public static final int MARIO_STATUS_DEAD = Mario.STATUS_DEAD;
-public static final int MARIO_STATUS_RUNNING = Mario.STATUS_RUNNING;
+public static final int MARIO_KEY_DOWN = Plumber.KEY_DOWN;
+public static final int MARIO_KEY_JUMP = Plumber.KEY_JUMP;
+public static final int MARIO_KEY_LEFT = Plumber.KEY_LEFT;
+public static final int MARIO_KEY_RIGHT = Plumber.KEY_RIGHT;
+public static final int MARIO_KEY_SPEED = Plumber.KEY_SPEED;
+public static final int MARIO_STATUS_WIN = Plumber.STATUS_WIN;
+public static final int MARIO_STATUS_DEAD = Plumber.STATUS_DEAD;
+public static final int MARIO_STATUS_RUNNING = Plumber.STATUS_RUNNING;
 
 // tunable dimensionality:
 // default: 21x21 cells [0..20][0..20]
@@ -131,7 +131,7 @@ public int getKillsByShell();
 int getMarioStatus();
 
 /**
- * @return int array filled with data about Mario :
+ * @return int array filled with data about Plumber :
  *         marioState[0] = this.getMarioStatus();
  *         marioState[1] = this.getMarioMode();
  *         marioState[2] = this.isMarioOnGround() ? 1 : 0;

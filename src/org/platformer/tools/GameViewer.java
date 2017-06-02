@@ -215,7 +215,7 @@ public GameViewer(PlatformerAIOptions platformerAIOptions)
     GameViewerOptionsPanel.add(ContinuousUpdates);
     ContinuousUpdates.setState(platformerAIOptions.isGameViewerContinuousUpdates());
 
-    GameViewerOptionsPanel.setBorder(new TitledBorder(new EtchedBorder(), "Mario AI Game Viewer Options"));
+    GameViewerOptionsPanel.setBorder(new TitledBorder(new EtchedBorder(), "Plumber AI Game Viewer Options"));
 
     Dimension sizeOfView = new Dimension(1600, 960);
     gameViewerViewPanel.setPreferredSize(sizeOfView);

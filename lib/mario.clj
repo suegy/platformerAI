@@ -1,4 +1,4 @@
-(ns gamalyzer.read.mario
+(ns gamalyzer.read.plumber
   (:require [clojure.java.io :refer [input-stream reader file]]
             [clojure.string :refer [split]]
             [clojure.math.numeric-tower :refer [ceil]]
@@ -19,7 +19,7 @@
 
 (defn samples->input [t quantize samples]
   (make-input t
-              :mario
+              :plumber
               [:move]
               (seq (map #(int (ceil (/ % quantize)))
                         (reduce downsample

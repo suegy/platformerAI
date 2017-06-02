@@ -96,7 +96,7 @@ public void move()
     {
         y = yStart;
 
-        int xd = (int) (Math.abs(world.mario.x - x));
+        int xd = (int) (Math.abs(world.plumber.x - x));
         jumpTime++;
         if (jumpTime > 40 && xd > 24)
         {

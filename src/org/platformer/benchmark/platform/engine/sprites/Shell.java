@@ -104,33 +104,33 @@ public void collideCheck()
 {
     if (carried || dead || deadTime > 0) return;
 
-    float xMarioD = world.mario.x - x;
-    float yMarioD = world.mario.y - y;
+    float xMarioD = world.plumber.x - x;
+    float yMarioD = world.plumber.y - y;
     float w = 16;
     if (xMarioD > -w && xMarioD < w)
     {
-        if (yMarioD > -height && yMarioD < world.mario.height)
+        if (yMarioD > -height && yMarioD < world.plumber.height)
         {
-            if (world.mario.ya > 0 && yMarioD <= 0 && (!world.mario.onGround || !world.mario.wasOnGround))
+            if (world.plumber.ya > 0 && yMarioD <= 0 && (!world.plumber.onGround || !world.plumber.wasOnGround))
             {
-                world.mario.stomp(this);
+                world.plumber.stomp(this);
                 if (facing != 0)
                 {
                     xa = 0;
                     facing = 0;
                 } else
                 {
-                    facing = world.mario.facing;
+                    facing = world.plumber.facing;
                 }
             } else
             {
                 if (facing != 0)
                 {
-                    world.mario.getHurt(this.kind);
+                    world.plumber.getHurt(this.kind);
                 } else
                 {
-                    world.mario.kick(this);
-                    facing = world.mario.facing;
+                    world.plumber.kick(this);
+                    facing = world.plumber.facing;
                 }
             }
         }
@@ -326,7 +326,7 @@ public void bumpCheck(int xTile, int yTile)
 {
     if (x + width > xTile * 16 && x - width < xTile * 16 + 16 && yTile == (int) ((y - 1) / 16))
     {
-        facing = -world.mario.facing;
+        facing = -world.plumber.facing;
         ya = -10;
     }
 }
@@ -353,10 +353,10 @@ public boolean shellCollideCheck(Shell shell)
     {
         if (yD > -height && yD < shell.height)
         {
-            if (world.mario.carried == shell || world.mario.carried == this)
+            if (world.plumber.carried == shell || world.plumber.carried == this)
             {
-                world.mario.carried = null;
-                world.mario.setRacoon(false);
+                world.plumber.carried = null;
+                world.plumber.setRacoon(false);
             }
 
             die();
@@ -368,10 +368,10 @@ public boolean shellCollideCheck(Shell shell)
 }
 
 
-public void release(Mario mario)
+public void release(Plumber plumber)
 {
     carried = false;
-    facing = mario.facing;
+    facing = plumber.facing;
     x += facing * 8;
 }
 }

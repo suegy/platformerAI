@@ -129,16 +129,16 @@ public void collideCheck()
         return;
     }
 
-    float xMarioD = levelScene.mario.x - x;
-    float yMarioD = levelScene.mario.y - y;
+    float xMarioD = levelScene.plumber.x - x;
+    float yMarioD = levelScene.plumber.y - y;
 //        float w = 16;
     if (xMarioD > -width * 2 - 4 && xMarioD < width * 2 + 4)
     {
-        if (yMarioD > -height && yMarioD < levelScene.mario.height)
+        if (yMarioD > -height && yMarioD < levelScene.plumber.height)
         {
-            if ((kind != KIND_SPIKY && kind != KIND_SPIKY_WINGED && kind != KIND_ENEMY_FLOWER) && levelScene.mario.ya > 0 && yMarioD <= 0 && (!levelScene.mario.onGround || !levelScene.mario.wasOnGround))
+            if ((kind != KIND_SPIKY && kind != KIND_SPIKY_WINGED && kind != KIND_ENEMY_FLOWER) && levelScene.plumber.ya > 0 && yMarioD <= 0 && (!levelScene.plumber.onGround || !levelScene.plumber.wasOnGround))
             {
-                levelScene.mario.stomp(this);
+                levelScene.plumber.stomp(this);
                 if (winged)
                 {
                     winged = false;
@@ -163,7 +163,7 @@ public void collideCheck()
                 }
             } else
             {
-                levelScene.mario.getHurt(this.kind);
+                levelScene.plumber.getHurt(this.kind);
             }
         }
     }
@@ -421,7 +421,7 @@ public void bumpCheck(int xTile, int yTile)
 
     if (x + width > xTile * 16 && x - width < xTile * 16 + 16 && yTile == (int) ((y - 1) / 16))
     {
-        xa = -levelScene.mario.facing * 2;
+        xa = -levelScene.plumber.facing * 2;
         ya = -5;
         flyDeath = true;
         if (spriteTemplate != null) spriteTemplate.isDead = true;

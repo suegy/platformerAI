@@ -30,7 +30,7 @@ package org.platformer.benchmark.platform.environments;
 import org.platformer.agents.Agent;
 import org.platformer.benchmark.platform.engine.*;
 import org.platformer.benchmark.platform.engine.level.Level;
-import org.platformer.benchmark.platform.engine.sprites.Mario;
+import org.platformer.benchmark.platform.engine.sprites.Plumber;
 import org.platformer.benchmark.platform.engine.sprites.Sprite;
 import org.platformer.benchmark.tasks.SystemOfValues;
 import org.platformer.tools.EvaluationInfo;
@@ -92,7 +92,7 @@ public PlatformEnvironment()
     System.out.println(GlobalOptions.getBenchmarkName());
     evaluationInfo = new EvaluationInfo();
     levelScene = new LevelScene();
-    //levelScene.platform = new Mario(levelScene);
+    //levelScene.platform = new Plumber(levelScene);
 }
 
 public void resetDefault()
@@ -194,10 +194,10 @@ public void reset(PlatformerAIOptions setUpOptions)
             recorder.createFile("actions.act");
         } catch (FileNotFoundException e)
         {
-            System.err.println("[Mario AI EXCEPTION] : Some of the recording components were not created. Recording failed");
+            System.err.println("[Plumber AI EXCEPTION] : Some of the recording components were not created. Recording failed");
         } catch (IOException e)
         {
-            System.err.println("[Mario AI EXCEPTION] : Some of the recording components were not created. Recording failed");
+            System.err.println("[Plumber AI EXCEPTION] : Some of the recording components were not created. Recording failed");
             e.printStackTrace();
         }
     }
@@ -226,9 +226,9 @@ public byte[][] getLevelSceneObservationZ(int ZLevel)
 {
     int mCol = marioEgoPos[1];
     int mRow = marioEgoPos[0];
-    for (int y = levelScene.mario.mapY - mRow, row = 0; y <= levelScene.mario.mapY + (receptiveFieldHeight - mRow - 1); y++, row++)
+    for (int y = levelScene.plumber.mapY - mRow, row = 0; y <= levelScene.plumber.mapY + (receptiveFieldHeight - mRow - 1); y++, row++)
     {
-        for (int x = levelScene.mario.mapX - mCol, col = 0; x <= levelScene.mario.mapX + (receptiveFieldWidth - mCol - 1); x++, col++)
+        for (int x = levelScene.plumber.mapX - mCol, col = 0; x <= levelScene.plumber.mapX + (receptiveFieldWidth - mCol - 1); x++, col++)
         {
             if (x >= 0 && x < levelScene.level.length && y >= 0 && y < levelScene.level.height)
             {
@@ -252,18 +252,18 @@ public byte[][] getEnemiesObservationZ(int ZLevel)
             enemiesZ[w][h] = 0;
     for (Sprite sprite : sprites)
     {
-        if (sprite.isDead() || sprite.kind == levelScene.mario.kind)
+        if (sprite.isDead() || sprite.kind == levelScene.plumber.kind)
             continue;
         if (sprite.mapX >= 0 &&
-                sprite.mapX >= levelScene.mario.mapX - marioEgoCol &&
-                sprite.mapX <= levelScene.mario.mapX + (receptiveFieldWidth - marioEgoCol - 1) &&
+                sprite.mapX >= levelScene.plumber.mapX - marioEgoCol &&
+                sprite.mapX <= levelScene.plumber.mapX + (receptiveFieldWidth - marioEgoCol - 1) &&
                 sprite.mapY >= 0 &&
-                sprite.mapY >= levelScene.mario.mapY - marioEgoRow &&
-                sprite.mapY <= levelScene.mario.mapY + (receptiveFieldHeight - marioEgoRow - 1) &&
+                sprite.mapY >= levelScene.plumber.mapY - marioEgoRow &&
+                sprite.mapY <= levelScene.plumber.mapY + (receptiveFieldHeight - marioEgoRow - 1) &&
                 sprite.kind != Sprite.KIND_PRINCESS)
         {
-            int row = sprite.mapY - levelScene.mario.mapY + marioEgoRow;
-            int col = sprite.mapX - levelScene.mario.mapX + marioEgoCol;
+            int row = sprite.mapY - levelScene.plumber.mapY + marioEgoRow;
+            int col = sprite.mapX - levelScene.plumber.mapX + marioEgoCol;
             // TODO:!H! take care about side effects of line 243 and be sure not to contaminate levelSceneObservation
             mergedZZ[row][col] = enemiesZ[row][col] = GeneralizerEnemies.ZLevelGeneralization(sprite.kind, ZLevel);
         }
@@ -282,9 +282,9 @@ public byte[][] getMergedObservationZZ(int ZLevelScene, int ZLevelEnemies)
 //        throw new Error("WRONG platform x or y pos");
     int mCol = marioEgoPos[1];
     int mRow = marioEgoPos[0];
-    for (int y = levelScene.mario.mapY - mRow/*receptiveFieldHeight / 2*/, row = 0; y <= levelScene.mario.mapY + (receptiveFieldHeight - mRow - 1)/*receptiveFieldHeight / 2*/; y++, row++)
+    for (int y = levelScene.plumber.mapY - mRow/*receptiveFieldHeight / 2*/, row = 0; y <= levelScene.plumber.mapY + (receptiveFieldHeight - mRow - 1)/*receptiveFieldHeight / 2*/; y++, row++)
     {
-        for (int x = levelScene.mario.mapX - mCol/*receptiveFieldWidth / 2*/, col = 0; x <= levelScene.mario.mapX + (receptiveFieldWidth - mCol - 1)/*receptiveFieldWidth / 2*/; x++, col++)
+        for (int x = levelScene.plumber.mapX - mCol/*receptiveFieldWidth / 2*/, col = 0; x <= levelScene.plumber.mapX + (receptiveFieldWidth - mCol - 1)/*receptiveFieldWidth / 2*/; x++, col++)
         {
             if (x >= 0 && x < levelScene.level.xExit && y >= 0 && y < levelScene.level.height)
             {
@@ -300,18 +300,18 @@ public byte[][] getMergedObservationZZ(int ZLevelScene, int ZLevelEnemies)
 //                mergedZZ[w][h] = -1;
     for (Sprite sprite : sprites)
     {
-        if (sprite.isDead() || sprite.kind == levelScene.mario.kind)
+        if (sprite.isDead() || sprite.kind == levelScene.plumber.kind)
             continue;
         if (sprite.mapX >= 0 &&
-                sprite.mapX >= levelScene.mario.mapX - mCol &&
-                sprite.mapX <= levelScene.mario.mapX + (receptiveFieldWidth - mCol - 1) &&
+                sprite.mapX >= levelScene.plumber.mapX - mCol &&
+                sprite.mapX <= levelScene.plumber.mapX + (receptiveFieldWidth - mCol - 1) &&
                 sprite.mapY >= 0 &&
-                sprite.mapY >= levelScene.mario.mapY - mRow &&
-                sprite.mapY <= levelScene.mario.mapY + (receptiveFieldHeight - mRow - 1) &&
+                sprite.mapY >= levelScene.plumber.mapY - mRow &&
+                sprite.mapY <= levelScene.plumber.mapY + (receptiveFieldHeight - mRow - 1) &&
                 sprite.kind != Sprite.KIND_PRINCESS)
         {
-            int row = sprite.mapY - levelScene.mario.mapY + mRow;
-            int col = sprite.mapX - levelScene.mario.mapX + mCol;
+            int row = sprite.mapY - levelScene.plumber.mapY + mRow;
+            int col = sprite.mapX - levelScene.plumber.mapX + mCol;
             byte tmp = GeneralizerEnemies.ZLevelGeneralization(sprite.kind, ZLevelEnemies);
             if (tmp != Sprite.KIND_NONE)
                 mergedZZ[row][col] = tmp;
@@ -326,16 +326,16 @@ public List<String> getObservationStrings(boolean Enemies, boolean LevelMap,
                                           int ZLevelScene, int ZLevelEnemies)
 {
     List<String> ret = new ArrayList<String>();
-    if (levelScene.level != null && levelScene.mario != null)
+    if (levelScene.level != null && levelScene.plumber != null)
     {
         ret.add("Total levelScene length = " + levelScene.level.length);
         ret.add("Total levelScene height = " + levelScene.level.height);
-        ret.add("Physical Mario Position (x,y): (" + df.format(levelScene.mario.x) + "," + df.format(levelScene.mario.y) + ")");
-        ret.add("Mario Observation (Receptive Field)   Width: " + receptiveFieldWidth + " Height: " + receptiveFieldHeight);
+        ret.add("Physical Plumber Position (x,y): (" + df.format(levelScene.plumber.x) + "," + df.format(levelScene.plumber.y) + ")");
+        ret.add("Plumber Observation (Receptive Field)   Width: " + receptiveFieldWidth + " Height: " + receptiveFieldHeight);
         ret.add("X Exit Position: " + levelScene.level.xExit);
-        int MarioXInMap = (int) levelScene.mario.x / levelScene.cellSize; //TODO: !!H! doublcheck and replace with levelScene.platform.mapX
-        int MarioYInMap = (int) levelScene.mario.y / levelScene.cellSize;  //TODO: !!H! doublcheck and replace with levelScene.platform.mapY
-        ret.add("Calibrated Mario Position (x,y): (" + MarioXInMap + "," + MarioYInMap + ")\n");
+        int MarioXInMap = (int) levelScene.plumber.x / levelScene.cellSize; //TODO: !!H! doublcheck and replace with levelScene.platform.mapX
+        int MarioYInMap = (int) levelScene.plumber.y / levelScene.cellSize;  //TODO: !!H! doublcheck and replace with levelScene.platform.mapY
+        ret.add("Calibrated Plumber Position (x,y): (" + MarioXInMap + "," + MarioYInMap + ")\n");
 
         byte[][] levelScene = getLevelSceneObservationZ(ZLevelScene);
         if (LevelMap)
@@ -372,7 +372,7 @@ public List<String> getObservationStrings(boolean Enemies, boolean LevelMap,
         if (mergedObservationFlag)
         {
             byte[][] mergedObs = getMergedObservationZZ(ZLevelScene, ZLevelEnemies);
-            ret.add("~ZLevelScene: Z" + ZLevelScene + " ZLevelEnemies: Z" + ZLevelEnemies + " ; Merged observation /* Mario ~> #M.# */");
+            ret.add("~ZLevelScene: Z" + ZLevelScene + " ZLevelEnemies: Z" + ZLevelEnemies + " ; Merged observation /* Plumber ~> #M.# */");
             for (int x = 0; x < levelScene.length; ++x)
             {
                 String tmpData = "";
@@ -382,7 +382,7 @@ public List<String> getObservationStrings(boolean Enemies, boolean LevelMap,
             }
         }
     } else
-        ret.add("~[PlatformerAI ERROR] level : " + levelScene.level + " platform : " + levelScene.mario);
+        ret.add("~[PlatformerAI ERROR] level : " + levelScene.level + " platform : " + levelScene.plumber);
     return ret;
 }
 
@@ -392,7 +392,7 @@ private String levelSceneCellToString(int el)
     String s = "";
     if (el == 0 || el == 1)
         s = "##";
-    s += (el == levelScene.mario.kind) ? "#M.#" : el;
+    s += (el == levelScene.plumber.kind) ? "#M.#" : el;
     while (s.length() < 4)
         s += "#";
 
@@ -404,7 +404,7 @@ private String enemyToStr(int el)
     String s = "";
     if (el == 0)
         s = "";
-    s += (el == levelScene.mario.kind) ? "-m" : el;
+    s += (el == levelScene.plumber.kind) ? "-m" : el;
     while (s.length() < 2)
         s += "#";
     return s + " ";
@@ -572,9 +572,9 @@ public EvaluationInfo getEvaluationInfo()
     return evaluationInfo;
 }
 
-public Mario getMario()
+public Plumber getMario()
 {
-    return levelScene.mario;
+    return levelScene.plumber;
 }
 
 public int getTick()
@@ -644,32 +644,32 @@ private void computeEvaluationInfo()
 //        evaluationInfo.agentType = agent.getClass().getSimpleName();
 //        evaluationInfo.agentName = agent.getName();
     evaluationInfo.marioStatus = levelScene.getMarioStatus();
-    evaluationInfo.flowersDevoured = levelScene.mario.flowersDevoured;
-    evaluationInfo.distancePassedPhys = (int) levelScene.mario.x;
-    evaluationInfo.distancePassedCells = levelScene.mario.mapX;
+    evaluationInfo.flowersDevoured = levelScene.plumber.flowersDevoured;
+    evaluationInfo.distancePassedPhys = (int) levelScene.plumber.x;
+    evaluationInfo.distancePassedCells = levelScene.plumber.mapX;
 //     evaluationInfo.totalLengthOfLevelCells = levelScene.level.getWidthCells();
 //     evaluationInfo.totalLengthOfLevelPhys = levelScene.level.getWidthPhys();
     evaluationInfo.timeSpent = levelScene.getTimeSpent();
     evaluationInfo.timeLeft = levelScene.getTimeLeft();
-    evaluationInfo.coinsGained = levelScene.mario.coins;
+    evaluationInfo.coinsGained = levelScene.plumber.coins;
     evaluationInfo.totalNumberOfCoins = levelScene.level.counters.coinsCount;
     evaluationInfo.totalNumberOfHiddenBlocks = levelScene.level.counters.hiddenBlocksCount;
     evaluationInfo.totalNumberOfFlowers = levelScene.level.counters.flowers;
     evaluationInfo.totalNumberOfMushrooms = levelScene.level.counters.mushrooms;
     evaluationInfo.totalNumberOfCreatures = levelScene.level.counters.creatures;
     evaluationInfo.marioMode = levelScene.getMarioMode();
-    evaluationInfo.mushroomsDevoured = levelScene.mario.mushroomsDevoured;
+    evaluationInfo.mushroomsDevoured = levelScene.plumber.mushroomsDevoured;
     evaluationInfo.killsTotal = levelScene.getKillsTotal();
     evaluationInfo.killsByStomp = levelScene.getKillsByStomp();
     evaluationInfo.killsByFire = levelScene.getKillsByFire();
     evaluationInfo.killsByShell = levelScene.getKillsByShell();
-    evaluationInfo.hiddenBlocksFound = levelScene.mario.hiddenBlocksFound;
-    evaluationInfo.collisionsWithCreatures = levelScene.mario.collisionsWithCreatures;
+    evaluationInfo.hiddenBlocksFound = levelScene.plumber.hiddenBlocksFound;
+    evaluationInfo.collisionsWithCreatures = levelScene.plumber.collisionsWithCreatures;
     evaluationInfo.Memo = levelScene.memo;
     evaluationInfo.levelLength = levelScene.level.length;
     evaluationInfo.marioTraceFileName = marioTraceFile;
     evaluationInfo.marioTrace = levelScene.level.marioTrace;
-    evaluationInfo.greenMushroomsDevoured = levelScene.mario.greenMushroomsDevoured;
+    evaluationInfo.greenMushroomsDevoured = levelScene.plumber.greenMushroomsDevoured;
     evaluationInfo.bytecodeInstructions = PunctualJudge.getCounter();
 }
 
@@ -729,7 +729,7 @@ public void saveLastRun(String filename)
             recorder.saveLastRun(filename);
         } catch (IOException ex)
         {
-            System.err.println("[Mario AI EXCEPTION] : Recording could not be saved.");
+            System.err.println("[Plumber AI EXCEPTION] : Recording could not be saved.");
             ex.printStackTrace();
         }
     }

@@ -28,7 +28,7 @@
 package org.platformer;
 
 import org.platformer.benchmark.platform.engine.GlobalOptions;
-import org.platformer.benchmark.platform.engine.sprites.Mario;
+import org.platformer.benchmark.platform.engine.sprites.Plumber;
 import org.platformer.benchmark.tasks.BasicTask;
 import org.platformer.tools.PlatformerAIOptions;
 import org.platformer.tools.ReplayerOptions;
@@ -276,7 +276,7 @@ public void testLevelCompletionRegression()
 	basicTask.setOptionsAndReset(platformerAIOptions);
 	basicTask.runSingleEpisode(1);
 	boolean end = basicTask.getEvaluationInfo().levelLength == basicTask.getEvaluationInfo().distancePassedCells;
-	boolean win = basicTask.getEvaluationInfo().marioStatus == Mario.STATUS_WIN;
+	boolean win = basicTask.getEvaluationInfo().marioStatus == Plumber.STATUS_WIN;
 	System.out.println(basicTask.getEnvironment().getEvaluationInfoAsString());
 	assertEquals(end, win);
 }

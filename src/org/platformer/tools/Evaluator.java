@@ -82,7 +82,7 @@ private List<EvaluationInfo> evaluationSummary = new ArrayList<EvaluationInfo>()
 //                evaluationInfo.levelDifficulty = evaluationOptions.getLevelDifficulty();
 //                evaluationInfo.levelRandSeed = evaluationOptions.getLevelRandSeed();
 //                evaluationSummary.add(evaluationInfo);
-////                LOGGER.VERBOSE_MODE VM = (evaluationInfo.marioStatus == Mario.STATUS_WIN) ? LOGGER.VERBOSE_MODE.INFO : LOGGER.VERBOSE_MODE.ALL;
+////                LOGGER.VERBOSE_MODE VM = (evaluationInfo.marioStatus == Plumber.STATUS_WIN) ? LOGGER.VERBOSE_MODE.INFO : LOGGER.VERBOSE_MODE.ALL;
 ////                LOGGER.println("run finished with result : " + evaluationInfo, VM);
 //
 //                String fileName = "";
@@ -135,9 +135,9 @@ public List<EvaluationInfo> evaluate()
 //            evaluationInfo.levelDifficulty = evaluationOptions.getLevelDifficulty();
 //            evaluationInfo.levelRandSeed = evaluationOptions.getLevelRandSeed();
 //            evaluationSummary.add(evaluationInfo);
-//            LOGGER.VERBOSE_MODE VM = (evaluationInfo.marioStatus == Mario.STATUS_WIN) ? LOGGER.VERBOSE_MODE.INFO : LOGGER.VERBOSE_MODE.ALL;
+//            LOGGER.VERBOSE_MODE VM = (evaluationInfo.marioStatus == Plumber.STATUS_WIN) ? LOGGER.VERBOSE_MODE.INFO : LOGGER.VERBOSE_MODE.ALL;
 //            LOGGER.println("run  finished with result : " + evaluationInfo, VM);
-//            continueCondition = !GlobalOptions.StopSimulationIfWin || !(evaluationInfo.marioStatus == Mario.STATUS_WIN);
+//            continueCondition = !GlobalOptions.StopSimulationIfWin || !(evaluationInfo.marioStatus == Plumber.STATUS_WIN);
 
 //        while ((evaluationOptions.getNumberOfTrials() > i || evaluationOptions.getNumberOfTrials() == -1 ) && continueCondition);
 

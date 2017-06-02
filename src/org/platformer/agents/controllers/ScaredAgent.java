@@ -28,7 +28,7 @@
 package org.platformer.agents.controllers;
 
 import org.platformer.agents.Agent;
-import org.platformer.benchmark.platform.engine.sprites.Mario;
+import org.platformer.benchmark.platform.engine.sprites.Plumber;
 //import org.platform.benchmark.platform.environments.Environment;
 
 /**
@@ -53,21 +53,21 @@ public boolean[] getAction()
     if (/*levelScene[11][13] != 0 ||*/ levelScene[this.receptiveFieldWidth / 2][this.receptiveFieldHeight / 2 + 1] != 0 ||
             /* levelScene[12][13] == 0 ||*/ levelScene[this.receptiveFieldWidth / 2 / 2 + 1][this.receptiveFieldHeight / 2 + 1] == 0)
     {
-        if (isMarioAbleToJump || (!isMarioOnGround && action[Mario.KEY_JUMP]))
+        if (isMarioAbleToJump || (!isMarioOnGround && action[Plumber.KEY_JUMP]))
         {
-            action[Mario.KEY_JUMP] = true;
+            action[Plumber.KEY_JUMP] = true;
         }
         ++trueJumpCounter;
     } else
     {
-        action[Mario.KEY_JUMP] = false;
+        action[Plumber.KEY_JUMP] = false;
         trueJumpCounter = 0;
     }
 
     if (trueJumpCounter > 46)
     {
         trueJumpCounter = 0;
-        action[Mario.KEY_JUMP] = false;
+        action[Plumber.KEY_JUMP] = false;
     }
 
     return action;  //To change body of implemented methods use File | Settings | File Templates.
@@ -75,7 +75,7 @@ public boolean[] getAction()
 
 public void reset()
 {
-    action[Mario.KEY_RIGHT] = true;
-    action[Mario.KEY_SPEED] = false;
+    action[Plumber.KEY_RIGHT] = true;
+    action[Plumber.KEY_SPEED] = false;
 }
 }

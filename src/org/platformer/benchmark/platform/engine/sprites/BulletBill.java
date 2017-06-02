@@ -70,16 +70,16 @@ public void collideCheck()
 {
     if (dead) return;
 
-    float xMarioD = world.mario.x - x;
-    float yMarioD = world.mario.y - y;
+    float xMarioD = world.plumber.x - x;
+    float yMarioD = world.plumber.y - y;
     float w = 16;
     if (xMarioD > -16 && xMarioD < 16)
     {
-        if (yMarioD > -height && yMarioD < world.mario.height)
+        if (yMarioD > -height && yMarioD < world.plumber.height)
         {
-            if (world.mario.ya > 0 && yMarioD <= 0 && (!world.mario.onGround || !world.mario.wasOnGround))
+            if (world.plumber.ya > 0 && yMarioD <= 0 && (!world.plumber.onGround || !world.plumber.wasOnGround))
             {
-                world.mario.stomp(this);
+                world.plumber.stomp(this);
                 dead = true;
                 ++world.killedCreaturesTotal;
                 ++world.killedCreaturesByStomp;
@@ -89,7 +89,7 @@ public void collideCheck()
                 deadTime = 100;
             } else
             {
-                world.mario.getHurt(this.kind);
+                world.plumber.getHurt(this.kind);
             }
         }
     }

@@ -129,7 +129,7 @@ public int difficulty;
 
 public byte[][] map;
 public byte[][] data;
-// Experimental feature: Mario TRACE
+// Experimental feature: Plumber TRACE
 public int[][] marioTrace;
 
 public SpriteTemplate[][] spriteTemplates;
@@ -191,7 +191,7 @@ public static void save(Level lvl, ObjectOutputStream oos) throws IOException
 }
 
 /**
- * Animates the unbreakable brick when smashed from below by Mario
+ * Animates the unbreakable brick when smashed from below by Plumber
  */
 public void tick()
 {

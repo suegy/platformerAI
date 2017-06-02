@@ -63,14 +63,14 @@ public FireFlower(LevelScene world, int x, int y)
 
 public void collideCheck()
 {
-    float xMarioD = world.mario.x - x;
-    float yMarioD = world.mario.y - y;
+    float xMarioD = world.plumber.x - x;
+    float yMarioD = world.plumber.y - y;
     float w = 16;
     if (xMarioD > -16 && xMarioD < 16)
     {
-        if (yMarioD > -height && yMarioD < world.mario.height)
+        if (yMarioD > -height && yMarioD < world.plumber.height)
         {
-            world.mario.devourFlower();
+            world.plumber.devourFlower();
             spriteContext.removeSprite(this);
         }
     }

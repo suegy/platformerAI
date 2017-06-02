@@ -28,7 +28,7 @@
 package org.platformer.agents.controllers.human;
 
 import org.platformer.agents.Agent;
-import org.platformer.benchmark.platform.engine.sprites.Mario;
+import org.platformer.benchmark.platform.engine.sprites.Plumber;
 import org.platformer.benchmark.platform.environments.Environment;
 
 import java.awt.event.KeyAdapter;
@@ -153,23 +153,23 @@ private void toggleKey(int keyCode, boolean isPressed)
     switch (keyCode)
     {
         case KeyEvent.VK_LEFT:
-            Action[Mario.KEY_LEFT] = isPressed;
+            Action[Plumber.KEY_LEFT] = isPressed;
             break;
         case KeyEvent.VK_RIGHT:
-            Action[Mario.KEY_RIGHT] = isPressed;
+            Action[Plumber.KEY_RIGHT] = isPressed;
             break;
         case KeyEvent.VK_DOWN:
-            Action[Mario.KEY_DOWN] = isPressed;
+            Action[Plumber.KEY_DOWN] = isPressed;
             break;
         case KeyEvent.VK_UP:
-            Action[Mario.KEY_UP] = isPressed;
+            Action[Plumber.KEY_UP] = isPressed;
             break;
 
         case KeyEvent.VK_S:
-            Action[Mario.KEY_JUMP] = isPressed;
+            Action[Plumber.KEY_JUMP] = isPressed;
             break;
         case KeyEvent.VK_A:
-            Action[Mario.KEY_SPEED] = isPressed;
+            Action[Plumber.KEY_SPEED] = isPressed;
             break;
     }
 }

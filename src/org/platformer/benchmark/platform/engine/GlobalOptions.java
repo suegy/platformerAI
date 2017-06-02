@@ -89,7 +89,7 @@ public static int getMinorSubVersionID()
 
 public static String getBenchmarkName()
 {
-    return "[~ Mario AI Benchmark ~" + GlobalOptions.getVersionUID() + "]";
+    return "[~ Plumber AI Benchmark ~" + GlobalOptions.getVersionUID() + "]";
 }
 
 public static String getVersionUID()

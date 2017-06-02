@@ -27,7 +27,7 @@
 
 package org.platformer.tools;
 
-import org.platformer.benchmark.platform.engine.sprites.Mario;
+import org.platformer.benchmark.platform.engine.sprites.Plumber;
 import org.platformer.benchmark.tasks.MarioSystemOfValues;
 import org.platformer.benchmark.tasks.SystemOfValues;
 
@@ -211,8 +211,8 @@ public String toString()
     return "\n[PlatformerAI] ~ Evaluation Results for Task: " + taskName +
             "\n        Evaluation lasted : " + Long.toString(evaluationLasted) + " ms" +
             "\n         Weighted Fitness : " + df.format(computeWeightedFitness()) +
-            "\n             Mario Status : " + ((marioStatus == Mario.STATUS_WIN) ? "WIN!" : "Loss...") +
-            "\n               Mario Mode : " + Mario.MODES[marioMode] +
+            "\n             Plumber Status : " + ((marioStatus == Plumber.STATUS_WIN) ? "WIN!" : "Loss...") +
+            "\n               Plumber Mode : " + Plumber.MODES[marioMode] +
             "\nCollisions with creatures : " + collisionsWithCreatures +
             "\n     Passed (Cells, Phys) : " + distancePassedCells + " of " + levelLength + ", " + df.format(distancePassedPhys) + " of " + df.format(levelLength * 16) + " (" + distancePassedCells * 100 / levelLength + "% passed)" +
             "\n Time Spent(marioseconds) : " + timeSpent +
@@ -236,8 +236,8 @@ public String toStringSingleLine()
 
     return "\n[PlatformerAI] ~ Evaluation Results:" +
             " Evaluation lasted: " + Long.toString(evaluationLasted) + " ms" +
-            "; Status: " + ((marioStatus == Mario.STATUS_WIN) ? "WIN!" : "Loss") +
-            "; Mode: " + Mario.MODES[marioMode] +
+            "; Status: " + ((marioStatus == Plumber.STATUS_WIN) ? "WIN!" : "Loss") +
+            "; Mode: " + Plumber.MODES[marioMode] +
             " +  Passed (Cells, Phys): " + df.format((double) distancePassedCells) + ", " +
             df.format(distancePassedPhys) +
             "; Time Spent: " + timeSpent +

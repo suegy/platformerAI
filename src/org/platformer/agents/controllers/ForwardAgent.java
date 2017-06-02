@@ -28,7 +28,7 @@
 package org.platformer.agents.controllers;
 
 import org.platformer.agents.Agent;
-import org.platformer.benchmark.platform.engine.sprites.Mario;
+import org.platformer.benchmark.platform.engine.sprites.Plumber;
 import org.platformer.benchmark.platform.environments.Environment;
 
 /**
@@ -52,8 +52,8 @@ public ForwardAgent()
 public void reset()
 {
     action = new boolean[Environment.numberOfKeys];
-    action[Mario.KEY_RIGHT] = true;
-    action[Mario.KEY_SPEED] = true;
+    action[Plumber.KEY_RIGHT] = true;
+    action[Plumber.KEY_SPEED] = true;
     trueJumpCounter = 0;
     trueSpeedCounter = 0;
 }
@@ -78,22 +78,22 @@ public boolean[] getAction()
 
     if (DangerOfAny() && getReceptiveFieldCellValue(marioEgoRow, marioEgoCol + 1) != 1)  // a coin
     {
-        if (isMarioAbleToJump || (!isMarioOnGround && action[Mario.KEY_JUMP]))
+        if (isMarioAbleToJump || (!isMarioOnGround && action[Plumber.KEY_JUMP]))
         {
-            action[Mario.KEY_JUMP] = true;
+            action[Plumber.KEY_JUMP] = true;
         }
         ++trueJumpCounter;
     }
     else
     {
-        action[Mario.KEY_JUMP] = false;
+        action[Plumber.KEY_JUMP] = false;
         trueJumpCounter = 0;
     }
 
     if (trueJumpCounter > 16)
     {
         trueJumpCounter = 0;
-        action[Mario.KEY_JUMP] = false;
+        action[Plumber.KEY_JUMP] = false;
     }
     
     return action;

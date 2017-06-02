@@ -55,12 +55,12 @@ private static final String[] allowed = new String[]{
         "-ewf",  // System.exit(0) when evaluation finished
         "-fc",   // frozencreatures
         "-cgr",  //level: Creatures gravity
-        "-mgr",  //level: Mario gravity
+        "-mgr",  //level: Plumber gravity
         "-gv",   // GaveViewer <on|off>
         "-gvc",  // GameViewer continuous updates of the screen <on|off>
-        "-gmm",  // level: Green mushroom mode <0|1>. 0(default) -- hurts Mario; 1 -- kills Mario.
-        "-i",    // Invulnerability for Mario <on|off>
-        "-jp",  // Mario jump power
+        "-gmm",  // level: Green mushroom mode <0|1>. 0(default) -- hurts Plumber; 1 -- kills Plumber.
+        "-i",    // Invulnerability for Plumber <on|off>
+        "-jp",  // Plumber jump power
         "-ld",  // level: difficulty
         "-ll",  // level: length
         "-lla", // level: ladder
@@ -77,13 +77,13 @@ private static final String[] allowed = new String[]{
         "-lhb", // level: hidden blocks count
         "-le",  // level: enemies; set up with bit mask
         "-lf",  // level: flat level
-        "-mm",  // Mario Mode <0|1|2>
+        "-mm",  // Plumber Mode <0|1|2>
         "-mix", // TODO description
         "-miy", // TODO description
-        "-mer", // Mario Ego Row
-        "-mec", // Mario Ego Column
+        "-mer", // Plumber Ego Row
+        "-mec", // Plumber Ego Column
         "-fps", // Frames Per Second - update frequency
-        "-pr",  // Power resoration (cheat) (bring Mario to FIRE state if "Shoot/RUN" key activated.
+        "-pr",  // Power resoration (cheat) (bring Plumber to FIRE state if "Shoot/RUN" key activated.
         "-punj",// Enable bytecode counting
         "-rfh", // receptive field height (observation )
         "-rfw", // receptive field length (observation )
@@ -238,21 +238,21 @@ public static void InitDefaults()
         defaultOptionsHashMap.put("-ewf", "on"); //defaultOptionsHashMap.put("-exitWhenFinished","off");
         defaultOptionsHashMap.put("-fc", "off");
         defaultOptionsHashMap.put("-cgr", "1.0"); //Gravity creatures
-        defaultOptionsHashMap.put("-mgr", "1.0"); //Gravity Mario
+        defaultOptionsHashMap.put("-mgr", "1.0"); //Gravity Plumber
         defaultOptionsHashMap.put("-gv", "off"); //defaultOptionsHashMap.put("-gameViewer","off");
         defaultOptionsHashMap.put("-gvc", "off"); //defaultOptionsHashMap.put("-gameViewerContinuousUpdates","off");
         defaultOptionsHashMap.put("-gmm", "0");
-        defaultOptionsHashMap.put("-i", "off"); // Mario Invulnerability
-        defaultOptionsHashMap.put("-jp", "7");  // Mario Jump Power
+        defaultOptionsHashMap.put("-i", "off"); // Plumber Invulnerability
+        defaultOptionsHashMap.put("-jp", "7");  // Plumber Jump Power
         defaultOptionsHashMap.put("-ld", "0"); //defaultOptionsHashMap.put("-levelDifficulty","0");
         defaultOptionsHashMap.put("-ll", "256"); //defaultOptionsHashMap.put("-levelLength","320");
         defaultOptionsHashMap.put("-lla", "off"); //defaultOptionsHashMap.put("-levelLength","320");
         defaultOptionsHashMap.put("-ls", "0"); //defaultOptionsHashMap.put("-levelRandSeed","1");
         defaultOptionsHashMap.put("-lt", "0"); //defaultOptionsHashMap.put("-levelType","1");
         defaultOptionsHashMap.put("-fps", "24");
-        defaultOptionsHashMap.put("-mm", "2"); //Mario Mode
-        defaultOptionsHashMap.put("-mix", "32"); //Mario Initial physical Position
-        defaultOptionsHashMap.put("-miy", "32"); //Mario Initial physical Position
+        defaultOptionsHashMap.put("-mm", "2"); //Plumber Mode
+        defaultOptionsHashMap.put("-mix", "32"); //Plumber Initial physical Position
+        defaultOptionsHashMap.put("-miy", "32"); //Plumber Initial physical Position
         defaultOptionsHashMap.put("-pr", "off"); //defaultOptionsHashMap.put("-powerRestoration","off");
         defaultOptionsHashMap.put("-rfh", "19");
         defaultOptionsHashMap.put("-rfw", "19");
@@ -260,7 +260,7 @@ public static void InitDefaults()
 //            defaultOptionsHashMap.put("-t", "on"); //defaultOptionsHashMap.put("-timer","on");
         defaultOptionsHashMap.put("-tl", "200"); //Time Limit
         defaultOptionsHashMap.put("-tc", "off"); //defaultOptionsHashMap.put("-toolsConfigurator","off");
-        defaultOptionsHashMap.put("-trace", "off"); // Trace Mario path through the level, output to std and default file
+        defaultOptionsHashMap.put("-trace", "off"); // Trace Plumber path through the level, output to std and default file
         defaultOptionsHashMap.put("-vaot", "on"); //defaultOptionsHashMap.put("-viewAlwaysOnTop","off");
         defaultOptionsHashMap.put("-vlx", "0"); //defaultOptionsHashMap.put("-viewLocationX","0");
         defaultOptionsHashMap.put("-vly", "0"); //defaultOptionsHashMap.put("-viewLocationY","0");
@@ -284,10 +284,10 @@ public static void InitDefaults()
         defaultOptionsHashMap.put("-s", ""); //path to the file where level will be saved
         defaultOptionsHashMap.put("-rec", "off"); //path to the file where recorded game will be saved
         defaultOptionsHashMap.put("-z", "off"); //enable Scale2X on startup
-        defaultOptionsHashMap.put("-w", "0"); //wind for Mario
-        defaultOptionsHashMap.put("-ice", "0"); //wind for Mario
-        defaultOptionsHashMap.put("-mer", "9"); //Mario Ego row
-        defaultOptionsHashMap.put("-mec", "9"); //Mario Ego column
+        defaultOptionsHashMap.put("-w", "0"); //wind for Plumber
+        defaultOptionsHashMap.put("-ice", "0"); //wind for Plumber
+        defaultOptionsHashMap.put("-mer", "9"); //Plumber Ego row
+        defaultOptionsHashMap.put("-mec", "9"); //Plumber Ego column
         defaultOptionsHashMap.put("-ey", "0"); //exit x
         defaultOptionsHashMap.put("-ex", "0"); //exit y
         defaultOptionsHashMap.put("-punj", "off"); //exit y

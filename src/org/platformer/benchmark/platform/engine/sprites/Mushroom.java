@@ -72,14 +72,14 @@ public Mushroom(LevelScene world, int x, int y)
 
 public void collideCheck()
 {
-    float xMarioD = world.mario.x - x;
-    float yMarioD = world.mario.y - y;
+    float xMarioD = world.plumber.x - x;
+    float yMarioD = world.plumber.y - y;
     float w = 16;
     if (xMarioD > -16 && xMarioD < 16)
     {
-        if (yMarioD > -height && yMarioD < world.mario.height)
+        if (yMarioD > -height && yMarioD < world.plumber.height)
         {
-            world.mario.devourMushroom();
+            world.plumber.devourMushroom();
             spriteContext.removeSprite(this);
         }
     }
@@ -240,7 +240,7 @@ public void bumpCheck(int xTile, int yTile)
 {
     if (x + width > xTile * 16 && x - width < xTile * 16 + 16 && yTile == (int) ((y - 1) / 16))
     {
-        facing = -world.mario.facing;
+        facing = -world.plumber.facing;
         ya = -10;
     }
 }

@@ -28,7 +28,7 @@
 package org.platformer.agents.controllers;
 
 import org.platformer.agents.Agent;
-import org.platformer.benchmark.platform.engine.sprites.Mario;
+import org.platformer.benchmark.platform.engine.sprites.Plumber;
 import org.platformer.benchmark.platform.engine.sprites.Sprite;
 //import org.platform.benchmark.platform.environments.Environment;
 
@@ -69,14 +69,14 @@ public boolean[] getAction()
     int x = marioEgoRow;
     int y = marioEgoCol;
 
-    action[Mario.KEY_SPEED] = isCreature(enemies[x][y + 2]) || isCreature(enemies[x][y + 1]);
+    action[Plumber.KEY_SPEED] = isCreature(enemies[x][y + 2]) || isCreature(enemies[x][y + 1]);
 
     return action;
 }
 
 public void reset()
 {
-    action[Mario.KEY_RIGHT] = true;
-//    action[Mario.KEY_SPEED] = true;
+    action[Plumber.KEY_RIGHT] = true;
+//    action[Plumber.KEY_SPEED] = true;
 }
 }

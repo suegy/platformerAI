@@ -109,7 +109,7 @@ public static String getNameByKind(final int kind)
     switch (kind)
     {
         case Sprite.KIND_MARIO:
-            return "Mario";
+            return "Plumber";
         case Sprite.KIND_GOOMBA:
             return "Goomba";
         case Sprite.KIND_GOOMBA_WINGED:
@@ -190,7 +190,7 @@ public void render(final Graphics og)
     if (GlobalOptions.areLabels)
         og.drawString("" + xPixel + "," + yPixel, xPixel, yPixel);
 
-    // Mario Grid Visualization Enable
+    // Plumber Grid Visualization Enable
     if (GlobalOptions.isShowReceptiveField)
     {
         if (this.kind == KIND_MARIO)
@@ -262,7 +262,7 @@ public boolean shellCollideCheck(final Shell shell)
     return false;
 }
 
-public void release(final Mario mario)
+public void release(final Plumber plumber)
 {
 }
 

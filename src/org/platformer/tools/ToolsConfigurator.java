@@ -115,7 +115,7 @@ static void CreateMarioComponentFrame(SimulationOptions simulationOptions)
 //        frame.setLocation((screenSize.length-frame.getWidth())/2, (screenSize.height-frame.getHeight())/2);
     if (marioComponentFrame == null)
     {
-        marioComponentFrame = new JFrame(/*evaluationOptions.getAgentFullLoadName() +*/ "Mario AI benchmark-tools" + GlobalOptions.getVersionUID());
+        marioComponentFrame = new JFrame(/*evaluationOptions.getAgentFullLoadName() +*/ "Plumber AI benchmark-tools" + GlobalOptions.getVersionUID());
 //            marioComponent = new MarioComponent(320, 240);
 //            marioVisualComponent = new MarioVisualComponent(320, 240);
 //            marioComponentFrame.setContentPane(marioComponent);
@@ -127,7 +127,7 @@ static void CreateMarioComponentFrame(SimulationOptions simulationOptions)
 
         marioComponentFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-//        marioComponentFrame.setTitle(evaluationOptions.getAgent().getName() + " - Mario Intelligent 2.0");
+//        marioComponentFrame.setTitle(evaluationOptions.getAgent().getName() + " - Plumber Intelligent 2.0");
     marioComponentFrame.setAlwaysOnTop(simulationOptions.isViewAlwaysOnTop());
     marioComponentFrame.setLocation(simulationOptions.getViewLocation());
     marioComponentFrame.setVisible(simulationOptions.isVisualization());
@@ -153,7 +153,7 @@ public JSpinner JSpinnerLevelRandomizationSeed = new JSpinner();
 //    public Checkbox CheckboxEnableTimer = new Checkbox("Enable Timer", GlobalOptions.isTimer);
 public JSpinner JSpinnerLevelDifficulty = new JSpinner();
 public Checkbox CheckboxPauseWorld = new Checkbox("Pause World");
-public Checkbox CheckboxPauseMario = new Checkbox("Pause Mario");
+public Checkbox CheckboxPauseMario = new Checkbox("Pause Plumber");
 public Checkbox CheckboxPowerRestoration = new Checkbox("Power Restoration");
 public JSpinner JSpinnerLevelLength = new JSpinner();
 public JSpinner JSpinnerMaxAttempts = new JSpinner();
@@ -465,7 +465,7 @@ public class ToolsConfiguratorActions implements ActionListener, ItemListener, C
         } else if (ob == CheckboxPowerRestoration)
         {
             GlobalOptions.isPowerRestoration = CheckboxPowerRestoration.getState();
-//                LOGGER.println("Mario Power Restoration Turned " + (GlobalOptions.isPowerRestoration ? "on" : "off"),
+//                LOGGER.println("Plumber Power Restoration Turned " + (GlobalOptions.isPowerRestoration ? "on" : "off"),
 //                        LOGGER.VERBOSE_MODE.INFO);
         }
 //            else if (ob == CheckboxStopSimulationIfWin)

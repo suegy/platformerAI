@@ -159,7 +159,7 @@ public static void score(Agent agent, int startingSeed, PlatformerAIOptions plat
 //    System.out.println("Additional (tie-breaker) info: ");
 //    System.out.println("Total time left = " + timeLeftSum);
 //    System.out.println("Total kills = " + killsSum);
-//    System.out.println("Mario mode (small, large, fire) sum = " + marioModeSum);
+//    System.out.println("Plumber mode (small, large, fire) sum = " + marioModeSum);
 //    System.out.println("TOTAL SUM for " + agent.getName() + " = " + (competitionScore + killsSum + marioStatusSum + marioModeSum + timeLeftSum));
 }
 

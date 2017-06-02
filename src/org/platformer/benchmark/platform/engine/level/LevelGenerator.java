@@ -137,7 +137,7 @@ public static Level createLevel(PlatformerAIOptions args)
     height = args.getLevelHeight();
     if (height < 15)
     {
-        System.err.println("[Mario AI WARNING] : Level height changed to minimal allowed value 15");
+        System.err.println("[Plumber AI WARNING] : Level height changed to minimal allowed value 15");
         height = 15;
     }
     isFlatLevel = args.isFlatLevel();
@@ -163,7 +163,7 @@ public static Level createLevel(PlatformerAIOptions args)
     }
     if (totalOdds <= 0)
     {
-        System.err.println("[Mario AI SURPRISE] : UNEXPECTED level will be generated");
+        System.err.println("[Plumber AI SURPRISE] : UNEXPECTED level will be generated");
         totalOdds = 1;
     }
 

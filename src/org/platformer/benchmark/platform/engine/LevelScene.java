@@ -55,7 +55,7 @@ final private List<Sprite> spritesToAdd = new ArrayList<Sprite>();
 final private List<Sprite> spritesToRemove = new ArrayList<Sprite>();
 
 public Level level;
-public Mario mario;
+public Plumber plumber;
 public float xCam, yCam, xCamO, yCamO;
 
 public int tickCount;
@@ -141,8 +141,8 @@ public float[] getEnemiesFloatPos()
             case Sprite.KIND_SHELL:
             {
                 enemiesFloatsList.add((float) sprite.kind);
-                enemiesFloatsList.add(sprite.x - mario.x);
-                enemiesFloatsList.add(sprite.y - mario.y);
+                enemiesFloatsList.add(sprite.x - plumber.x);
+                enemiesFloatsList.add(sprite.y - plumber.y);
             }
         }
     }
@@ -179,7 +179,7 @@ public void tick()
 
     timeLeft--;
     if (timeLeft == 0)
-        mario.die("Time out!");
+        plumber.die("Time out!");
     xCamO = xCam;
     yCamO = yCam;
 
@@ -188,7 +188,7 @@ public void tick()
         startTime++;
     }
 
-    float targetXCam = mario.x - 160;
+    float targetXCam = plumber.x - 160;
 
     xCam = targetXCam;
 
@@ -200,7 +200,7 @@ public void tick()
 
     for (Sprite sprite : sprites)
     {
-        if (sprite != mario)
+        if (sprite != plumber)
         {
             float xd = sprite.x - xCam;
             float yd = sprite.y - yCam;
@@ -226,8 +226,8 @@ public void tick()
         {
             int dir = 0;
 
-            if (x * cellSize + 8 > mario.x + cellSize) dir = -1;
-            if (x * cellSize + 8 < mario.x - cellSize) dir = 1;
+            if (x * cellSize + 8 > plumber.x + cellSize) dir = -1;
+            if (x * cellSize + 8 < plumber.x - cellSize) dir = 1;
 
             SpriteTemplate st = level.getSpriteTemplate(x, y);
 
@@ -273,16 +273,16 @@ public void tick()
     for (Sprite sprite : sprites)
         sprite.tick();
 
-    byte levelElement = level.getBlock(mario.mapX, mario.mapY);
+    byte levelElement = level.getBlock(plumber.mapX, plumber.mapY);
     if (levelElement == (byte) (13 + 3 * 16) || levelElement == (byte) (13 + 5 * 16))
     {
         if (levelElement == (byte) (13 + 5 * 16))
-            mario.setOnTopOfLadder(true);
+            plumber.setOnTopOfLadder(true);
         else
-            mario.setInLadderZone(true);
-    } else if (mario.isInLadderZone())
+            plumber.setInLadderZone(true);
+    } else if (plumber.isInLadderZone())
     {
-        mario.setInLadderZone(false);
+        plumber.setInLadderZone(false);
     }
 
 
@@ -297,10 +297,10 @@ public void tick()
             {
                 if (sprite.shellCollideCheck(shell))
                 {
-                    if (mario.carried == shell && !shell.dead)
+                    if (plumber.carried == shell && !shell.dead)
                     {
-                        mario.carried = null;
-                        mario.setRacoon(false);
+                        plumber.carried = null;
+                        plumber.setRacoon(false);
                         //System.out.println("sprite = " + sprite);
                         shell.die();
                         ++this.killedCreaturesTotal;
@@ -343,7 +343,7 @@ public void bump(int x, int y, boolean canBreakBricks)
     if ((Level.TILE_BEHAVIORS[block & 0xff] & Level.BIT_BUMPABLE) > 0)
     {
         if (block == 1)
-            this.mario.gainHiddenBlock();
+            this.plumber.gainHiddenBlock();
         bumpInto(x, y - 1);
         byte blockData = level.getBlockData(x, y);
         if (blockData < 0)
@@ -363,7 +363,7 @@ public void bump(int x, int y, boolean canBreakBricks)
                 ++level.counters.greenMushrooms;
             } else
             {
-                if (!this.mario.large)
+                if (!this.plumber.large)
                 {
                     addSprite(new Mushroom(this, x * cellSize + 8, y * cellSize + 8));
                     ++level.counters.mushrooms;
@@ -375,7 +375,7 @@ public void bump(int x, int y, boolean canBreakBricks)
             }
         } else
         {
-            this.mario.gainCoin();
+            this.plumber.gainCoin();
             addSprite(new CoinAnim(x, y));
         }
     }
@@ -401,7 +401,7 @@ public void bumpInto(int x, int y)
     byte block = level.getBlock(x, y);
     if (((Level.TILE_BEHAVIORS[block & 0xff]) & Level.BIT_PICKUPABLE) > 0)
     {
-        this.mario.gainCoin();
+        this.plumber.gainCoin();
         level.setBlock(x, y, (byte) 0);
         addSprite(new CoinAnim(x, y + 1));
     }
@@ -455,26 +455,26 @@ public int[] getMarioState()
 public void performAction(boolean[] action)
 {
     // might look ugly , but arrayCopy is not necessary here:
-    this.mario.keys = action;
+    this.plumber.keys = action;
 }
 
 public boolean isLevelFinished()
 {
-    return (mario.getStatus() != Mario.STATUS_RUNNING);
+    return (plumber.getStatus() != Plumber.STATUS_RUNNING);
 }
 
 public boolean isMarioAbleToShoot()
 {
-    return mario.isAbleToShoot();
+    return plumber.isAbleToShoot();
 }
 
 public int getMarioStatus()
 {
-    return mario.getStatus();
+    return plumber.getStatus();
 }
 
 /**
- * first and second elements of the array are x and y Mario coordinates correspondingly
+ * first and second elements of the array are x and y Plumber coordinates correspondingly
  *
  * @return an array of size 2*(number of creatures on screen) including platform
  */
@@ -488,10 +488,10 @@ public float[] getCreaturesFloatPos()
 }
 
 public boolean isMarioOnGround()
-{ return mario.isOnGround(); }
+{ return plumber.isOnGround(); }
 
 public boolean isMarioAbleToJump()
-{ return mario.mayJump(); }
+{ return plumber.mayJump(); }
 
 public void resetDefault()
 {
@@ -550,7 +550,7 @@ public void reset(PlatformerAIOptions platformerAIOptions)
 //            replayer.closeRecorder();
         } catch (IOException e)
         {
-            System.err.println("[Mario AI Exception] : level reading failed");
+            System.err.println("[Plumber AI Exception] : level reading failed");
             e.printStackTrace();
         } catch (Exception e)
         {
@@ -567,7 +567,7 @@ public void reset(PlatformerAIOptions platformerAIOptions)
             Level.save(level, new ObjectOutputStream(new FileOutputStream(fileName)));
         } catch (IOException e)
         {
-            System.err.println("[Mario AI Exception] : Cannot write to file " + fileName);
+            System.err.println("[Plumber AI Exception] : Cannot write to file " + fileName);
             e.printStackTrace();
         }
     }
@@ -588,11 +588,11 @@ public void reset(PlatformerAIOptions platformerAIOptions)
 
     bonusPoints = -1;
 
-    this.mario = new Mario(this);
+    this.plumber = new Plumber(this);
     //System.out.println("platform = " + platform);
     memo = "";
-    this.mario.resetStatic(platformerAIOptions);
-    sprites.add(this.mario);
+    this.plumber.resetStatic(platformerAIOptions);
+    sprites.add(this.plumber);
     startTime = 1;
     timeLeft = timeLimit * GlobalOptions.mariosecondMultiplier;
 
@@ -601,16 +601,16 @@ public void reset(PlatformerAIOptions platformerAIOptions)
 
 public float[] getMarioFloatPos()
 {
-    marioFloatPos[0] = this.mario.x;
-    marioFloatPos[1] = this.mario.y;
+    marioFloatPos[0] = this.plumber.x;
+    marioFloatPos[1] = this.plumber.y;
     return marioFloatPos;
 }
 
 public int getMarioMode()
-{ return mario.getMode(); }
+{ return plumber.getMode(); }
 
 public boolean isMarioCarrying()
-{ return mario.carried != null; }
+{ return plumber.carried != null; }
 
 public int getLevelDifficulty()
 { return levelDifficulty; }
