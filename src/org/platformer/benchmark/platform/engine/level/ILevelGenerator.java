@@ -27,6 +27,8 @@
 
 package org.platformer.benchmark.platform.engine.level;
 
+import ch.idsia.benchmark.mario.engine.level.Level;
+
 /**
  * Created by IntelliJ IDEA.
  * User: Sergey Karakovskiy, sergey.karakovskiy@gmail.com

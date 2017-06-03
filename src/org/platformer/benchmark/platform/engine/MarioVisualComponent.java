@@ -27,10 +27,10 @@
 
 package org.platformer.benchmark.platform.engine;
 
+import ch.idsia.benchmark.mario.engine.level.Level;
 import org.platformer.agents.Agent;
 import org.platformer.agents.controllers.human.CheaterKeyboardAgent;
 import org.platformer.benchmark.platform.engine.level.BgLevelGenerator;
-import org.platformer.benchmark.platform.engine.level.Level;
 import org.platformer.benchmark.platform.engine.sprites.Plumber;
 import org.platformer.benchmark.platform.engine.sprites.Sprite;
 import org.platformer.benchmark.platform.environments.Environment;

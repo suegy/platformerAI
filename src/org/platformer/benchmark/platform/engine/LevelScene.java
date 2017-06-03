@@ -27,9 +27,9 @@
 
 package org.platformer.benchmark.platform.engine;
 
-import org.platformer.benchmark.platform.engine.level.Level;
+import ch.idsia.benchmark.mario.engine.level.Level;
+import ch.idsia.benchmark.mario.engine.level.SpriteTemplate;
 import org.platformer.benchmark.platform.engine.level.LevelGenerator;
-import org.platformer.benchmark.platform.engine.level.SpriteTemplate;
 import org.platformer.benchmark.platform.engine.sprites.*;
 import org.platformer.benchmark.platform.environments.Environment;
 import org.platformer.tools.PlatformerAIOptions;
@@ -43,7 +43,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public final class LevelScene implements SpriteContext
+public class LevelScene implements SpriteContext
 {
 public static final boolean[] defaultKeys = new boolean[Environment.numberOfKeys];
 public static final String[] keysStr = {"<<L ", "R>> ", "\\\\//", "JUMP", " RUN", "^UP^"};
@@ -544,7 +544,7 @@ public void reset(PlatformerAIOptions platformerAIOptions)
         {
 //            replayer.openNextReplayFile();
             replayer.openFile("level.lvl");
-            level = (Level) replayer.readObject();
+            level = (ch.idsia.benchmark.mario.engine.level.Level)replayer.readObject();
             level.counters.resetUncountableCounters();
 //            replayer.closeFile();
 //            replayer.closeRecorder();

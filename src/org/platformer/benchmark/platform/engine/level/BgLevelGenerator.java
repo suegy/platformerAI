@@ -27,6 +27,8 @@
 
 package org.platformer.benchmark.platform.engine.level;
 
+import ch.idsia.benchmark.mario.engine.level.Level;
+
 import java.util.Random;
 
 

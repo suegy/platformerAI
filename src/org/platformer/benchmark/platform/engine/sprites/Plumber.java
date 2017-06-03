@@ -27,10 +27,10 @@
 
 package org.platformer.benchmark.platform.engine.sprites;
 
+import ch.idsia.benchmark.mario.engine.level.Level;
 import org.platformer.benchmark.platform.engine.Art;
 import org.platformer.benchmark.platform.engine.GlobalOptions;
 import org.platformer.benchmark.platform.engine.LevelScene;
-import org.platformer.benchmark.platform.engine.level.Level;
 import org.platformer.benchmark.platform.environments.Environment;
 import org.platformer.benchmark.platform.environments.PlatformEnvironment;
 import org.platformer.tools.PlatformerAIOptions;

@@ -27,9 +27,9 @@
 
 package org.platformer;
 
-import org.platformer.benchmark.platform.engine.level.Level;
+import ch.idsia.benchmark.mario.engine.level.Level;
+import ch.idsia.benchmark.mario.engine.level.SpriteTemplate;
 import org.platformer.benchmark.platform.engine.level.LevelGenerator;
-import org.platformer.benchmark.platform.engine.level.SpriteTemplate;
 import org.platformer.benchmark.platform.engine.sprites.Sprite;
 import org.platformer.benchmark.tasks.BasicTask;
 import org.platformer.tools.PlatformerAIOptions;

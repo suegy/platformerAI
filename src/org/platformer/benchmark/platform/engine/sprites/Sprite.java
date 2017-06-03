@@ -27,9 +27,9 @@
 
 package org.platformer.benchmark.platform.engine.sprites;
 
+import ch.idsia.benchmark.mario.engine.level.SpriteTemplate;
 import org.platformer.benchmark.platform.engine.GlobalOptions;
 import org.platformer.benchmark.platform.engine.MarioVisualComponent;
-import org.platformer.benchmark.platform.engine.level.SpriteTemplate;
 
 import java.awt.*;
 

@@ -16,5 +16,25 @@
     <orderEntry type="library" name="commons-lang-2.1" level="project" />
     <orderEntry type="library" name="asm-all-3.3" level="project" />
     <orderEntry type="library" name="log4j" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/gamalyzer-metric-0.2.0-SNAPSHOT-standalone.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/jgap.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/../JGAP/src" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>

@@ -27,9 +27,9 @@
 
 package org.platformer.benchmark.platform.engine.mapedit;
 
+import ch.idsia.benchmark.mario.engine.level.Level;
 import org.platformer.benchmark.platform.engine.Art;
 import org.platformer.benchmark.platform.engine.LevelRenderer;
-import org.platformer.benchmark.platform.engine.level.Level;
 
 import javax.swing.*;
 import java.awt.*;

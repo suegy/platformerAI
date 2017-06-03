@@ -25,7 +25,7 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-package org.platformer.benchmark.platform.engine.level;
+package ch.idsia.benchmark.mario.engine.level;
 
 import org.platformer.tools.PlatformerAIOptions;
 

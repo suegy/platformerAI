@@ -71,7 +71,7 @@ public boolean runSingleEpisode(final int repetitionsOfSingleEpisode)
     for (int r = 0; r < repetitionsOfSingleEpisode; ++r)
     {
         this.reset();
-        long start = System.currentTimeMillis();
+        //long start = System.currentTimeMillis();
         while (!environment.isLevelFinished())
         {
             environment.tick();
@@ -89,8 +89,8 @@ public boolean runSingleEpisode(final int repetitionsOfSingleEpisode)
                 environment.performAction(action);
             }
         }
-        long end = System.currentTimeMillis();
-        System.out.println("time taken:" + (end-start));
+        //long end = System.currentTimeMillis();
+        //System.out.println("time taken:" + (end-start));
         environment.closeRecorder(); //recorder initialized in environment.reset
         environment.getEvaluationInfo().setTaskName(name);
         this.evaluationInfo = environment.getEvaluationInfo().clone();
