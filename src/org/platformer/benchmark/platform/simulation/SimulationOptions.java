@@ -42,469 +42,399 @@ import java.awt.*;
  * Package: .Simulation
  */
 
-public class SimulationOptions extends ParameterContainer
-{
-final Point viewLocation = new Point(42, 42);
-protected Agent agent;
+public class SimulationOptions extends ParameterContainer {
+    final Point viewLocation = new Point(42, 42);
+    protected Agent agent;
 //    protected MarioComponent marioComponent = null;
 
-protected SimulationOptions()
-{
-    super();
-}
+    protected SimulationOptions() {
+        super();
+    }
 
-public void setUpOptions(String[] args)
-{
-    if (args != null)
-        for (int i = 0; i < args.length - 1; i += 2)
-            try
-            {
-                setParameterValue(args[i], args[i + 1]);
+    public void setUpOptions(String[] args) {
+        if (args != null)
+            for (int i = 0; i < args.length - 1; i += 2)
+                try {
+                    setParameterValue(args[i], args[i + 1]);
 
-                if (args[i].equals("-lf") && args[i + 1].equals("on"))
-                {
-                    setBlocksCount(false);
-                    setCoinsCount(false);
-                    setTubesCount(false);
-                    setGapsCount(false);
-                    setDeadEndsCount(false);
-                    setCannonsCount(false);
-                    setEnemies("off");
-                }
-            }
-            catch (ArrayIndexOutOfBoundsException e)
-            {
-                // Basically we can push the red button to explaud the computer, since this case must happen never.
-                System.err.println("Error: Wrong number of input parameters");
+                    if (args[i].equals("-lf") && args[i + 1].equals("on")) {
+                        setBlocksCount(false);
+                        setCoinsCount(false);
+                        setTubesCount(false);
+                        setGapsCount(false);
+                        setDeadEndsCount(false);
+                        setCannonsCount(false);
+                        setEnemies("off");
+                    }
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    // Basically we can push the red button to explaud the computer, since this case must happen never.
+                    System.err.println("Error: Wrong number of input parameters");
 //                System.err.println("It is a perfect day to kill yourself with the yellow wall");
-            }
-    GlobalOptions.isVisualization = isVisualization();
-    GlobalOptions.FPS = getFPS() /*GlobalOptions.FPS*/;
+                }
+        GlobalOptions.isVisualization = isVisualization();
+        GlobalOptions.FPS = getFPS() /*GlobalOptions.FPS*/;
 //    GlobalOptions.isPauseWorld = isPauseWorld();
-    GlobalOptions.isPowerRestoration = isPowerRestoration();
+        GlobalOptions.isPowerRestoration = isPowerRestoration();
 //        GlobalOptions.isTimer = isTimer();
-}
+    }
 
-public boolean isExitProgramWhenFinished()
-{
-    return b(getParameterValue("-ewf"));
-}
+    public boolean isExitProgramWhenFinished() {
+        return b(getParameterValue("-ewf"));
+    }
 
-public void setExitProgramWhenFinished(boolean exitProgramWhenFinished)
-{
-    setParameterValue("-ewf", s(exitProgramWhenFinished));
-}
+    public void setExitProgramWhenFinished(boolean exitProgramWhenFinished) {
+        setParameterValue("-ewf", s(exitProgramWhenFinished));
+    }
 
-public Point getViewLocation()
-{
-    viewLocation.x = i(getParameterValue("-vlx"));
-    viewLocation.y = i(getParameterValue("-vly"));
-    return viewLocation;
-}
+    public Point getViewLocation() {
+        viewLocation.x = i(getParameterValue("-vlx"));
+        viewLocation.y = i(getParameterValue("-vly"));
+        return viewLocation;
+    }
 
-public boolean isViewAlwaysOnTop()
-{
-    return b(getParameterValue("-vaot"));
-}
+    public boolean isViewAlwaysOnTop() {
+        return b(getParameterValue("-vaot"));
+    }
 
-public void setViewerAlwaysOnTop(boolean vaot)
-{
-    setParameterValue("-vaot", s(vaot));
-}
+    public void setViewerAlwaysOnTop(boolean vaot) {
+        setParameterValue("-vaot", s(vaot));
+    }
 
-public void setFPS(int fps)
-{
-    setParameterValue("-fps", s(fps));
-    GlobalOptions.FPS = getFPS();
-}
+    public void setFPS(int fps) {
+        setParameterValue("-fps", s(fps));
+        GlobalOptions.FPS = getFPS();
+    }
 
-public int getFPS()
-{
-    return i(getParameterValue("-fps"));
-}
+    public int getFPS() {
+        return i(getParameterValue("-fps"));
+    }
 
-public String getAgentFullLoadName()
-{
-    return getParameterValue("-ag");
-}
+    public String getAgentFullLoadName() {
+        return getParameterValue("-ag");
+    }
 
-public String getLevelFileName()
-{
-    return getParameterValue("-s");
-}
+    public String getLevelFileName() {
+        return getParameterValue("-s");
+    }
 
 // Agent
 
-public Agent getAgent()
-{
+    public Agent getAgent() {
 //        return a(getParameterValue("-ag"));      }
-    if (agent == null)
-    {
-        agent = AgentsPool.loadAgent(getParameterValue("-ag"), isPunj());
+        if (agent == null) {
+            agent = AgentsPool.loadAgent(getParameterValue("-ag"), isPunj());
 //            System.out.println("Info: Agent not specified. Default " + agent.getName() + " has been used instead");
+        }
+        return agent;
     }
-    return agent;
-}
 
-public void setAgent(Agent agent)
-{
+    public void setAgent(Agent agent) {
 //        setParameterValue("-ag", s(agent));
-    this.agent = agent;
-}
+        this.agent = agent;
+    }
 
-public void setAgent(String agentWOXorClassName)
-{
-    this.agent = AgentsPool.loadAgent(agentWOXorClassName, isPunj());
-}
+    public void setAgent(String agentWOXorClassName) {
+        this.agent = AgentsPool.loadAgent(agentWOXorClassName, isPunj());
+    }
 
 // LevelType
 
-public int getLevelType()
-{
-    return i(getParameterValue("-lt"));
-}
+    public int getLevelType() {
+        return i(getParameterValue("-lt"));
+    }
 
-public void setLevelType(int levelType)
-{
-    setParameterValue("-lt", s(levelType));
-}
+    public void setLevelType(int levelType) {
+        setParameterValue("-lt", s(levelType));
+    }
 
 // LevelDifficulty
 
-public int getLevelDifficulty()
-{
-    return i(getParameterValue("-ld"));
-}
+    public int getLevelDifficulty() {
+        return i(getParameterValue("-ld"));
+    }
 
-public void setLevelDifficulty(int levelDifficulty)
-{
-    setParameterValue("-ld", s(levelDifficulty));
-}
+    public void setLevelDifficulty(int levelDifficulty) {
+        setParameterValue("-ld", s(levelDifficulty));
+    }
 
 //LevelLength
 
-public int getLevelLength()
-{
-    return i(getParameterValue("-ll"));
-}
+    public int getLevelLength() {
+        return i(getParameterValue("-ll"));
+    }
 
-public void setLevelLength(int levelLength)
-{
-    setParameterValue("-ll", s(levelLength));
-}
+    public void setLevelLength(int levelLength) {
+        setParameterValue("-ll", s(levelLength));
+    }
 
 //LevelHeight
 
-public int getLevelHeight()
-{
-    return i(getParameterValue("-lh"));
-}
+    public int getLevelHeight() {
+        return i(getParameterValue("-lh"));
+    }
 
-public void setLevelHeight(int levelHeight)
-{
-    setParameterValue("-lh", s(levelHeight));
-}
+    public void setLevelHeight(int levelHeight) {
+        setParameterValue("-lh", s(levelHeight));
+    }
 
 //LevelRandSeed
 
-public int getLevelRandSeed() throws NumberFormatException
-{
-    return i(getParameterValue("-ls"));
-}
-public String getLevelToLoad()
-    {
+    public int getLevelRandSeed() throws NumberFormatException {
+        return i(getParameterValue("-ls"));
+    }
+
+    public String getLevelToLoad() {
         return (getParameterValue("-load"));
     }
-public void setLevelRandSeed(int levelRandSeed)
-{
-    setParameterValue("-ls", s(levelRandSeed));
-}
+
+    public String getASCIILevelToLoad() {
+        return (getParameterValue("-loadASCII"));
+    }
+
+    public void setLevelRandSeed(int levelRandSeed) {
+        setParameterValue("-ls", s(levelRandSeed));
+    }
 
 //Visualization
 
-public boolean isVisualization()
-{
-    return b(getParameterValue("-vis"));
-}
+    public boolean isVisualization() {
+        return b(getParameterValue("-vis"));
+    }
 
-public void setVisualization(boolean visualization)
-{
-    setParameterValue("-vis", s(visualization));
-}
+    public void setVisualization(boolean visualization) {
+        setParameterValue("-vis", s(visualization));
+    }
 
 //isPowerRestoration
 
-public void setFrozenCreatures(boolean frozenCreatures)
-{
-    setParameterValue("-fc", s(frozenCreatures));
-}
+    public void setFrozenCreatures(boolean frozenCreatures) {
+        setParameterValue("-fc", s(frozenCreatures));
+    }
 
-public boolean isFrozenCreatures()
-{
-    return b(getParameterValue("-fc"));
-}
+    public boolean isFrozenCreatures() {
+        return b(getParameterValue("-fc"));
+    }
 
 
-public boolean isPowerRestoration()
-{
-    return b(getParameterValue("-pr"));
-}
+    public boolean isPowerRestoration() {
+        return b(getParameterValue("-pr"));
+    }
 
-public void setPowerRestoration(boolean powerRestoration)
-{
-    setParameterValue("-pr", s(powerRestoration));
-}
+    public void setPowerRestoration(boolean powerRestoration) {
+        setParameterValue("-pr", s(powerRestoration));
+    }
 
 //MarioMode
 
-public int getMarioMode()
-{
-    return i(getParameterValue("-mm"));
-}
+    public int getMarioMode() {
+        return i(getParameterValue("-mm"));
+    }
 
-public void setMarioMode(int marioMode)
-{ setParameterValue("-mm", s(marioMode)); }
+    public void setMarioMode(int marioMode) {
+        setParameterValue("-mm", s(marioMode));
+    }
 
 //ZLevelScene
 
-public int getZLevelScene()
-{
-    return i(getParameterValue("-zs"));
-}
+    public int getZLevelScene() {
+        return i(getParameterValue("-zs"));
+    }
 
-public void setZLevelScene(int zLevelMap)
-{
-    setParameterValue("-zs", s(zLevelMap));
-}
+    public void setZLevelScene(int zLevelMap) {
+        setParameterValue("-zs", s(zLevelMap));
+    }
 
 //ZLevelEnemies
 
-public int getZLevelEnemies()
-{
-    return i(getParameterValue("-ze"));
-}
+    public int getZLevelEnemies() {
+        return i(getParameterValue("-ze"));
+    }
 
-public void setZLevelEnemies(int zLevelEnemies)
-{
-    setParameterValue("-ze", s(zLevelEnemies));
-}
+    public void setZLevelEnemies(int zLevelEnemies) {
+        setParameterValue("-ze", s(zLevelEnemies));
+    }
 
 // TimeLimit
 
-public int getTimeLimit()
-{
-    return i(getParameterValue("-tl"));
-}
+    public int getTimeLimit() {
+        return i(getParameterValue("-tl"));
+    }
 
-public void setTimeLimit(int timeLimit)
-{
-    setParameterValue("-tl", s(timeLimit));
-}
+    public void setTimeLimit(int timeLimit) {
+        setParameterValue("-tl", s(timeLimit));
+    }
 
 // Invulnerability
 
-public boolean isMarioInvulnerable()
-{
-    return b(getParameterValue("-i"));
-}
+    public boolean isMarioInvulnerable() {
+        return b(getParameterValue("-i"));
+    }
 
-public void setMarioInvulnerable(boolean invulnerable)
-{ setParameterValue("-i", s(invulnerable)); }
+    public void setMarioInvulnerable(boolean invulnerable) {
+        setParameterValue("-i", s(invulnerable));
+    }
 
 // Level: dead ends count
 
-public boolean getDeadEndsCount()
-{
-    return b(getParameterValue("-lde"));
-}
+    public boolean getDeadEndsCount() {
+        return b(getParameterValue("-lde"));
+    }
 
-public void setDeadEndsCount(boolean var)
-{
-    setParameterValue("-lde", s(var));
-}
+    public void setDeadEndsCount(boolean var) {
+        setParameterValue("-lde", s(var));
+    }
 
 // Level: cannons count
 
-public boolean getCannonsCount()
-{
-    return b(getParameterValue("-lca"));
-}
+    public boolean getCannonsCount() {
+        return b(getParameterValue("-lca"));
+    }
 
-public void setCannonsCount(boolean var)
-{
-    setParameterValue("-lca", s(var));
-}
+    public void setCannonsCount(boolean var) {
+        setParameterValue("-lca", s(var));
+    }
 
 // Level: HillStraight count
 
-public boolean getHillStraightCount()
-{
-    return b(getParameterValue("-lhs"));
-}
+    public boolean getHillStraightCount() {
+        return b(getParameterValue("-lhs"));
+    }
 
-public void setHillStraightCount(boolean var)
-{
-    setParameterValue("-lhs", s(var));
-}
+    public void setHillStraightCount(boolean var) {
+        setParameterValue("-lhs", s(var));
+    }
 
 // Level: Tubes count
 
-public boolean getTubesCount()
-{
-    return b(getParameterValue("-ltb"));
-}
+    public boolean getTubesCount() {
+        return b(getParameterValue("-ltb"));
+    }
 
-public void setTubesCount(boolean var)
-{
-    setParameterValue("-ltb", s(var));
-}
+    public void setTubesCount(boolean var) {
+        setParameterValue("-ltb", s(var));
+    }
 
 // Level: blocks count
 
-public boolean getBlocksCount()
-{
-    return b(getParameterValue("-lb"));
-}
+    public boolean getBlocksCount() {
+        return b(getParameterValue("-lb"));
+    }
 
-public void setBlocksCount(boolean var)
-{
-    setParameterValue("-lb", s(var));
-}
+    public void setBlocksCount(boolean var) {
+        setParameterValue("-lb", s(var));
+    }
 
 // Level: coins count
 
-public boolean getCoinsCount()
-{
-    return b(getParameterValue("-lco"));
-}
+    public boolean getCoinsCount() {
+        return b(getParameterValue("-lco"));
+    }
 
-public void setCoinsCount(boolean var)
-{
-    setParameterValue("-lco", s(var));
-}
+    public void setCoinsCount(boolean var) {
+        setParameterValue("-lco", s(var));
+    }
 
 // Level: gaps count
 
-public boolean getGapsCount()
-{
-    return b(getParameterValue("-lg"));
-}
+    public boolean getGapsCount() {
+        return b(getParameterValue("-lg"));
+    }
 
-public void setGapsCount(boolean var)
-{
-    setParameterValue("-lg", s(var));
-}
+    public void setGapsCount(boolean var) {
+        setParameterValue("-lg", s(var));
+    }
 
 // Level: hidden blocks count
 
-public boolean getHiddenBlocksCount()
-{
-    return b(getParameterValue("-lhb"));
-}
+    public boolean getHiddenBlocksCount() {
+        return b(getParameterValue("-lhb"));
+    }
 
-public void setHiddenBlocksCount(boolean var)
-{
-    setParameterValue("-lhb", s(var));
-}
+    public void setHiddenBlocksCount(boolean var) {
+        setParameterValue("-lhb", s(var));
+    }
 
 // Level: enemies mask
 
-public String getEnemies()
-{
-    return getParameterValue("-le");
-}
+    public String getEnemies() {
+        return getParameterValue("-le");
+    }
 
-public void setEnemies(String var)
-{
-    setParameterValue("-le", var);
-}
+    public void setEnemies(String var) {
+        setParameterValue("-le", var);
+    }
 
 // Level: flat level
 
-public boolean isFlatLevel()
-{
-    return b(getParameterValue("-lf"));
-}
-
-public void setFlatLevel(boolean var)
-{
-    setParameterValue("-lf", s(var));
-}
-
-public boolean isTrace()
-{
-    String s = getParameterValue("-trace");
-    boolean f = false;
-
-    if (!s.equals("off") && !s.equals(""))
-        f = true;
-
-    return f;
-}
-
-public String getTraceFileName()
-{
-    String s = getParameterValue("-trace");
-    String res = "";
-
-    if (!s.equals("off") && !s.equals(""))
-    {
-        if (s.equals("on"))
-            res = "[PlatformerAI]-MarioTrace.txt";
-        else
-            res = s;
+    public boolean isFlatLevel() {
+        return b(getParameterValue("-lf"));
     }
 
-    return res;
-}
+    public void setFlatLevel(boolean var) {
+        setParameterValue("-lf", s(var));
+    }
 
-public String getRecordingFileName()
-{
-    return getParameterValue("-rec");
-}
+    public boolean isTrace() {
+        String s = getParameterValue("-trace");
+        boolean f = false;
 
-public void setRecordFile(String var)
-{
-    setParameterValue("-rec", var);
-}
+        if (!s.equals("off") && !s.equals(""))
+            f = true;
 
-public boolean isScale2X()
-{
-    return b(getParameterValue("-z"));
-}
+        return f;
+    }
 
-public void setScale2X(boolean z)
-{
-    setParameterValue("-z", s(z));
-}
+    public String getTraceFileName() {
+        String s = getParameterValue("-trace");
+        String res = "";
 
-public void setGreenMushroomMode(int mode)
-{
-    setParameterValue("-gmm", s(mode));
-}
+        if (!s.equals("off") && !s.equals("")) {
+            if (s.equals("on"))
+                res = "[PlatformerAI]-MarioTrace.txt";
+            else
+                res = s;
+        }
 
-public int getGreenMushroomMode()
-{
-    return i(getParameterValue("-gmm"));
-}
+        return res;
+    }
 
-public boolean isLevelLadder()
-{
-    return b(getParameterValue("-lla"));
-}
+    public String getRecordingFileName() {
+        return getParameterValue("-rec");
+    }
 
-public void setLevelLadder(boolean ladder)
-{
-    setParameterValue("-lla", s(ladder));
-}
+    public void setRecordFile(String var) {
+        setParameterValue("-rec", var);
+    }
 
-public void setPunj(boolean punj)
-{
-    setParameterValue("-punj", s(punj));
-}
+    public boolean isScale2X() {
+        return b(getParameterValue("-z"));
+    }
 
-public boolean isPunj()
-{
-    return b(getParameterValue("-punj"));
-}
+    public void setScale2X(boolean z) {
+        setParameterValue("-z", s(z));
+    }
+
+    public void setGreenMushroomMode(int mode) {
+        setParameterValue("-gmm", s(mode));
+    }
+
+    public int getGreenMushroomMode() {
+        return i(getParameterValue("-gmm"));
+    }
+
+    public boolean isLevelLadder() {
+        return b(getParameterValue("-lla"));
+    }
+
+    public void setLevelLadder(boolean ladder) {
+        setParameterValue("-lla", s(ladder));
+    }
+
+    public void setPunj(boolean punj) {
+        setParameterValue("-punj", s(punj));
+    }
+
+    public boolean isPunj() {
+        return b(getParameterValue("-punj"));
+    }
 }

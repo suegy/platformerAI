@@ -144,6 +144,7 @@ public void actionPerformed(ActionEvent e)
 {
     try
     {
+        String fileLocation = System.getProperty("user.dir")+File.separator+"rsrc"+File.separator;
         if (e.getSource() == loadButton)
         {
             //Create a file chooser
@@ -155,7 +156,7 @@ public void actionPerformed(ActionEvent e)
 
             //ObjectInputStream stream =  new ObjectInputStream(level);
             //levelEditView.setLevel((Level) Level.load(stream));
-            String fileLocation = System.getProperty("user.dir")+File.separator+"rsrc"+File.separator;
+
 
             levelEditView.setLevel(Level.load(new BufferedReader(new FileReader(fileLocation+nameField.getText().trim()))));
             //Level.loadBehaviors(new DataInputStream(LevelEditor.class.getResourceAsStream("/tiles.dat")));
@@ -164,7 +165,7 @@ public void actionPerformed(ActionEvent e)
         {
 //                levelEditView.getLevel().save(new ObjectOutputStream(new FileOutputStream(nameField.getText().trim())));
             //Level.save(levelEditView.getLevel(), new ObjectOutputStream(new FileOutputStream(nameField.getText().trim())));
-            levelEditView.getLevel().save(new BufferedWriter(new FileWriter(nameField.getText().trim())));
+            levelEditView.getLevel().save(new FileWriter(fileLocation+nameField.getText().trim()));
         }
     }
     catch (Exception ex)

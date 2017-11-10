@@ -61,7 +61,7 @@ public static void init(GraphicsConfiguration gc)
         level = cutImage(gc, "/art/mapsheet.png", 16, 16);
         particles = cutImage(gc, "/art/particlesheet.png", 8, 8);
         bg = cutImage(gc, "/art/bgsheet.png", 32, 32);
-        bg_gen =  cutImage(gc, "/art/bg_gen3.png", 32, 32);
+        bg_gen =  cutImage(gc, "/art/bg_street.png", 32, 32);
         font = cutImage(gc, "/art/font.gif", 8, 8);
         princess = cutImage(gc, "/art/princess.png", 32, 32);
     }

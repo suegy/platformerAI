@@ -551,7 +551,18 @@ public void reset(PlatformerAIOptions platformerAIOptions) {
     } else {
         //TODO: fix here
         String name = platformerAIOptions.getLevelToLoad();
-        if (name.equals("none")) {
+        String asciiname = platformerAIOptions.getASCIILevelToLoad();
+        if (!asciiname.equals("none")) {
+            String fileLocation = System.getProperty("user.dir")+File.separator+"rsrc"+File.separator;
+
+            try {
+                level = Level.loadASCII(new BufferedReader(new FileReader(fileLocation+asciiname)),platformerAIOptions);
+            } catch (IOException e) {
+                level = LevelGenerator.createLevel(platformerAIOptions);
+            } catch (ClassNotFoundException e) {
+                level = LevelGenerator.createLevel(platformerAIOptions);
+            }
+        } else if (name.equals("none")) {
             level = LevelGenerator.createLevel(platformerAIOptions);
         } else {
             try {

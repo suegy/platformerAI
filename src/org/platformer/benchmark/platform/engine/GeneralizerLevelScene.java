@@ -187,7 +187,7 @@ public static byte ZLevelGeneralization(byte el, int ZLevel)
                     return PRINCESS;
             }
             System.err.println("ZLevelMapElementGeneralization: Unknown value el = " + el + " Possible Level tiles bug; " +
-                    "Please, inform sergey@idsia.ch or julian@togelius.com. Thanks!");
+                    "Please, file a trouble ticket on github. Thanks!");
             return el;
         case (2):
             switch (el)

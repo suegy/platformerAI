@@ -28,282 +28,282 @@
 package ch.idsia.benchmark.mario.engine.level;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import org.platformer.benchmark.platform.engine.level.LevelGenerator;
 import org.platformer.tools.PlatformerAIOptions;
 
 import java.io.*;
+import java.util.ArrayList;
 
-public class Level implements Serializable
-{
-private static final long serialVersionUID = -2222762134065697580L;
+public class Level implements Serializable {
+    private static final long serialVersionUID = -2222762134065697580L;
 
-static public class objCounters implements Serializable
-{
-    public int deadEndsCount = 0;
-    public int cannonsCount = 0;
-    public int hillStraightCount = 0;
-    public int tubesCount = 0;
-    public int blocksCount = 0;
-    public int coinsCount = 0;
-    public int gapsCount = 0;
-    public int hiddenBlocksCount = 0;
-    public int totalCannons;
-    public int totalGaps;
-    public int totalDeadEnds;
-    public int totalBlocks;
-    public int totalHiddenBlocks;
-    public int totalCoins;
-    public int totalHillStraight;
-    public int totalTubes;
-    // TODO:TASK:[M] : include in Evaluation info:
-    public int totalPowerUps;
+    static public class objCounters implements Serializable {
+        public int deadEndsCount = 0;
+        public int cannonsCount = 0;
+        public int hillStraightCount = 0;
+        public int tubesCount = 0;
+        public int blocksCount = 0;
+        public int coinsCount = 0;
+        public int gapsCount = 0;
+        public int hiddenBlocksCount = 0;
+        public int totalCannons;
+        public int totalGaps;
+        public int totalDeadEnds;
+        public int totalBlocks;
+        public int totalHiddenBlocks;
+        public int totalCoins;
+        public int totalHillStraight;
+        public int totalTubes;
+        // TODO:TASK:[M] : include in Evaluation info:
+        public int totalPowerUps;
 
-    public int mushrooms = 0;
-    public int flowers = 0;
-    public int creatures = 0;
-    public int greenMushrooms = 0;
+        public int mushrooms = 0;
+        public int flowers = 0;
+        public int creatures = 0;
+        public int greenMushrooms = 0;
 
-    private static final long serialVersionUID = 4505050755444159808L;
+        private static final long serialVersionUID = 4505050755444159808L;
 
-    public void reset(final PlatformerAIOptions args)
-    {
-        deadEndsCount = 0;
-        cannonsCount = 0;
-        hillStraightCount = 0;
-        tubesCount = 0;
-        blocksCount = 0;
-        coinsCount = 0;
-        gapsCount = 0;
-        hiddenBlocksCount = 0;
-        mushrooms = 0;
-        flowers = 0;
-        creatures = 0;
-        greenMushrooms = 0;
-        totalHillStraight = args.getHillStraightCount() ? Integer.MAX_VALUE : 0;
-        totalCannons = args.getCannonsCount() ? Integer.MAX_VALUE : 0;
-        totalGaps = args.getGapsCount() ? Integer.MAX_VALUE : 0;
-        totalDeadEnds = args.getDeadEndsCount() ? Integer.MAX_VALUE : 0;
-        totalBlocks = args.getBlocksCount() ? Integer.MAX_VALUE : 0;
-        totalHiddenBlocks = args.getHiddenBlocksCount() ? Integer.MAX_VALUE : 0;
-        totalCoins = args.getCoinsCount() ? Integer.MAX_VALUE : 0;
-        totalTubes = args.getTubesCount() ? Integer.MAX_VALUE : 0;
-        resetUncountableCounters();
+        public void reset(final PlatformerAIOptions args) {
+            deadEndsCount = 0;
+            cannonsCount = 0;
+            hillStraightCount = 0;
+            tubesCount = 0;
+            blocksCount = 0;
+            coinsCount = 0;
+            gapsCount = 0;
+            hiddenBlocksCount = 0;
+            mushrooms = 0;
+            flowers = 0;
+            creatures = 0;
+            greenMushrooms = 0;
+            totalHillStraight = args.getHillStraightCount() ? Integer.MAX_VALUE : 0;
+            totalCannons = args.getCannonsCount() ? Integer.MAX_VALUE : 0;
+            totalGaps = args.getGapsCount() ? Integer.MAX_VALUE : 0;
+            totalDeadEnds = args.getDeadEndsCount() ? Integer.MAX_VALUE : 0;
+            totalBlocks = args.getBlocksCount() ? Integer.MAX_VALUE : 0;
+            totalHiddenBlocks = args.getHiddenBlocksCount() ? Integer.MAX_VALUE : 0;
+            totalCoins = args.getCoinsCount() ? Integer.MAX_VALUE : 0;
+            totalTubes = args.getTubesCount() ? Integer.MAX_VALUE : 0;
+            resetUncountableCounters();
+        }
+
+        public void resetUncountableCounters() {
+            mushrooms = 0;
+            flowers = 0;
+            greenMushrooms = 0;
+        }
     }
 
-    public void resetUncountableCounters()
-    {
-        mushrooms = 0;
-        flowers = 0;
-        greenMushrooms = 0;
-    }
-}
+    public static final String[] BIT_DESCRIPTIONS = {//
+            "BLOCK UPPER", //
+            "BLOCK ALL", //
+            "BLOCK LOWER", //
+            "SPECIAL", //
+            "BUMPABLE", //
+            "BREAKABLE", //
+            "PICKUPABLE", //
+            "ANIMATED",//
+    };
 
-public static final String[] BIT_DESCRIPTIONS = {//
-        "BLOCK UPPER", //
-        "BLOCK ALL", //
-        "BLOCK LOWER", //
-        "SPECIAL", //
-        "BUMPABLE", //
-        "BREAKABLE", //
-        "PICKUPABLE", //
-        "ANIMATED",//
-};
+    public static byte[] TILE_BEHAVIORS = new byte[256];
 
-public static byte[] TILE_BEHAVIORS = new byte[256];
+    public static final int BIT_BLOCK_UPPER = 1 << 0;
+    public static final int BIT_BLOCK_ALL = 1 << 1;
+    public static final int BIT_BLOCK_LOWER = 1 << 2;
+    public static final int BIT_SPECIAL = 1 << 3;
+    public static final int BIT_BUMPABLE = 1 << 4;
+    public static final int BIT_BREAKABLE = 1 << 5;
+    public static final int BIT_PICKUPABLE = 1 << 6;
+    public static final int BIT_ANIMATED = 1 << 7;
 
-public static final int BIT_BLOCK_UPPER = 1 << 0;
-public static final int BIT_BLOCK_ALL = 1 << 1;
-public static final int BIT_BLOCK_LOWER = 1 << 2;
-public static final int BIT_SPECIAL = 1 << 3;
-public static final int BIT_BUMPABLE = 1 << 4;
-public static final int BIT_BREAKABLE = 1 << 5;
-public static final int BIT_PICKUPABLE = 1 << 6;
-public static final int BIT_ANIMATED = 1 << 7;
+    public objCounters counters;
 
-public objCounters counters;
+    //private final int FILE_HEADER = 0x271c4178;
+    public int length;
+    public int height;
+    public int randomSeed;
+    public int type;
+    public int difficulty;
 
-//private final int FILE_HEADER = 0x271c4178;
-public int length;
-public int height;
-public int randomSeed;
-public int type;
-public int difficulty;
+    public byte[][] map;
+    public byte[][] data;
+    // Experimental feature: Plumber TRACE
+    public int[][] marioTrace;
 
-public byte[][] map;
-public byte[][] data;
-// Experimental feature: Plumber TRACE
-public int[][] marioTrace;
+    public SpriteTemplate[][] spriteTemplates;
 
-public SpriteTemplate[][] spriteTemplates;
-
-public int xExit;
-public int yExit;
+    public int xExit;
+    public int yExit;
 
 
-public Level(int length, int height)
-{
+    public Level(int length, int height) {
 //        ints = new Vector();
 //        booleans = new Vector();
-    this.length = length;
-    this.height = height;
+        this.length = length;
+        this.height = height;
 
-    xExit = 50;
-    yExit = 10;
+        xExit = 50;
+        yExit = 10;
 //        System.out.println("Java: Level: lots of news here...");
 //        System.out.println("length = " + length);
 //        System.out.println("height = " + height);
-    try
-    {
-        map = new byte[length][height];
+        try {
+            map = new byte[length][height];
 //        System.out.println("map = " + map);
-        data = new byte[length][height];
+            data = new byte[length][height];
 //        System.out.println("data = " + data);
-        spriteTemplates = new SpriteTemplate[length][height];
+            spriteTemplates = new SpriteTemplate[length][height];
 
-        marioTrace = new int[length][height + 1];
+            marioTrace = new int[length][height + 1];
 
-    } catch (OutOfMemoryError e)
-    {
-        System.err.println("Java: PlatformerAI MEMORY EXCEPTION: OutOfMemory exception. Exiting...");
-        e.printStackTrace();
-        System.exit(-3);
-    }
+        } catch (OutOfMemoryError e) {
+            System.err.println("Java: PlatformerAI MEMORY EXCEPTION: OutOfMemory exception. Exiting...");
+            e.printStackTrace();
+            System.exit(-3);
+        }
 //        System.out.println("spriteTemplates = " + spriteTemplates);
 //        observation = new byte[length][height];
 //        System.out.println("observation = " + observation);
-}
-
-public static void loadBehaviors(DataInputStream dis) throws IOException
-{
-    dis.readFully(Level.TILE_BEHAVIORS);
-}
-
-public static void saveBehaviors(DataOutputStream dos) throws IOException
-{
-    dos.write(Level.TILE_BEHAVIORS);
-}
-
-public static Level load(Reader reader) throws IOException, ClassNotFoundException
-{
-    Gson gson = new Gson();
-    Level level = gson.fromJson(reader,Level.class);
-    return level;
-}
-
-public void save(Writer oos) throws IOException
-{
-    Gson gson = new Gson();
-    oos.write(gson.toJson(this));
-}
-
-public String jSON()
-    {
-        Gson gson = new Gson();
-        return gson.toJson(this);
     }
 
-    public static Level fromString(String json)
-    {
-        Gson gson = new Gson();
-        Level level = gson.fromJson(json,Level.class);
+    public static void loadBehaviors(DataInputStream dis) throws IOException {
+        dis.readFully(Level.TILE_BEHAVIORS);
+    }
+
+    public static void saveBehaviors(DataOutputStream dos) throws IOException {
+        dos.write(Level.TILE_BEHAVIORS);
+    }
+
+    public static Level load(Reader reader) throws IOException, ClassNotFoundException {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        Level level = gson.fromJson(reader, Level.class);
         return level;
     }
 
-/**
- * Animates the unbreakable brick when smashed from below by Plumber
- */
-public void tick()
-{
-    // TODO:!!H! Optimize this!
-    for (int x = 0; x < length; x++)
-        for (int y = 0; y < height; y++)
-            if (data[x][y] > 0) data[x][y]--;
-}
+    public static Level loadASCII(Reader reader,PlatformerAIOptions platformerAIOptions) throws IOException, ClassNotFoundException {
+        BufferedReader bReader = new BufferedReader(reader);
+        ArrayList<char[]> mapStrings = new ArrayList<char []>();
+        char [][] map = null;
+        String line  = bReader.readLine();
+        while (line != null) {
+            mapStrings.add(line.toCharArray());
+            line = bReader.readLine();
+        }
+        //map = new char[mapStrings.size()][];
+        map = mapStrings.toArray(map);
 
-public byte getBlockCapped(int x, int y)
-{
-    if (x < 0) x = 0;
-    if (y < 0) y = 0;
-    if (x >= length) x = length - 1;
-    if (y >= height) y = height - 1;
-    return map[x][y];
-}
+        Level level = LevelGenerator.createLevel(platformerAIOptions);
 
-public byte getBlock(int x, int y)
-{
-    if (x < 0) x = 0;
-    if (y < 0) return 0;
-    if (x >= length) x = length - 1;
-    if (y >= height) y = height - 1;
-    return map[x][y];
-}
+        //Level level = gson.fromJson(reader, Level.class);
+        return level;
+    }
 
-public void setBlock(int x, int y, byte b)
-{
-    if (x < 0) return;
-    if (y < 0) return;
-    if (x >= length) return;
-    if (y >= height) return;
-    map[x][y] = b;
-}
 
-public void setBlockData(int x, int y, byte b)
-{
-    if (x < 0) return;
-    if (y < 0) return;
-    if (x >= length) return;
-    if (y >= height) return;
-    data[x][y] = b;
-}
+    public void save(Writer oos) throws IOException {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        oos.write(gson.toJson(this));
+        oos.flush();
+        oos.close();
+    }
 
-public byte getBlockData(int x, int y)
-{
-    if (x < 0) return 0;
-    if (y < 0) return 0;
-    if (x >= length) return 0;
-    if (y >= height) return 0;
-    return data[x][y];
-}
+    public String jSON() {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(this);
+    }
 
-public boolean isBlocking(int x, int y, float xa, float ya)
-{
-    byte block = getBlock(x, y);
-    boolean blocking = ((TILE_BEHAVIORS[block & 0xff]) & BIT_BLOCK_ALL) > 0;
-    blocking |= (ya > 0) && ((TILE_BEHAVIORS[block & 0xff]) & BIT_BLOCK_UPPER) > 0;
-    blocking |= (ya < 0) && ((TILE_BEHAVIORS[block & 0xff]) & BIT_BLOCK_LOWER) > 0;
+    public static Level fromString(String json) {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        Level level = gson.fromJson(json, Level.class);
+        return level;
+    }
 
-    return blocking;
-}
+    /**
+     * Animates the unbreakable brick when smashed from below by Plumber
+     */
+    public void tick() {
+        // TODO:!!H! Optimize this!
+        for (int x = 0; x < length; x++)
+            for (int y = 0; y < height; y++)
+                if (data[x][y] > 0) data[x][y]--;
+    }
 
-public SpriteTemplate getSpriteTemplate(int x, int y)
-{
-    if (x < 0) return null;
-    if (y < 0) return null;
-    if (x >= length) return null;
-    if (y >= height) return null;
-    return spriteTemplates[x][y];
-}
+    public byte getBlockCapped(int x, int y) {
+        if (x < 0) x = 0;
+        if (y < 0) y = 0;
+        if (x >= length) x = length - 1;
+        if (y >= height) y = height - 1;
+        return map[x][y];
+    }
 
-public boolean setSpriteTemplate(int x, int y, SpriteTemplate spriteTemplate)
-{
-    if (x < 0) return false;
-    if (y < 0) return false;
-    if (x >= length) return false;
-    if (y >= height) return false;
-    spriteTemplates[x][y] = spriteTemplate;
-    return true;
-}
+    public byte getBlock(int x, int y) {
+        if (x < 0) x = 0;
+        if (y < 0) return 0;
+        if (x >= length) x = length - 1;
+        if (y >= height) y = height - 1;
+        return map[x][y];
+    }
 
-private void readObject(ObjectInputStream aInputStream) throws ClassNotFoundException, IOException
-{
-    aInputStream.defaultReadObject();
-    counters = (Level.objCounters) aInputStream.readObject();
-}
+    public void setBlock(int x, int y, byte b) {
+        if (x < 0) return;
+        if (y < 0) return;
+        if (x >= length) return;
+        if (y >= height) return;
+        map[x][y] = b;
+    }
 
-private void writeObject(ObjectOutputStream aOutputStream) throws IOException
-{
-    aOutputStream.defaultWriteObject();
-    aOutputStream.writeObject(counters);
-}
+    public void setBlockData(int x, int y, byte b) {
+        if (x < 0) return;
+        if (y < 0) return;
+        if (x >= length) return;
+        if (y >= height) return;
+        data[x][y] = b;
+    }
+
+    public byte getBlockData(int x, int y) {
+        if (x < 0) return 0;
+        if (y < 0) return 0;
+        if (x >= length) return 0;
+        if (y >= height) return 0;
+        return data[x][y];
+    }
+
+    public boolean isBlocking(int x, int y, float xa, float ya) {
+        byte block = getBlock(x, y);
+        boolean blocking = ((TILE_BEHAVIORS[block & 0xff]) & BIT_BLOCK_ALL) > 0;
+        blocking |= (ya > 0) && ((TILE_BEHAVIORS[block & 0xff]) & BIT_BLOCK_UPPER) > 0;
+        blocking |= (ya < 0) && ((TILE_BEHAVIORS[block & 0xff]) & BIT_BLOCK_LOWER) > 0;
+
+        return blocking;
+    }
+
+    public SpriteTemplate getSpriteTemplate(int x, int y) {
+        if (x < 0) return null;
+        if (y < 0) return null;
+        if (x >= length) return null;
+        if (y >= height) return null;
+        return spriteTemplates[x][y];
+    }
+
+    public boolean setSpriteTemplate(int x, int y, SpriteTemplate spriteTemplate) {
+        if (x < 0) return false;
+        if (y < 0) return false;
+        if (x >= length) return false;
+        if (y >= height) return false;
+        spriteTemplates[x][y] = spriteTemplate;
+        return true;
+    }
+
+    private void readObject(ObjectInputStream aInputStream) throws ClassNotFoundException, IOException {
+        aInputStream.defaultReadObject();
+        counters = (Level.objCounters) aInputStream.readObject();
+    }
+
+    private void writeObject(ObjectOutputStream aOutputStream) throws IOException {
+        aOutputStream.defaultWriteObject();
+        aOutputStream.writeObject(counters);
+    }
 }
 
 

@@ -66,6 +66,7 @@ private static final String[] allowed = new String[]{
         "-lla", // level: ladder
         "-ls",  // level: seed
         "-load", // load level from file
+        "-loadASCII", // load level from file
         "-lt",  // level: type
         "-lh",  // level: height [16-20]
         "-lde", // level: dead ends count
@@ -250,6 +251,7 @@ public static void InitDefaults()
         defaultOptionsHashMap.put("-lla", "off"); //defaultOptionsHashMap.put("-levelLength","320");
         defaultOptionsHashMap.put("-ls", "0"); //defaultOptionsHashMap.put("-levelRandSeed","1");
         defaultOptionsHashMap.put("-load", "none"); //defaultOptionsHashMap.put("-levelRandSeed","1");
+        defaultOptionsHashMap.put("-loadASCII", "none"); //defaultOptionsHashMap.put("-levelRandSeed","1");
         defaultOptionsHashMap.put("-lt", "0"); //defaultOptionsHashMap.put("-levelType","1");
         defaultOptionsHashMap.put("-fps", "24");
         defaultOptionsHashMap.put("-mm", "2"); //Plumber Mode
