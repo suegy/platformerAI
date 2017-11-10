@@ -109,7 +109,10 @@ private void updateArea(int x0, int y0, int w, int h)
         for (int y = yTileStart; y <= yTileEnd; y++)
         {
             int b = level.getBlock(x, y) & 0xff;
-            g.drawImage(Art.bg[b % 8][b / 8], (x << 5) - xCam, (y << 5) - yCam - 16, null);
+
+            //g.drawImage(Art.bg    [b % 8][b / 8], (x << 5) - xCam, (y << 5) - yCam - 16, null);
+            System.out.println("pos:"+x+" "+y+" cam"+xCam+" "+yCam);
+            g.drawImage(Art.bg_gen[x+2][Math.abs(y)], (x << 5 ) - xCam, (y << 5) - yCam, null);
         }
     }
 }

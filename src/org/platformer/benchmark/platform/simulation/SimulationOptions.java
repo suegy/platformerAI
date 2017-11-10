@@ -211,7 +211,10 @@ public int getLevelRandSeed() throws NumberFormatException
 {
     return i(getParameterValue("-ls"));
 }
-
+public String getLevelToLoad()
+    {
+        return (getParameterValue("-load"));
+    }
 public void setLevelRandSeed(int levelRandSeed)
 {
     setParameterValue("-ls", s(levelRandSeed));

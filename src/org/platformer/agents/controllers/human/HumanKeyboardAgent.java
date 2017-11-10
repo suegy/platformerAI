@@ -165,10 +165,10 @@ private void toggleKey(int keyCode, boolean isPressed)
             Action[Plumber.KEY_UP] = isPressed;
             break;
 
-        case KeyEvent.VK_S:
+        case KeyEvent.VK_2:
             Action[Plumber.KEY_JUMP] = isPressed;
             break;
-        case KeyEvent.VK_A:
+        case KeyEvent.VK_1:
             Action[Plumber.KEY_SPEED] = isPressed;
             break;
     }

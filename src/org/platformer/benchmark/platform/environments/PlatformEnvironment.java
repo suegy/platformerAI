@@ -37,8 +37,7 @@ import org.platformer.tools.EvaluationInfo;
 import org.platformer.tools.PlatformerAIOptions;
 import org.platformer.tools.punj.PunctualJudge;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -184,7 +183,7 @@ public void reset(PlatformerAIOptions setUpOptions)
                 recorder = new Recorder(recordingFileName);
 
             recorder.createFile("level.lvl");
-            recorder.writeObject(levelScene.level);
+            recorder.writeObject(levelScene.level.jSON().getBytes());
             recorder.closeFile();
 
             recorder.createFile("options");

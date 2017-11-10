@@ -59,7 +59,6 @@ public LevelEditor()
     {
         System.out.println("System.getProperty(\"user.dir()\") = " + System.getProperty("user.dir"));
         Level.loadBehaviors(new DataInputStream(LevelEditor.class.getResourceAsStream("/tiles.dat")));
-//            Level.loadBehaviors(new DataInputStream(new FileInputStream("ch/idsia/platform/resources/tiles.dat")));
     }
     catch (Exception e)
     {
@@ -130,10 +129,11 @@ public JPanel buildButtonPanel()
 {
     loadButton = new JButton("Load");
     saveButton = new JButton("Save");
-    nameField = new JTextField("resources/test.lvl", 10);
+    nameField = new JTextField("/test.lvl", 10);
     loadButton.addActionListener(this);
     saveButton.addActionListener(this);
     JPanel panel = new JPanel();
+
     panel.add(nameField);
     panel.add(loadButton);
     panel.add(saveButton);
@@ -146,12 +146,25 @@ public void actionPerformed(ActionEvent e)
     {
         if (e.getSource() == loadButton)
         {
-            levelEditView.setLevel((Level) Level.load(new ObjectInputStream(LevelScene.class.getResourceAsStream(nameField.getText().trim()))));
+            //Create a file chooser
+
+
+            //In response to a button click:
+            //int returnVal = fc.showOpenDialog(aComponent);
+            //InputStream level = LevelScene.class.getResourceAsStream(nameField.getText().trim());
+
+            //ObjectInputStream stream =  new ObjectInputStream(level);
+            //levelEditView.setLevel((Level) Level.load(stream));
+            String fileLocation = System.getProperty("user.dir")+File.separator+"rsrc"+File.separator;
+
+            levelEditView.setLevel(Level.load(new BufferedReader(new FileReader(fileLocation+nameField.getText().trim()))));
+            //Level.loadBehaviors(new DataInputStream(LevelEditor.class.getResourceAsStream("/tiles.dat")));
         }
         if (e.getSource() == saveButton)
         {
 //                levelEditView.getLevel().save(new ObjectOutputStream(new FileOutputStream(nameField.getText().trim())));
-            Level.save(levelEditView.getLevel(), new ObjectOutputStream(new FileOutputStream(nameField.getText().trim())));
+            //Level.save(levelEditView.getLevel(), new ObjectOutputStream(new FileOutputStream(nameField.getText().trim())));
+            levelEditView.getLevel().save(new BufferedWriter(new FileWriter(nameField.getText().trim())));
         }
     }
     catch (Exception ex)

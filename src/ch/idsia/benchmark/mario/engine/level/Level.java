@@ -27,6 +27,7 @@
 
 package ch.idsia.benchmark.mario.engine.level;
 
+import com.google.gson.Gson;
 import org.platformer.tools.PlatformerAIOptions;
 
 import java.io.*;
@@ -137,6 +138,7 @@ public SpriteTemplate[][] spriteTemplates;
 public int xExit;
 public int yExit;
 
+
 public Level(int length, int height)
 {
 //        ints = new Vector();
@@ -158,6 +160,7 @@ public Level(int length, int height)
         spriteTemplates = new SpriteTemplate[length][height];
 
         marioTrace = new int[length][height + 1];
+
     } catch (OutOfMemoryError e)
     {
         System.err.println("Java: PlatformerAI MEMORY EXCEPTION: OutOfMemory exception. Exiting...");
@@ -179,16 +182,31 @@ public static void saveBehaviors(DataOutputStream dos) throws IOException
     dos.write(Level.TILE_BEHAVIORS);
 }
 
-public static Level load(ObjectInputStream ois) throws IOException, ClassNotFoundException
+public static Level load(Reader reader) throws IOException, ClassNotFoundException
 {
-    Level level = (Level) ois.readObject();
+    Gson gson = new Gson();
+    Level level = gson.fromJson(reader,Level.class);
     return level;
 }
 
-public static void save(Level lvl, ObjectOutputStream oos) throws IOException
+public void save(Writer oos) throws IOException
 {
-    oos.writeObject(lvl);
+    Gson gson = new Gson();
+    oos.write(gson.toJson(this));
 }
+
+public String jSON()
+    {
+        Gson gson = new Gson();
+        return gson.toJson(this);
+    }
+
+    public static Level fromString(String json)
+    {
+        Gson gson = new Gson();
+        Level level = gson.fromJson(json,Level.class);
+        return level;
+    }
 
 /**
  * Animates the unbreakable brick when smashed from below by Plumber

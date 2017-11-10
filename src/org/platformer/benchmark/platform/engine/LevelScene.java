@@ -35,10 +35,7 @@ import org.platformer.benchmark.platform.environments.Environment;
 import org.platformer.tools.PlatformerAIOptions;
 
 import java.awt.*;
-import java.io.DataInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -499,8 +496,7 @@ public void resetDefault()
     reset(PlatformerAIOptions.getDefaultOptions());
 }
 
-public void reset(PlatformerAIOptions platformerAIOptions)
-{
+public void reset(PlatformerAIOptions platformerAIOptions) {
 //        System.out.println("\nLevelScene RESET!");
 //        this.gameViewer = setUpOptions[0] == 1;
 //        System.out.println("this.platform.isMarioInvulnerable = " + this.platform.isMarioInvulnerable);
@@ -538,33 +534,46 @@ public void reset(PlatformerAIOptions platformerAIOptions)
     marioInitialPos = platformerAIOptions.getMarioInitialPos();
     greenMushroomMode = platformerAIOptions.getGreenMushroomMode();
 
-    if (replayer != null)
-    {
-        try
-        {
+    if (replayer != null) {
+        try {
 //            replayer.openNextReplayFile();
             replayer.openFile("level.lvl");
-            level = (ch.idsia.benchmark.mario.engine.level.Level)replayer.readObject();
+            level = Level.fromString((String) replayer.readObject());
             level.counters.resetUncountableCounters();
 //            replayer.closeFile();
 //            replayer.closeRecorder();
-        } catch (IOException e)
-        {
+        } catch (IOException e) {
             System.err.println("[Plumber AI Exception] : level reading failed");
             e.printStackTrace();
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-    } else
-        level = LevelGenerator.createLevel(platformerAIOptions);
+    } else {
+        //TODO: fix here
+        String name = platformerAIOptions.getLevelToLoad();
+        if (name.equals("none")) {
+            level = LevelGenerator.createLevel(platformerAIOptions);
+        } else {
+            try {
+                String fileLocation = System.getProperty("user.dir")+File.separator+"rsrc"+File.separator;
 
+                level = Level.load(new BufferedReader(new FileReader(fileLocation+name)));
+
+                //level = Level.load(new BufferedReader(new FileReader(name)));
+            } catch (IOException e) {
+                level = LevelGenerator.createLevel(platformerAIOptions);
+            } catch (ClassNotFoundException e) {
+                level = LevelGenerator.createLevel(platformerAIOptions);
+            }
+        }
+
+    }
     String fileName = platformerAIOptions.getLevelFileName();
     if (!fileName.equals(""))
     {
         try
         {
-            Level.save(level, new ObjectOutputStream(new FileOutputStream(fileName)));
+            level.save(new OutputStreamWriter(new FileOutputStream(fileName)));
         } catch (IOException e)
         {
             System.err.println("[Plumber AI Exception] : Cannot write to file " + fileName);

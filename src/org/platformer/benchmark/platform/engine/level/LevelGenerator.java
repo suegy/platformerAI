@@ -35,9 +35,7 @@ import org.platformer.tools.PlatformerAIOptions;
 import org.platformer.tools.RandomCreatureGenerator;
 import org.platformer.utils.ErrorCodes;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
+import java.io.*;
 import java.util.Random;
 
 /**
@@ -111,7 +109,7 @@ private static void loadLevel(String filePath)
             System.exit(ErrorCodes.FILE_NAME_OR_LOAD_PROBLEM);
         }
 
-        level = (Level) Level.load(new ObjectInputStream(new FileInputStream(filePath)));
+        level = Level.load(new BufferedReader(new FileReader(filePath)));
     } catch (IOException e)
     {
         System.err.println("[PlatformerAI EXCEPTION] : failed while trying to loadAgent " + filePath);
