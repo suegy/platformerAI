@@ -30,6 +30,7 @@ package ch.idsia.benchmark.mario.engine.level;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.platformer.benchmark.platform.engine.level.LevelGenerator;
+import org.platformer.benchmark.platform.engine.sprites.Sprite;
 import org.platformer.tools.PlatformerAIOptions;
 
 import java.io.*;
@@ -182,21 +183,68 @@ public class Level implements Serializable {
         return level;
     }
 
-    public static Level loadASCII(Reader reader,PlatformerAIOptions platformerAIOptions) throws IOException, ClassNotFoundException {
+    public static Level loadASCII(Reader reader, PlatformerAIOptions platformerAIOptions) throws IOException, ClassNotFoundException {
         BufferedReader bReader = new BufferedReader(reader);
-        ArrayList<char[]> mapStrings = new ArrayList<char []>();
-        char [][] map = null;
-        String line  = bReader.readLine();
+        ArrayList<char[]> mapStrings = new ArrayList<char[]>();
+        char[][] map = null;
+        byte[][] shadowMap = null;
+        String line = bReader.readLine();
         while (line != null) {
             mapStrings.add(line.toCharArray());
             line = bReader.readLine();
         }
-        //map = new char[mapStrings.size()][];
-        map = mapStrings.toArray(map);
 
         Level level = LevelGenerator.createLevel(platformerAIOptions);
+        if (mapStrings.size() < 1)
+            return level;
 
-        //Level level = gson.fromJson(reader, Level.class);
+        map = mapStrings.toArray(new char[1][1]);
+        shadowMap = new byte[map[0].length][];
+
+        //TODO: continue working here to get the ASCII reader in place
+        for (int x = 0; x < map[0].length; x++) {
+            shadowMap[x] = new byte[map[0].length];
+            for (int y = 0; y < map.length; y++) {
+                switch (map[y][x]) {
+                    case '-': //air
+                        shadowMap[x][y] = 0;
+                        break;
+                    case '<': //left pipe opening
+                        shadowMap[x][y] = 10;
+                        break;
+                    case '>': //right pipe opening
+                        shadowMap[x][y] = 11;
+                        break;
+                    case '[': //left pipe
+                        shadowMap[x][y] = 26;
+                        break;
+                    case ']': //right pipe
+                        shadowMap[x][y] = 27;
+                        break;
+                    case 'E': //gumba or other enemy
+                        level.setSpriteTemplate(x,y,new SpriteTemplate(Sprite.KIND_GOOMBA));
+                        break;
+                    case 'X': //square block or ground tile
+                        shadowMap[x][y] = -119;//also -103,...
+                        break;
+                    case 'S': //breakable block
+                        shadowMap[x][y] = 16;//also 17,22
+                        break;
+                    case 'Q': //question block
+                        shadowMap[x][y] = 21;
+                        break;
+                    case 'C': //coin
+                        shadowMap[x][y] = 34;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        level.map = shadowMap;
+        level.length = shadowMap.length;
+
         return level;
     }
 

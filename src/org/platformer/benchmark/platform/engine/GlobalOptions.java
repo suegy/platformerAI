@@ -37,8 +37,8 @@ import java.util.TimeZone;
 public abstract class GlobalOptions
 {
 public static final int primaryVersionUID = 0;
-public static final int minorVersionUID = 2;
-public static final int minorSubVersionID = 0;
+public static final int minorVersionUID = 3;
+public static final int minorSubVersionID = 1;
 
 public static boolean areLabels = false;
 public static boolean isCameraCenteredOnMario = true;
@@ -89,7 +89,7 @@ public static int getMinorSubVersionID()
 
 public static String getBenchmarkName()
 {
-    return "[~ Plumber AI Benchmark ~" + GlobalOptions.getVersionUID() + "]";
+    return "[~ platformerAI Framework ~" + GlobalOptions.getVersionUID() + "]";
 }
 
 public static String getVersionUID()
