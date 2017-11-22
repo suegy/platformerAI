@@ -27,7 +27,7 @@
 
 package org.platformer.benchmark.platform.engine;
 
-import ch.idsia.benchmark.mario.engine.level.Level;
+import org.platformer.benchmark.platform.engine.level.Level;
 
 import java.awt.*;
 import java.util.Random;
@@ -111,7 +111,7 @@ private void updateArea(int x0, int y0, int w, int h)
             int b = level.getBlock(x, y) & 0xff;
 
             //g.drawImage(Art.bg    [b % 8][b / 8], (x << 5) - xCam, (y << 5) - yCam - 16, null);
-            System.out.println("pos:"+x+" "+y+" cam"+xCam+" "+yCam);
+            //System.out.println("pos:"+x+" "+y+" cam"+xCam+" "+yCam);
             g.drawImage(Art.bg_gen[x+2][Math.abs(y)], (x << 5 ) - xCam, (y << 5) - yCam, null);
         }
     }

@@ -27,85 +27,91 @@
 
 package org.platformer.benchmark.platform.engine;
 
+import org.platformer.utils.Configuration;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Map;
 
 
-public class Art
-{
-public static Image[][] mario;
-public static Image[][] racoonmario;
-public static Image[][] smallMario;
-public static Image[][] fireMario;
-public static Image[][] enemies;
-public static Image[][] items;
-public static Image[][] level;
-public static Image[][] particles;
-public static Image[][] font;
-public static Image[][] bg;
-public static Image[][] bg_gen;
-public static Image[][] princess;
+public class Art {
+    public static Image[][] mario;
+    public static Image[][] racoonmario;
+    public static Image[][] smallMario;
+    public static Image[][] fireMario;
+    public static Image[][] enemies;
+    public static Image[][] items;
+    public static Image[][] level;
+    public static Image[][] particles;
+    public static Image[][] font;
+    public static Image[][] bg;
+    public static Image[][] bg_gen;
+    public static Image[][] princess;
 
-public static void init(GraphicsConfiguration gc)
-{
-    try
-    {
-        mario = cutImage(gc, "/art/mariosheet.png", 32, 32);
-        racoonmario = cutImage(gc, "/art/racoonmariosheet.png", 32, 32);
-        smallMario = cutImage(gc, "/art/smallmariosheet.png", 16, 16);
-        fireMario = cutImage(gc, "/art/firemariosheet.png", 32, 32);
-        enemies = cutImage(gc, "/art/enemysheet.png", 16, 32);
-        items = cutImage(gc, "/art/itemsheet.png", 16, 16);
-        level = cutImage(gc, "/art/mapsheet.png", 16, 16);
-        particles = cutImage(gc, "/art/particlesheet.png", 8, 8);
-        bg = cutImage(gc, "/art/bgsheet.png", 32, 32);
-        bg_gen =  cutImage(gc, "/art/bg_street.png", 32, 32);
-        font = cutImage(gc, "/art/font.gif", 8, 8);
-        princess = cutImage(gc, "/art/princess.png", 32, 32);
-    }
-    catch (Exception e)
-    {
-        e.printStackTrace();
+    public enum SpriteSheets {
+        BIGPLUMBER, RACOONPLUMBER, SMALLPLUMBER, HOTPLUMBER, ENEMIES, ITEMS, LEVEL,
+        PARTICLES, FAR_BACKGROUND, NEAR_BACKGROUND, FONTS, PRINCESS
     }
 
-}
+    ;
 
-private static Image getImage(GraphicsConfiguration gc, String imageName) throws IOException
-{
-    BufferedImage source = null;
-    try
-    { source = ImageIO.read(Art.class.getResourceAsStream(imageName)); }
-    catch (Exception e) { e.printStackTrace(); }
+    public static void init(GraphicsConfiguration gc) {
+        try {
+            //TODO: include config parameters
+            Map<String,String> assets = Configuration.getConfiguration().getArtConfig();
 
-    assert source != null;
-    Image image = gc.createCompatibleImage(source.getWidth(), source.getHeight(), Transparency.BITMASK);
-    Graphics2D g = (Graphics2D) image.getGraphics();
-    g.setComposite(AlphaComposite.Src);
-    g.drawImage(source, 0, 0, null);
-    g.dispose();
-    return image;
-}
-
-private static Image[][] cutImage(GraphicsConfiguration gc, String imageName, int xSize, int ySize) throws IOException
-{
-    Image source = getImage(gc, imageName);
-    Image[][] images = new Image[source.getWidth(null) / xSize][source.getHeight(null) / ySize];
-    for (int x = 0; x < source.getWidth(null) / xSize; x++)
-    {
-        for (int y = 0; y < source.getHeight(null) / ySize; y++)
-        {
-            Image image = gc.createCompatibleImage(xSize, ySize, Transparency.BITMASK);
-            Graphics2D g = (Graphics2D) image.getGraphics();
-            g.setComposite(AlphaComposite.Src);
-            g.drawImage(source, -x * xSize, -y * ySize, null);
-            g.dispose();
-            images[x][y] = image;
+            mario = cutImage(gc, assets.get(SpriteSheets.BIGPLUMBER.name()), 32, 32);
+            racoonmario = cutImage(gc, assets.get(SpriteSheets.RACOONPLUMBER.name()), 32, 32);
+            smallMario = cutImage(gc, assets.get(SpriteSheets.SMALLPLUMBER.name()), 16, 16);
+            fireMario = cutImage(gc, assets.get(SpriteSheets.HOTPLUMBER.name()), 32, 32);
+            enemies = cutImage(gc, assets.get(SpriteSheets.ENEMIES.name()), 16, 32);
+            items = cutImage(gc, assets.get(SpriteSheets.ITEMS.name()), 16, 16);
+            level = cutImage(gc, assets.get(SpriteSheets.LEVEL.name()), 16, 16);
+            particles = cutImage(gc, assets.get(SpriteSheets.PARTICLES.name()), 8, 8);
+            bg = cutImage(gc, assets.get(SpriteSheets.NEAR_BACKGROUND.name()), 32, 32);
+            bg_gen = cutImage(gc, assets.get(SpriteSheets.FAR_BACKGROUND.name()), 32, 32);
+            font = cutImage(gc, assets.get(SpriteSheets.FONTS.name()), 8, 8);
+            princess = cutImage(gc, assets.get(SpriteSheets.PRINCESS.name()), 32, 32);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+
     }
 
-    return images;
-}
+    private static Image getImage(GraphicsConfiguration gc, String imageName) throws IOException {
+        BufferedImage source = null;
+        try {
+            source = ImageIO.read(Art.class.getResourceAsStream(imageName));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        assert source != null;
+        Image image = gc.createCompatibleImage(source.getWidth(), source.getHeight(), Transparency.BITMASK);
+        Graphics2D g = (Graphics2D) image.getGraphics();
+        g.setComposite(AlphaComposite.Src);
+        g.drawImage(source, 0, 0, null);
+        g.dispose();
+        return image;
+    }
+
+    private static Image[][] cutImage(GraphicsConfiguration gc, String imageName, int xSize, int ySize) throws IOException {
+        Image source = getImage(gc, imageName);
+        Image[][] images = new Image[source.getWidth(null) / xSize][source.getHeight(null) / ySize];
+        for (int x = 0; x < source.getWidth(null) / xSize; x++) {
+            for (int y = 0; y < source.getHeight(null) / ySize; y++) {
+                Image image = gc.createCompatibleImage(xSize, ySize, Transparency.BITMASK);
+                Graphics2D g = (Graphics2D) image.getGraphics();
+                g.setComposite(AlphaComposite.Src);
+                g.drawImage(source, -x * xSize, -y * ySize, null);
+                g.dispose();
+                images[x][y] = image;
+            }
+        }
+
+        return images;
+    }
 
 }

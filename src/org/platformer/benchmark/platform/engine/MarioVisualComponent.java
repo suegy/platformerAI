@@ -27,7 +27,7 @@
 
 package org.platformer.benchmark.platform.engine;
 
-import ch.idsia.benchmark.mario.engine.level.Level;
+import org.platformer.benchmark.platform.engine.level.Level;
 import org.platformer.agents.Agent;
 import org.platformer.agents.controllers.human.CheaterKeyboardAgent;
 import org.platformer.benchmark.platform.engine.level.BgLevelGenerator;
@@ -349,7 +349,7 @@ private void drawProgress(Graphics g)
     drawStringDropShadow(g, progress_str, 0, 28, 2);
     drawStringDropShadow(g, "intermediate reward: " + platformEnvironment.getIntermediateReward(), 0, 27, 2);
 }
-
+//FIXME: continue here removing statics
 public static void drawStringDropShadow(Graphics g, String text, int x, int y, int c)
 {
     drawString(g, text, x * 8 + 5, y * 8 + 5, 0);

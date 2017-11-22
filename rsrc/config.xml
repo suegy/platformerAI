@@ -1,0 +1,23 @@
+{
+  "options": {
+    "-fps": "25",
+	"-vis": "on",
+    "-gv": "on",
+    "-ld": "0",
+    "-ll": "202"
+  },
+  "artAssets": {
+    "PRINCESS": "/art/princess.png",
+    "BIGPLUMBER": "/art/mariosheet.png",
+    "SMALLPLUMBER": "/art/smallmariosheet.png",
+    "HOTPLUMBER": "/art/firemariosheet.png",
+    "PARTICLES": "/art/particlesheet.png",
+    "RACOONPLUMBER": "/art/racoonmariosheet.png",
+    "FAR_BACKGROUND": "/art/bg_street.png",
+    "NEAR_BACKGROUND": "/art/bgsheet.png",
+    "ITEMS": "/art/itemsheet.png",
+    "LEVEL": "/art/mapsheet.png",
+    "FONTS": "/art/font.gif",
+    "ENEMIES": "/art/enemysheet.png"
+  }
+}

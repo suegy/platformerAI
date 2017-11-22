@@ -25,7 +25,7 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-package ch.idsia.benchmark.mario.engine.level;
+package org.platformer.benchmark.platform.engine.sprites;
 
 import org.platformer.benchmark.platform.engine.LevelScene;
 import org.platformer.benchmark.platform.engine.sprites.*;

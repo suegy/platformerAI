@@ -131,7 +131,7 @@ public void doEpisodes(int amount, boolean verbose, final int repetitionsOfSingl
     }
     for (int i = 0; i < amount; ++i)
     {
-        this.reset();
+        //this.reset();
         this.runSingleEpisode(repetitionsOfSingleEpisode);
         if (verbose)
             System.out.println(environment.getEvaluationInfoAsString());

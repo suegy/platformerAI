@@ -25,16 +25,18 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-package ch.idsia.benchmark.mario.engine.level;
+package org.platformer.benchmark.platform.engine.level;
 
+import org.platformer.benchmark.platform.engine.sprites.SpriteTemplate;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import org.platformer.benchmark.platform.engine.level.LevelGenerator;
 import org.platformer.benchmark.platform.engine.sprites.Sprite;
+import org.platformer.utils.Configuration;
 import org.platformer.tools.PlatformerAIOptions;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Level implements Serializable {
     private static final long serialVersionUID = -2222762134065697580L;
@@ -186,6 +188,7 @@ public class Level implements Serializable {
     public static Level loadASCII(Reader reader, PlatformerAIOptions platformerAIOptions) throws IOException, ClassNotFoundException {
         BufferedReader bReader = new BufferedReader(reader);
         ArrayList<char[]> mapStrings = new ArrayList<char[]>();
+        Random random = new Random(platformerAIOptions.getLevelRandSeed());
         char[][] map = null;
         byte[][] shadowMap = null;
         String line = bReader.readLine();
@@ -195,15 +198,17 @@ public class Level implements Serializable {
         }
 
         Level level = LevelGenerator.createLevel(platformerAIOptions);
+
         if (mapStrings.size() < 1)
             return level;
 
         map = mapStrings.toArray(new char[1][1]);
-        shadowMap = new byte[map[0].length][];
+        shadowMap  = new byte[map[0].length][map.length];
+        level.data = new byte[map[0].length][map.length];
+        level.spriteTemplates = new SpriteTemplate[map[0].length][map.length];
 
         //TODO: continue working here to get the ASCII reader in place
         for (int x = 0; x < map[0].length; x++) {
-            shadowMap[x] = new byte[map[0].length];
             for (int y = 0; y < map.length; y++) {
                 switch (map[y][x]) {
                     case '-': //air
@@ -231,10 +236,16 @@ public class Level implements Serializable {
                         shadowMap[x][y] = 16;//also 17,22
                         break;
                     case 'Q': //question block
-                        shadowMap[x][y] = 21;
+                        int tile = random.nextInt(3);
+                        shadowMap[x][y] = (byte) (21 + tile);
                         break;
                     case 'C': //coin
                         shadowMap[x][y] = 34;
+                        break;
+                    case 'P': //coin
+                        level.xExit = x;
+                        level.yExit = y;
+                        level.setSpriteTemplate(x, y, new SpriteTemplate(Sprite.KIND_PRINCESS));
                         break;
                     default:
                         break;
@@ -244,6 +255,12 @@ public class Level implements Serializable {
 
         level.map = shadowMap;
         level.length = shadowMap.length;
+        level.height = shadowMap[0].length;
+        //coordinates of the exit
+        if (level.xExit > level.length-1)
+            level.xExit = level.length-1;
+
+        Configuration.getConfiguration().write();
 
         return level;
     }
@@ -353,62 +370,3 @@ public class Level implements Serializable {
         aOutputStream.writeObject(counters);
     }
 }
-
-
-//    public void ASCIIToOutputStream(OutputStream os) throws IOException {
-//        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(os));
-//        bw.write("\nlength = " + length);
-//        bw.write("\nheight = " + height);
-//        bw.write("\nMap:\n");
-//        for (int y = 0; y < height; y++)
-//
-//        {
-//                for (int x = 0; x < length; x++)
-//
-//            {
-//                bw.write(map[x][y] + "\t");
-//            }
-//            bw.newLine();
-//        }
-//        bw.write("\nData: \n");
-//
-//        for (int y = 0; y < height; y++)
-//
-//        {
-//                for (int x = 0; x < length; x++)
-//
-//            {
-//                bw.write(data[x][y] + "\t");
-//            }
-//            bw.newLine();
-//        }
-//
-//        bw.write("\nspriteTemplates: \n");
-//        for (int y = 0; y < height; y++)
-//
-//        {
-//                for (int x = 0; x < length; x++)
-//
-//            {
-//                if                  (spriteTemplates[x][y] != null)
-//                    bw.write(spriteTemplates[x][y].getType() + "\t");
-//                else
-//                    bw.write("_\t");
-//
-//            }
-//            bw.newLine();
-//        }
-//
-//        bw.write("\n==================\nAll objects: (Map[x,y], Data[x,y], Sprite[x,y])\n");
-//        for (int y = 0; y < height; y++)
-//        {
-//                for (int x = 0; x < length; x++)
-//
-//            {
-//                bw.write("(" + map[x][y] + "," + data[x][y] + ", " + ((spriteTemplates[x][y] == null) ? "_" : spriteTemplates[x][y].getType()) + ")\t");
-//            }
-//            bw.newLine();
-//        }
-//
-////        bw.close();
-//    }

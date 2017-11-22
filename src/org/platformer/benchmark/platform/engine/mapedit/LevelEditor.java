@@ -27,8 +27,7 @@
 
 package org.platformer.benchmark.platform.engine.mapedit;
 
-import ch.idsia.benchmark.mario.engine.level.Level;
-import org.platformer.benchmark.platform.engine.LevelScene;
+import org.platformer.benchmark.platform.engine.level.Level;
 
 import javax.swing.*;
 import javax.swing.border.EtchedBorder;

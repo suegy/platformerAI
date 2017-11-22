@@ -31,10 +31,7 @@ package org.platformer.utils;
 import org.platformer.agents.Agent;
 import org.platformer.agents.AgentsPool;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by IntelliJ IDEA.
@@ -120,6 +117,8 @@ public ParameterContainer()
     }
 
     InitDefaults();
+    InitConfigFile();
+
 }
 
 public void setParameterValue(String param, String value)
@@ -228,7 +227,18 @@ public boolean b(String s)
                 "> whereas expected 'on' or 'off'\n[PlatformerAI] ~ Execution Terminated");
 }
 
-public static void InitDefaults()
+public void InitConfigFile()
+{
+    Map<String,String> defaults = Configuration.getConfiguration().getControlOptions();
+    if (defaults instanceof Map)
+        for (Map.Entry<String,String> param :defaults.entrySet()){
+           setParameterValue(param.getKey(),param.getValue());
+        }
+
+
+}
+
+public void InitDefaults()
 {
     if (defaultOptionsHashMap == null)
     {

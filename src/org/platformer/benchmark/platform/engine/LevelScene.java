@@ -27,8 +27,9 @@
 
 package org.platformer.benchmark.platform.engine;
 
-import ch.idsia.benchmark.mario.engine.level.Level;
-import ch.idsia.benchmark.mario.engine.level.SpriteTemplate;
+import clojure.lang.Obj;
+import org.platformer.benchmark.platform.engine.level.Level;
+import org.platformer.benchmark.platform.engine.sprites.SpriteTemplate;
 import org.platformer.benchmark.platform.engine.level.LevelGenerator;
 import org.platformer.benchmark.platform.engine.sprites.*;
 import org.platformer.benchmark.platform.environments.Environment;
@@ -538,7 +539,8 @@ public void reset(PlatformerAIOptions platformerAIOptions) {
         try {
 //            replayer.openNextReplayFile();
             replayer.openFile("level.lvl");
-            level = Level.fromString((String) replayer.readObject());
+            Object rawLevel = replayer.readObject();
+            level = Level.fromString((String) rawLevel);
             level.counters.resetUncountableCounters();
 //            replayer.closeFile();
 //            replayer.closeRecorder();
@@ -549,7 +551,7 @@ public void reset(PlatformerAIOptions platformerAIOptions) {
             e.printStackTrace();
         }
     } else {
-        //TODO: fix here
+
         String name = platformerAIOptions.getLevelToLoad();
         String asciiname = platformerAIOptions.getASCIILevelToLoad();
         if (!asciiname.equals("none")) {
