@@ -9,7 +9,7 @@ The project is originally based on the platformersAI(now defunct site) toolkit w
 ### What you can do with this code
 The project allows you to build/evolve bots for a 2D platform game using Java. There are also hooks inside the project for python but those are left untouched right now. The framework runs nicely on Java8 inside either Eclipse or IntelliJ and contains all required libraries for building CharacterAI or generating Levels by including your favourite [PCG](http://pcgbook.com/) method.
 
-With the recent version you can load ASCII art levels which can also edit manually in a regular text editor. Simply use the '-loadASCII' parameter or edit the new config.xml file. You can find existing levels in the [THEVGLC](https://github.com/TheVGLC/TheVGLC) repository.
+With the recent version you can load ASCII art levels which can also edit manually in a regular text editor. Simply use the `-loadASCII` parameter or edit the new config.xml file. You can find existing levels in the [THEVGLC](https://github.com/TheVGLC/TheVGLC) repository. The config file is in the rsrc folder same as a sample level.
 
 
 #### Where to start
