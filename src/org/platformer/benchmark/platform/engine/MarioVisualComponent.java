@@ -370,7 +370,6 @@ private static GraphicsConfiguration graphicsConfiguration;
 public void init()
 {
     graphicsConfiguration = getGraphicsConfiguration();
-//        System.out.println("!!HRUYA: graphicsConfiguration = " + graphicsConfiguration);
     Art.init(graphicsConfiguration);
 
 
@@ -378,12 +377,9 @@ public void init()
 
 public void postInitGraphics()
 {
-//        System.out.println("this = " + this);
     this.thisVolatileImage = this.createVolatileImage(GlobalOptions.VISUAL_COMPONENT_WIDTH, GlobalOptions.VISUAL_COMPONENT_HEIGHT);
     this.thisGraphics = getGraphics();
     this.thisVolatileImageGraphics = this.thisVolatileImage.getGraphics();
-//        System.out.println("thisGraphics = " + thisGraphics);
-//        System.out.println("thisVolatileImageGraphics = " + thisVolatileImageGraphics);
 }
 
 public void postInitGraphicsAndLevel()

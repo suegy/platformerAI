@@ -70,22 +70,29 @@ public class Art {
             items = cutImage(gc, assets.get(SpriteSheets.ITEMS.name()), 16, 16);
             level = cutImage(gc, assets.get(SpriteSheets.LEVEL.name()), 16, 16);
             particles = cutImage(gc, assets.get(SpriteSheets.PARTICLES.name()), 8, 8);
-            bg = cutImage(gc, assets.get(SpriteSheets.NEAR_BACKGROUND.name()), 32, 32);
-            bg_gen = cutImage(gc, assets.get(SpriteSheets.FAR_BACKGROUND.name()), 32, 32);
             font = cutImage(gc, assets.get(SpriteSheets.FONTS.name()), 8, 8);
             princess = cutImage(gc, assets.get(SpriteSheets.PRINCESS.name()), 32, 32);
+            bg = cutImage(gc, assets.get(SpriteSheets.NEAR_BACKGROUND.name()), 32, 32);
+            try {
+                bg_gen = cutImage(gc, assets.get(SpriteSheets.FAR_BACKGROUND.name()), 32, 32);
+            } catch (IllegalArgumentException e2) {
+                System.err.println("SYSTEM: no generative background texture set");
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+
     }
 
-    private static Image getImage(GraphicsConfiguration gc, String imageName) throws IOException {
+    private static Image getImage(GraphicsConfiguration gc, String imageName) throws IllegalArgumentException {
         BufferedImage source = null;
         try {
             source = ImageIO.read(Art.class.getResourceAsStream(imageName));
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IllegalArgumentException e1) {
+            throw e1;
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
 
         assert source != null;

@@ -539,8 +539,9 @@ public void reset(PlatformerAIOptions platformerAIOptions) {
         try {
 //            replayer.openNextReplayFile();
             replayer.openFile("level.lvl");
-            Object rawLevel = replayer.readObject();
-            level = Level.fromString((String) rawLevel);
+            Object rawLevel = replayer.readString();
+            String descr = (String) rawLevel;
+            level = Level.fromString(descr);
             level.counters.resetUncountableCounters();
 //            replayer.closeFile();
 //            replayer.closeRecorder();

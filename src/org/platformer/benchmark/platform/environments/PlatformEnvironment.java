@@ -183,7 +183,7 @@ public void reset(PlatformerAIOptions setUpOptions)
                 recorder = new Recorder(recordingFileName);
 
             recorder.createFile("level.lvl");
-            recorder.writeObject(levelScene.level.jSON().getBytes());
+            recorder.writeString(levelScene.level.jSON());
             recorder.closeFile();
 
             recorder.createFile("options");

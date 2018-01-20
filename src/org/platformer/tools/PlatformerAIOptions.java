@@ -90,7 +90,7 @@ public void setArgs(String argString)
     else
         this.setArgs((String[]) null);
 }
-
+//TODO: rework here to use json instead of string construction
 public String asString()
 {
     return optionsAsString;

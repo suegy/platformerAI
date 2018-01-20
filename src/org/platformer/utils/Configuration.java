@@ -23,8 +23,8 @@ public class Configuration {
 
     private Configuration()
     {
-        cfgName = "config.xml";
-        fileLocation = System.getProperty("user.dir")+ File.separator+"rsrc"+File.separator;
+        cfgName = "/config.xml";
+        //fileLocation = System.getProperty("user.dir")+ File.separator+"platformerAI"+File.separator+"rsrc"+File.separator;
 
         gson = new GsonBuilder().setPrettyPrinting().create();
 
@@ -33,7 +33,7 @@ public class Configuration {
     private void readFile(){
 
         try {
-            Reader reader = new BufferedReader(new FileReader(fileLocation+cfgName));
+            Reader reader = new BufferedReader(new FileReader(getClass().getResource(cfgName).getPath()));
             Configuration config = gson.fromJson(reader, Configuration.class);
             artAssets = config.artAssets;
             options = config.options;

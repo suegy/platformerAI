@@ -50,14 +50,14 @@ boolean lastRecordingState = false;
 private Queue<ReplayerOptions.Interval> chunks = new LinkedList<ReplayerOptions.Interval>();
 private ReplayerOptions.Interval chunk;
 
-private ByteArrayOutputStream byteOut;
+private ByteArrayOutputStream byteOut = new ByteArrayOutputStream();
 private boolean saveReady = false;
 private boolean canRecord;
 private boolean lazyRec = false;
 
 public Recorder(String fileName) throws FileNotFoundException
 {
-    if (!fileName.endsWith(".zip"))
+   if (!fileName.endsWith(".zip"))
         fileName += ".zip";
 
     zos = new ZipOutputStream(new BufferedOutputStream(new FileOutputStream(fileName)));
@@ -66,7 +66,6 @@ public Recorder(String fileName) throws FileNotFoundException
 
 public Recorder()
 {
-    byteOut = new ByteArrayOutputStream();
     zos = new ZipOutputStream(byteOut);
     canRecord = true;
     lazyRec = true;
@@ -88,8 +87,13 @@ public void writeObject(Object object) throws IOException
 {
     ObjectOutputStream oos = new ObjectOutputStream(zos);
     oos.writeObject(object);
-    oos.flush();
 }
+    public void writeString(String object) throws IOException
+    {
+        BufferedWriter oos = new BufferedWriter(new OutputStreamWriter(zos));
+        oos.write(object);
+        oos.flush();
+    }
 
 public void closeFile() throws IOException
 {
