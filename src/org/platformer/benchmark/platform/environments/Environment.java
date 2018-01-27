@@ -87,6 +87,8 @@ public int getReceptiveFieldWidth();
 
 public int getReceptiveFieldHeight();
 
+public boolean delete();
+
 
 public byte[][] getMergedObservationZZ(int ZLevelScene, int ZLevelEnemies);
 

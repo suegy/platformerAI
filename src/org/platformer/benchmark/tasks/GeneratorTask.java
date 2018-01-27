@@ -53,8 +53,8 @@ private ReplayAgent agent;
 private String name = getClass().getSimpleName();
 private Replayer replayer;
 private boolean finished = true;
-private ArrayList<Integer [][]> visionFieldperFrame = new ArrayList<>();
-private ArrayList<Integer []> actionsPerFrame = new ArrayList<>();
+private ArrayList<int [][]> visionFieldperFrame = new ArrayList<>();
+private ArrayList<int []> actionsPerFrame = new ArrayList<>();
 
 public GeneratorTask()
 {
@@ -70,8 +70,8 @@ public void playOneFile(final PlatformerAIOptions options)
     {
         interval = new ReplayerOptions.Interval(0, replayer.actionsFileSize());
     }
-    ArrayList<Integer [][]> visionFieldperFrame = new ArrayList<>();
-    ArrayList<Integer []> actionsPerFrame = new ArrayList<>();
+    ArrayList<int [][]> visionFieldperFrame = new ArrayList<>();
+    ArrayList<int []> actionsPerFrame = new ArrayList<>();
     int frameCounter = 0;
     while (!environment.isLevelFinished())
     {
@@ -89,12 +89,12 @@ public void playOneFile(final PlatformerAIOptions options)
         {
             boolean[] action = agent.getAction();
             //record and memorize environment and actions to be taken
-            Integer [] actions = new Integer[action.length];
+            int [] actions = new int[action.length];
             for (int i=0;i<action.length;i++)
                 actions[i] = action[i] ? 1 : 0;
             actionsPerFrame.add(actions);
             byte[][] rawVision = environment.getMergedObservationZZ(1,0);
-            Integer [][] vision = new Integer[rawVision.length][rawVision[0].length];
+            int [][] vision = new int[rawVision.length][rawVision[0].length];
             for (int y=0;y<rawVision.length;y++)
                 for (int x=0;x<rawVision[y].length;x++){
                     vision[y][x]=new Integer(rawVision[y][x]);
@@ -113,12 +113,12 @@ public void playOneFile(final PlatformerAIOptions options)
 
 }
 
-public Integer[][][] getInputData(){
-    return this.visionFieldperFrame.toArray(new Integer[0][0][0]);
+public int[][][] getInputData(){
+    return this.visionFieldperFrame.toArray(new int[1][1][1]);
 }
 
-public Integer[][] getOutputData(){
-    return this.actionsPerFrame.toArray(new Integer[0][0]);
+public int[][] getOutputData(){
+    return this.actionsPerFrame.toArray(new int[1][1]);
 }
 
 public int evaluate(final Agent controller)
@@ -187,12 +187,34 @@ public boolean isFinished()
 
 public void reset(String replayOptions)
 {
+    reset();
     replayer = new Replayer(replayOptions);
     GlobalOptions.isReplaying = true;
 }
 
 public void reset()
-{}
+{
+    finished = true;
+    visionFieldperFrame = new ArrayList<>();
+    actionsPerFrame = new ArrayList<>();
+
+}
+
+public boolean delete(){
+    if (!finished)
+        return false;
+    this.environment.delete();
+    this.environment = null;
+
+    this.replayer = null;
+    this.visionFieldperFrame = null;
+    this.agent = null;
+    this.actionsPerFrame = null;
+
+    return true;
+
+
+}
 
 public String getName()
 {

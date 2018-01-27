@@ -142,6 +142,16 @@ public void CreateMarioComponentFrame(MarioVisualComponent m)
     m.postInitGraphics();
 }
 
+public boolean delete() {
+    marioComponentFrame.setVisible(false);
+    marioComponentFrame = null;
+    gameViewer.setVisible(false);
+    gameViewer.setMarioVisualComponent(null);
+    gameViewer = null;
+
+    return true;
+}
+
 public void setLocation(Point location)
 {
     marioComponentFrame.setLocation(location.x, location.y);

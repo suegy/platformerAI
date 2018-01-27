@@ -67,7 +67,7 @@ private int[] serializedLevelScene;   // memory is allocated in reset
 private int[] serializedEnemies;      // memory is allocated in reset
 private int[] serializedMergedObservation; // memory is allocated in reset
 
-private final LevelScene levelScene;
+private LevelScene levelScene;
 //    private int frame = 0;
 private MarioVisualComponent marioVisualComponent;
 private Agent agent;
@@ -106,6 +106,17 @@ public void reset(String args)
 //        PlatformerAIOptions opts = new PlatformerAIOptions(setUpOptions);
 //        int[] intOpts = opts.toIntArray();
 //        this.reset(intOpts);
+}
+
+public boolean delete(){
+    marioVisualComponent.delete();
+    marioVisualComponent = null;
+    agent = null;
+    levelScene = null;
+    recorder = null;
+
+
+    return true;
 }
 
 public void reset(PlatformerAIOptions setUpOptions)
@@ -229,12 +240,18 @@ public byte[][] getLevelSceneObservationZ(int ZLevel)
     {
         for (int x = levelScene.plumber.mapX - mCol, col = 0; x <= levelScene.plumber.mapX + (receptiveFieldWidth - mCol - 1); x++, col++)
         {
+            if (row >= receptiveFieldHeight || col >= receptiveFieldWidth) //FIXME: dirty fix for wrong calculation of visile area
+                continue;
             if (x >= 0 && x < levelScene.level.length && y >= 0 && y < levelScene.level.height)
             {
                 mergedZZ[row][col] = levelSceneZ[row][col] = GeneralizerLevelScene.ZLevelGeneralization(levelScene.level.map[x][y], ZLevel);
             } else
             {
-                mergedZZ[row][col] = levelSceneZ[row][col] = 0;
+                try {
+                    mergedZZ[row][col] = levelSceneZ[row][col] = 0;
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    e.printStackTrace();
+                }
             }
 
         }
