@@ -145,10 +145,11 @@ public void CreateMarioComponentFrame(MarioVisualComponent m)
 public boolean delete() {
     marioComponentFrame.setVisible(false);
     marioComponentFrame = null;
-    gameViewer.setVisible(false);
-    gameViewer.setMarioVisualComponent(null);
-    gameViewer = null;
-
+    if (gameViewer != null) {
+        gameViewer.setVisible(false);
+        gameViewer.setMarioVisualComponent(null);
+        gameViewer = null;
+    }
     return true;
 }
 
