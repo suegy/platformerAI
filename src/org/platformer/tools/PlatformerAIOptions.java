@@ -27,10 +27,14 @@
 
 package org.platformer.tools;
 
+import com.owlike.genson.Genson;
+import com.owlike.genson.GensonBuilder;
+import com.owlike.genson.reflect.VisibilityFilter;
 import org.platformer.benchmark.platform.engine.GlobalOptions;
 import org.platformer.benchmark.platform.simulation.SimulationOptions;
 
 import java.awt.*;
+import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -55,229 +59,193 @@ import java.util.Map;
  * @since PlatformerAI0.1
  */
 
-public final class PlatformerAIOptions extends SimulationOptions
-{
-private static final HashMap<String, PlatformerAIOptions> CmdLineOptionsMapString = new HashMap<String, PlatformerAIOptions>();
-private String optionsAsString = "";
+public final class PlatformerAIOptions extends SimulationOptions {
+    private static final HashMap<String, PlatformerAIOptions> CmdLineOptionsMapString = new HashMap<String, PlatformerAIOptions>();
+    private transient Genson jsonSerialiser;
+    final private Point marioInitialPos = new Point();
 
-final private Point marioInitialPos = new Point();
-
-public PlatformerAIOptions(String[] args)
-{
-    super();
-    this.setArgs(args);
-}
+    public PlatformerAIOptions(String[] args) {
+        this();
+        this.setArgs(args);
+    }
 
 //    @Deprecated
 
-public PlatformerAIOptions(String args)
-{
-    //USE PlatformerAIOptions.getCmdLineOptionsClassByString(String args) method
-    super();
-    this.setArgs(args);
-}
-
-public PlatformerAIOptions()
-{
-    super();
-    this.setArgs("");
-}
-
-public void setArgs(String argString)
-{
-    if (!"".equals(argString))
-        this.setArgs(argString.trim().split("\\s+"));
-    else
-        this.setArgs((String[]) null);
-}
-//TODO: rework here to use json instead of string construction
-public String asString()
-{
-    return optionsAsString;
-}
-
-public void setArgs(String[] args)
-{
-//        if (args.length > 0 && !args[0].startsWith("-") /*starts with a path to agent then*/)
-//        {
-//            this.setAgent(args[0]);
-//
-//            String[] shiftedargs = new String[args.length - 1];
-//            System.arraycopy(args, 1, shiftedargs, 0, args.length - 1);
-//            this.setUpOptions(shiftedargs);
-//        }
-//        else
-    if (args != null)
-        for (String s : args)
-            optionsAsString += s + " ";
-
-    this.setUpOptions(args);
-
-     if (isEcho())
-    {
-        this.printOptions(false);
+    public PlatformerAIOptions(String args) {
+        this();
+        this.setArgs(args);
     }
-    GlobalOptions.receptiveFieldWidth = getReceptiveFieldWidth();
-    GlobalOptions.receptiveFieldHeight = getReceptiveFieldHeight();
-    if (getMarioEgoPosCol() == 9 && GlobalOptions.receptiveFieldWidth != 19)
-        GlobalOptions.marioEgoCol = GlobalOptions.receptiveFieldWidth / 2;
-    else
-        GlobalOptions.marioEgoCol = getMarioEgoPosCol();
-    if (getMarioEgoPosRow() == 9 && GlobalOptions.receptiveFieldHeight != 19)
-        GlobalOptions.marioEgoRow = GlobalOptions.receptiveFieldHeight / 2;
-    else
-        GlobalOptions.marioEgoRow = getMarioEgoPosRow();
 
-    GlobalOptions.VISUAL_COMPONENT_HEIGHT = getViewHeight();
-    GlobalOptions.VISUAL_COMPONENT_WIDTH = getViewWidth();
+    public PlatformerAIOptions() {
+        super();
+        jsonSerialiser = new GensonBuilder()
+                .useClassMetadata(true)
+                .useMethods(false)
+                .setSkipNull(true)
+                .useFields(true, new VisibilityFilter(Modifier.TRANSIENT, Modifier.STATIC))
+                .useClassMetadataWithStaticType(false)
+                .create();
+        this.setArgs("");
+    }
+
+    public void setArgs(String argString) {
+        if (!"".equals(argString))
+            this.setArgs(argString.trim().split("\\s+"));
+        else
+            this.setArgs((String[]) null);
+    }
+
+    public void deserialize(String json) {
+        this.optionsHashMap = (HashMap<String, String>) jsonSerialiser.deserialize(json, Map.class);
+    }
+
+    public String asJSONString() {
+        String jsonRepresentation = jsonSerialiser.serialize(this.optionsHashMap);
+
+        return jsonRepresentation;
+    }
+
+    public void setArgs(String[] args) {
+
+        this.setUpOptions(args);
+
+        if (isEcho()) {
+            this.printOptions(false);
+        }
+        GlobalOptions.receptiveFieldWidth = getReceptiveFieldWidth();
+        GlobalOptions.receptiveFieldHeight = getReceptiveFieldHeight();
+        if (getMarioEgoPosCol() == 9 && GlobalOptions.receptiveFieldWidth != 19)
+            GlobalOptions.marioEgoCol = GlobalOptions.receptiveFieldWidth / 2;
+        else
+            GlobalOptions.marioEgoCol = getMarioEgoPosCol();
+        if (getMarioEgoPosRow() == 9 && GlobalOptions.receptiveFieldHeight != 19)
+            GlobalOptions.marioEgoRow = GlobalOptions.receptiveFieldHeight / 2;
+        else
+            GlobalOptions.marioEgoRow = getMarioEgoPosRow();
+
+        GlobalOptions.VISUAL_COMPONENT_HEIGHT = getViewHeight();
+        GlobalOptions.VISUAL_COMPONENT_WIDTH = getViewWidth();
 //        Environment.ObsWidth = GlobalOptions.receptiveFieldWidth/2;
 //        Environment.ObsHeight = GlobalOptions.receptiveFieldHeight/2;
-    GlobalOptions.isShowReceptiveField = isReceptiveFieldVisualized();
-    GlobalOptions.isGameplayStopped = isStopGamePlay();
-}
-
-public float getMarioGravity()
-{
-    // TODO: getMarioGravity, doublecheck if unit test is present and remove if fixed
-    return f(getParameterValue("-mgr"));
-}
-
-public void setMarioGravity(float mgr)
-{
-   setParameterValue("-mgr", s(mgr));
-}
-
-public float getWind()
-{
-    return f(getParameterValue("-w"));
-}
-
-public void setWind(float wind)
-{
-    setParameterValue("-w", s(wind));
-}
-
-public float getIce()
-{
-    return f(getParameterValue("-ice"));
-}
-
-public void setIce(float ice)
-{
-    setParameterValue("-ice", s(ice));
-}
-
-public float getCreaturesGravity()
-{
-    // TODO: getCreaturesGravity, same as for mgr
-    return f(getParameterValue("-cgr"));
-}
-
-public int getViewWidth()
-{
-    return i(getParameterValue("-vw"));
-}
-
-public void setViewWidth(int width)
-{
-    setParameterValue("-vw", s(width));
-}
-
-public int getViewHeight()
-{
-    return i(getParameterValue("-vh"));
-}
-
-public void setViewHeight(int height)
-{
-    setParameterValue("-vh", s(height));
-}
-
-public void printOptions(boolean singleLine)
-{
-    System.out.println("\n[PlatformerAI] : Options have been set to:");
-    for (Map.Entry<String, String> el : optionsHashMap.entrySet())
-        if (singleLine)
-            System.out.print(el.getKey() + " " + el.getValue() + " ");
-        else
-            System.out.println(el.getKey() + " " + el.getValue() + " ");
-}
-
-public static PlatformerAIOptions getOptionsByString(String argString)
-{
-    // TODO: verify validity of this method, add unit tests
-    if (CmdLineOptionsMapString.get(argString) == null)
-    {
-        final PlatformerAIOptions value = new PlatformerAIOptions(argString.trim().split("\\s+"));
-        CmdLineOptionsMapString.put(argString, value);
-        return value;
+        GlobalOptions.isShowReceptiveField = isReceptiveFieldVisualized();
+        GlobalOptions.isGameplayStopped = isStopGamePlay();
     }
-    return CmdLineOptionsMapString.get(argString);
-}
 
-public static PlatformerAIOptions getDefaultOptions()
-{
-    return getOptionsByString("");
-}
+    public float getMarioGravity() {
+        // TODO: getMarioGravity, doublecheck if unit test is present and remove if fixed
+        return f(getParameterValue("-mgr"));
+    }
 
-public boolean isToolsConfigurator()
-{
-    return b(getParameterValue("-tc"));
-}
+    public void setMarioGravity(float mgr) {
+        setParameterValue("-mgr", s(mgr));
+    }
 
-public boolean isGameViewer()
-{
-    return b(getParameterValue("-gv"));
-}
+    public float getWind() {
+        return f(getParameterValue("-w"));
+    }
 
-public void setGameViewer(boolean gv)
-{
-  setParameterValue("-gv", s(gv));
-}
+    public void setWind(float wind) {
+        setParameterValue("-w", s(wind));
+    }
 
-public boolean isGameViewerContinuousUpdates()
-{
-    return b(getParameterValue("-gvc"));
-}
+    public float getIce() {
+        return f(getParameterValue("-ice"));
+    }
 
-public void setGameViewerContinuousUpdates(boolean gvc)
-{
-    setParameterValue("-gvc", s(gvc));
-}
+    public void setIce(float ice) {
+        setParameterValue("-ice", s(ice));
+    }
 
-public boolean isEcho()
-{
-    return b(getParameterValue("-echo"));
-}
+    public float getCreaturesGravity() {
+        // TODO: getCreaturesGravity, same as for mgr
+        return f(getParameterValue("-cgr"));
+    }
 
-public void setEcho(boolean echo)
-{
-    setParameterValue("-echo", s(echo));
-}
+    public int getViewWidth() {
+        return i(getParameterValue("-vw"));
+    }
 
-public boolean isStopGamePlay()
-{
-    return b(getParameterValue("-stop"));
-}
+    public void setViewWidth(int width) {
+        setParameterValue("-vw", s(width));
+    }
 
-public void setStopGamePlay(boolean stop)
-{
-    setParameterValue("-stop", s(stop));
-}
+    public int getViewHeight() {
+        return i(getParameterValue("-vh"));
+    }
 
-public float getJumpPower()
-{
-    return f(getParameterValue("-jp"));
-}
+    public void setViewHeight(int height) {
+        setParameterValue("-vh", s(height));
+    }
 
-public void setJumpPower(float jp)
-{
-    setParameterValue("-jp", s(jp));
-}
+    public void printOptions(boolean singleLine) {
+        System.out.println("\n[PlatformerAI] : Options have been set to:");
+        for (Map.Entry<String, String> el : optionsHashMap.entrySet())
+            if (singleLine)
+                System.out.print(el.getKey() + " " + el.getValue() + " ");
+            else
+                System.out.println(el.getKey() + " " + el.getValue() + " ");
+    }
 
-public int getReceptiveFieldWidth()
-{
-    int ret = i(getParameterValue("-rfw"));
+    public static PlatformerAIOptions getOptionsByString(String argString) {
+        // TODO: verify validity of this method, add unit tests
+        if (CmdLineOptionsMapString.get(argString) == null) {
+            final PlatformerAIOptions value = new PlatformerAIOptions(argString.trim().split("\\s+"));
+            CmdLineOptionsMapString.put(argString, value);
+            return value;
+        }
+        return CmdLineOptionsMapString.get(argString);
+    }
+
+    public static PlatformerAIOptions getDefaultOptions() {
+        return getOptionsByString("");
+    }
+
+    public boolean isToolsConfigurator() {
+        return b(getParameterValue("-tc"));
+    }
+
+    public boolean isGameViewer() {
+        return b(getParameterValue("-gv"));
+    }
+
+    public void setGameViewer(boolean gv) {
+        setParameterValue("-gv", s(gv));
+    }
+
+    public boolean isGameViewerContinuousUpdates() {
+        return b(getParameterValue("-gvc"));
+    }
+
+    public void setGameViewerContinuousUpdates(boolean gvc) {
+        setParameterValue("-gvc", s(gvc));
+    }
+
+    public boolean isEcho() {
+        return b(getParameterValue("-echo"));
+    }
+
+    public void setEcho(boolean echo) {
+        setParameterValue("-echo", s(echo));
+    }
+
+    public boolean isStopGamePlay() {
+        return b(getParameterValue("-stop"));
+    }
+
+    public void setStopGamePlay(boolean stop) {
+        setParameterValue("-stop", s(stop));
+    }
+
+    public float getJumpPower() {
+        return f(getParameterValue("-jp"));
+    }
+
+    public void setJumpPower(float jp) {
+        setParameterValue("-jp", s(jp));
+    }
+
+    public int getReceptiveFieldWidth() {
+        int ret = i(getParameterValue("-rfw"));
 //
 //    if (ret % 2 == 0)
 //    {
@@ -285,80 +253,67 @@ public int getReceptiveFieldWidth()
 //                " ; receptive field width set to " + ret);
 //        setParameterValue("-rfw", s(ret));
 //    }
-    return ret;
-}
+        return ret;
+    }
 
-public void setReceptiveFieldWidth(int rfw)
-{
-    setParameterValue("-rfw", s(rfw));
-}
+    public void setReceptiveFieldWidth(int rfw) {
+        setParameterValue("-rfw", s(rfw));
+    }
 
-public int getReceptiveFieldHeight()
-{
-    int ret = i(getParameterValue("-rfh"));
+    public int getReceptiveFieldHeight() {
+        int ret = i(getParameterValue("-rfh"));
 //    if (ret % 2 == 0)
 //    {
 //        System.err.println("\n[PlatformerAI WARNING] : Wrong value for receptive field height: " + ret++ +
 //                " ; receptive field height set to " + ret);
 //        setParameterValue("-rfh", s(ret));
 //    }
-    return ret;
-}
+        return ret;
+    }
 
-public void setReceptiveFieldHeight(int rfh)
-{
-    setParameterValue("-rfh", s(rfh));
-}
+    public void setReceptiveFieldHeight(int rfh) {
+        setParameterValue("-rfh", s(rfh));
+    }
 
-public boolean isReceptiveFieldVisualized()
-{
-    return b(getParameterValue("-srf"));
-}
+    public boolean isReceptiveFieldVisualized() {
+        return b(getParameterValue("-srf"));
+    }
 
-public void setReceptiveFieldVisualized(boolean srf)
-{
-    setParameterValue("-srf", s(srf));
-}
+    public void setReceptiveFieldVisualized(boolean srf) {
+        setParameterValue("-srf", s(srf));
+    }
 
-public Point getMarioInitialPos()
-{
-    marioInitialPos.x = i(getParameterValue("-mix"));
-    marioInitialPos.y = i(getParameterValue("-miy"));
-    return marioInitialPos;
-}
+    public Point getMarioInitialPos() {
+        marioInitialPos.x = i(getParameterValue("-mix"));
+        marioInitialPos.y = i(getParameterValue("-miy"));
+        return marioInitialPos;
+    }
 
-public void reset()
-{
-    optionsHashMap.clear();
-}
+    public void reset() {
+        optionsHashMap.clear();
+    }
 
-public int getMarioEgoPosRow()
-{
-    return i(getParameterValue("-mer"));
-}
+    public int getMarioEgoPosRow() {
+        return i(getParameterValue("-mer"));
+    }
 
-public int getMarioEgoPosCol()
-{
-    return i(getParameterValue("-mec"));
-}
+    public int getMarioEgoPosCol() {
+        return i(getParameterValue("-mec"));
+    }
 
-public int getExitX()
-{
-    return i(getParameterValue("-ex"));
-}
+    public int getExitX() {
+        return i(getParameterValue("-ex"));
+    }
 
-public int getExitY()
-{
-    return i(getParameterValue("-ey"));
-}
+    public int getExitY() {
+        return i(getParameterValue("-ey"));
+    }
 
-public void setExitX(int x)
-{
-    setParameterValue("-ex", s(x));
-}
+    public void setExitX(int x) {
+        setParameterValue("-ex", s(x));
+    }
 
-public void setExitY(int y)
-{
-    setParameterValue("-ey", s(y));
-}
+    public void setExitY(int y) {
+        setParameterValue("-ey", s(y));
+    }
 }

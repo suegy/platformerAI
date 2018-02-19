@@ -113,7 +113,7 @@ public void startReplay(int fps)
         {
             replayer.openFile("options");
             String strOptions = (String) replayer.readObject();
-            options.setArgs(strOptions);
+            options.deserialize(strOptions);
             //TODO: reset; resetAndSetArgs;
             options.setVisualization(true);
             options.setRecordFile("off");

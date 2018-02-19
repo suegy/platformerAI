@@ -35,6 +35,7 @@ import org.platformer.utils.Configuration;
 import org.platformer.tools.PlatformerAIOptions;
 
 import java.io.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -185,17 +186,128 @@ public class Level implements Serializable {
         return level;
     }
 
-    public static Level loadASCII(Reader reader, PlatformerAIOptions platformerAIOptions) throws IOException, ClassNotFoundException {
-        BufferedReader bReader = new BufferedReader(reader);
-        ArrayList<char[]> mapStrings = new ArrayList<char[]>();
+    public static ArrayList<char []> generateASCIILevel(int levelLength, int levelHeight,int randSeed){
+        Random random = new Random(randSeed);
+        ArrayList<char[]> level = new ArrayList<>();
+
+        for (int y=0;y<levelHeight;y++){
+            char [] line = new char[levelLength];
+            for (int x =0;x<levelLength;x++){
+                line[x] = '-'; //prefill with air
+                int oracle = random.nextInt(18);
+                float probability = random.nextFloat();
+
+                if (probability < .4) {
+                    line[x] = '-'; //prefill with air
+                } else if (probability < .6) {
+                    line[x] = 'X'; //square block or ground tile
+                } else {
+                    switch (oracle) {
+                        case 0: line[x] = '<'; //left pipe opening
+                            if (x<levelLength-1) {
+                                line[x+1] = '>';
+                                continue;
+                            }
+
+                            break;
+                        case 1: line[x] = '>'; //right pipe opening
+                            if (x>0) {
+                                line[x-1] = '<';
+                                continue;
+                            }
+                            break;
+                        case 2: line[x] = '['; //left pipe
+                            if (x<levelLength-1) {
+                                line[x+1] = ']';
+                                continue;
+                            }
+                            break;
+                        case 3: line[x] = ']'; //right pipe
+                            if (x>0) {
+                                line[x-1] = '[';
+                                continue;
+                            }
+                            break;
+                        case 4: line[x] = 'E'; //gumba or other enemy
+                            break;
+                        case 5: line[x] = 'X'; //square block or ground tile
+                            break;
+                        case 6: line[x] = 'S'; //breakable block
+                            break;
+                        case 7: line[x] = 'Q'; //question block
+                            break;
+                        case 8: line[x] = 'C'; //coin
+                            break;
+                        case 9: line[x] = 'P'; //princess
+                            break;
+                        default:
+                            break;
+                    }
+
+                }
+                level.remove(y);
+                level.add(y,line);
+
+            }
+        }
+
+        return level;
+    }
+
+    public static ArrayList<char[]> mutateASCIILevel(ArrayList<char[]> level, int mutationPoints, int randSeed) {
+        Random random = new Random(randSeed);
+        int levelLength = level.size();
+        int levelHeight = level.get(0).length;
+
+        for (int m=0;m<mutationPoints;m++) {
+            int y = random.nextInt(levelLength);
+            int x = random.nextInt(levelHeight);
+            int  oracle = random.nextInt(18);
+            char[] line = level.get(y);
+
+            line[x] = '-'; //prefill with air
+
+
+            //TODO: apply some meaningful distribution to generate level
+
+            switch (oracle) {
+                case 0: line[x] = '<'; //left pipe opening
+                    break;
+                case 1: line[x] = '>'; //right pipe opening
+                    break;
+                case 2: line[x] = '['; //left pipe
+                    break;
+                case 3: line[x] = ']'; //right pipe
+                    break;
+                case 4: line[x] = 'E'; //gumba or other enemy
+                    break;
+                case 5: line[x] = 'X'; //square block or ground tile
+                    break;
+                case 6: line[x] = 'S'; //breakable block
+                    break;
+                case 7: line[x] = 'Q'; //question block
+                    break;
+                case 8: line[x] = 'C'; //coin
+                    break;
+                case 9: line[x] = 'P'; //princess
+                    break;
+                default:
+                    break;
+            }
+            level.remove(y);
+            level.add(y,line);
+        }
+
+        return level;
+    }
+
+    public static Level loadASCII(ArrayList<char []> levelSlices, PlatformerAIOptions platformerAIOptions) {
+
         Random random = new Random(platformerAIOptions.getLevelRandSeed());
         char[][] map = null;
         byte[][] shadowMap = null;
-        String line = bReader.readLine();
-        while (line != null) {
-            mapStrings.add(line.toCharArray());
-            line = bReader.readLine();
-        }
+        ArrayList<char[]> mapStrings = levelSlices;
+
 
         Level level = LevelGenerator.createLevel(platformerAIOptions);
 
@@ -263,6 +375,17 @@ public class Level implements Serializable {
         Configuration.getConfiguration().write();
 
         return level;
+    }
+
+    public static Level loadASCII(Reader reader, PlatformerAIOptions platformerAIOptions) throws IOException, ClassNotFoundException {
+        BufferedReader bReader = new BufferedReader(reader);
+        ArrayList<char[]> levelSlices = new ArrayList<>();
+        String line = bReader.readLine();
+        while (line != null) {
+            levelSlices.add(line.toCharArray());
+            line = bReader.readLine();
+        }
+        return loadASCII(levelSlices,platformerAIOptions);
     }
 
 

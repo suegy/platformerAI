@@ -198,7 +198,7 @@ public void reset(PlatformerAIOptions setUpOptions)
             recorder.closeFile();
 
             recorder.createFile("options");
-            recorder.writeObject(setUpOptions.asString());
+            recorder.writeObject(setUpOptions.asJSONString());
             recorder.closeFile();
 
             recorder.createFile("actions.act");
