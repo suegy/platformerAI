@@ -29,6 +29,7 @@ package org.platformer.tools;
 
 import com.owlike.genson.Genson;
 import com.owlike.genson.GensonBuilder;
+import com.owlike.genson.JsonBindingException;
 import com.owlike.genson.reflect.VisibilityFilter;
 import org.platformer.benchmark.platform.engine.GlobalOptions;
 import org.platformer.benchmark.platform.simulation.SimulationOptions;
@@ -96,7 +97,12 @@ public final class PlatformerAIOptions extends SimulationOptions {
     }
 
     public void deserialize(String json) {
-        this.optionsHashMap = (HashMap<String, String>) jsonSerialiser.deserialize(json, Map.class);
+        try {
+            this.optionsHashMap = (HashMap<String, String>) jsonSerialiser.deserialize(json, Map.class);
+        } catch (JsonBindingException e){
+            System.err.println("platformerAI: Old save game used. Using default options");
+            setArgs(json);
+        }
     }
 
     public String asJSONString() {
