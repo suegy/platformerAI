@@ -74,7 +74,7 @@ private Agent agent;
 
 private EvaluationInfo evaluationInfo;
 
-private static String marioTraceFile;
+private String marioTraceFile;
 
 private Recorder recorder;
 
@@ -84,10 +84,6 @@ DecimalFormat df = new DecimalFormat("######.#");
 
 public PlatformEnvironment()
 {
-//        System.out.println("System.getProperty(\"java.awt.headless\") = " + System.getProperty("java.awt.headless"));
-//        System.out.println("System.getProperty(\"verbose\") = " + System.getProperty("-verbose"));
-//        System.out.println("Java: JA ZDES'!!");
-//        System.out.flush();
     System.out.println(GlobalOptions.getBenchmarkName());
     evaluationInfo = new EvaluationInfo();
     levelScene = new LevelScene();
@@ -103,9 +99,6 @@ public void reset(String args)
 {
     PlatformerAIOptions platformerAIOptions = PlatformerAIOptions.getOptionsByString(args);
     this.reset(platformerAIOptions);
-//        PlatformerAIOptions opts = new PlatformerAIOptions(setUpOptions);
-//        int[] intOpts = opts.toIntArray();
-//        this.reset(intOpts);
 }
 
 public boolean delete(){

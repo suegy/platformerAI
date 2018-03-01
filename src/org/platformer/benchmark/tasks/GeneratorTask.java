@@ -88,21 +88,25 @@ public void playOneFile(final PlatformerAIOptions options)
         if (!GlobalOptions.isGameplayStopped)
         {
             boolean[] action = agent.getAction();
-            //record and memorize environment and actions to be taken
-            int [] actions = new int[action.length];
-            for (int i=0;i<action.length;i++)
-                actions[i] = action[i] ? 1 : 0;
-            actionsPerFrame.add(actions);
-            byte[][] rawVision = environment.getMergedObservationZZ(1,0);
-            int [][] vision = new int[rawVision.length][rawVision[0].length];
-            for (int y=0;y<rawVision.length;y++)
-                for (int x=0;x<rawVision[y].length;x++){
-                    vision[y][x]=new Integer(rawVision[y][x]);
-                }
-            visionFieldperFrame.add(vision);
+            if (action != null) {
+                //record and memorize environment and actions to be taken
+                int[] actions = new int[action.length];
+                for (int i = 0; i < action.length; i++)
+                    actions[i] = action[i] ? 1 : 0;
+                actionsPerFrame.add(actions);
+                byte[][] rawVision = environment.getMergedObservationZZ(1, 0);
+                int[][] vision = new int[rawVision.length][rawVision[0].length];
+                for (int y = 0; y < rawVision.length; y++)
+                    for (int x = 0; x < rawVision[y].length; x++) {
+                        vision[y][x] = new Integer(rawVision[y][x]);
+                    }
+                visionFieldperFrame.add(vision);
 
-            environment.performAction(action);
-            frameCounter++;
+                environment.performAction(action);
+                frameCounter++;
+            } else {
+                System.err.println("[platformerAI]:tried to collect more actions after game was done!");
+            }
         }
 
         if (interval == null)
