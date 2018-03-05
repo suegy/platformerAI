@@ -33,6 +33,7 @@ import org.platformer.tools.ReplayerOptions;
 import java.io.*;
 import java.util.Queue;
 import java.util.zip.ZipEntry;
+import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
 
 /**
@@ -63,13 +64,17 @@ public class Replayer {
         if (!fileName.endsWith(".zip"))
             fileName += ".zip";
 
-        zf = new ZipFile(fileName);
         ze = null;
         fis = null;
-
         try {
+            zf = new ZipFile(fileName);
+
+
             openFile("chunks");
             options.setChunks((Queue) readObject());
+        } catch (ZipException e) {
+            System.err.println("[platformerAI]: cannot open zip: "+fileName);
+
         } catch (Exception ignored) {
         } //if file with replay chunks not found, than use user specified chunks
 

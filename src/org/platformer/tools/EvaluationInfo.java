@@ -86,7 +86,7 @@ private static final int[] zeros = new int[EvaluationInfo.numberOfElements];
 public String Memo = "";
 
 private static final DecimalFormat df = new DecimalFormat("#.##");
-private static MarioSystemOfValues marioSystemOfValues = new MarioSystemOfValues();
+private MarioSystemOfValues marioSystemOfValues = new MarioSystemOfValues();
 
 public int[][] marioTrace;
 public String marioTraceFileName;

@@ -333,10 +333,36 @@ public class Level implements Serializable {
                         shadowMap[x][y] = 11;
                         break;
                     case '[': //left pipe
+                    case 'p': //left pipe
                         shadowMap[x][y] = 26;
                         break;
+                    case 'P':
                     case ']': //right pipe
                         shadowMap[x][y] = 27;
+                        break;
+                    case 'c': //canon base
+                        shadowMap[x][y] = 14;
+                        break;
+                    case 'C': //flower pot or canon
+                        shadowMap[x][y] = 30; // or 46
+                        break;
+                    case 'g': //gumba
+                        level.setSpriteTemplate(x,y,new SpriteTemplate(Sprite.KIND_GOOMBA));
+                        break;
+                    case 'G': //gumba
+                        level.setSpriteTemplate(x,y,new SpriteTemplate(Sprite.KIND_GOOMBA_WINGED));
+                        break;
+                    case 't': //spiky
+                        level.setSpriteTemplate(x,y,new SpriteTemplate(Sprite.KIND_SPIKY));
+                        break;
+                    case 'k': //koopa
+                        level.setSpriteTemplate(x,y,new SpriteTemplate(Sprite.KIND_GREEN_KOOPA));
+                        break;
+                    case 'K': //winged koopa
+                        level.setSpriteTemplate(x,y,new SpriteTemplate(Sprite.KIND_GREEN_KOOPA_WINGED));
+                        break;
+                    case 'V': //flower thing
+                        level.setSpriteTemplate(x,y,new SpriteTemplate(Sprite.KIND_ENEMY_FLOWER));
                         break;
                     case 'E': //gumba or other enemy
                         level.setSpriteTemplate(x,y,new SpriteTemplate(Sprite.KIND_GOOMBA));
@@ -347,14 +373,24 @@ public class Level implements Serializable {
                     case 'S': //breakable block
                         shadowMap[x][y] = 16;//also 17,22
                         break;
+                    case 'M'://shroom
+                    case '*'://flower
+                        shadowMap[x][y] = (byte) (22);
+                        break;
+                    case 'O'://multi coin
+                        shadowMap[x][y] = (byte) (23);
+                        break;
                     case 'Q': //question block
                         int tile = random.nextInt(3);
                         shadowMap[x][y] = (byte) (21 + tile);
                         break;
-                    case 'C': //coin
+                    case '?': //hidden block
+                        shadowMap[x][y] = (byte) (1);
+                        break;
+                    case 'o': //coin
                         shadowMap[x][y] = 34;
                         break;
-                    case 'P': //coin
+                    case 'H': //princess aka Home
                         level.xExit = x;
                         level.yExit = y;
                         level.setSpriteTemplate(x, y, new SpriteTemplate(Sprite.KIND_PRINCESS));
