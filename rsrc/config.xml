@@ -2,9 +2,10 @@
   "options": {
     "-fps": "25",
 	"-vis": "on",
-    "-gv": "on",
+    "-gv": "off",
     "-ld": "0",
-    "-ll": "202"
+    "-ll": "202",
+	"-ls": "0"
   },
   "artAssets": {
     "PRINCESS": "/art/princess.png",

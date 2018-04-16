@@ -31,7 +31,10 @@ import org.platformer.agents.Agent;
 import org.platformer.agents.controllers.ForwardAgent;
 import org.platformer.benchmark.platform.environments.Environment;
 import org.platformer.benchmark.tasks.BasicTask;
+import org.platformer.comparison.robinbaumgarten.AStarAgent;
 import org.platformer.tools.PlatformerAIOptions;
+
+import java.util.Random;
 
 /**
  * Created by IntelliJ IDEA.
@@ -51,16 +54,19 @@ public static void main(String[] args)
     final BasicTask basicTask = new BasicTask(platformerAIOptions);
     //for (int i = 0; i < 5; ++i)
     //{
-        int seed = 4;
+        int seed = 0;
+        Random rand = new Random(seed);
         do
         {
             platformerAIOptions.setLevelDifficulty(0);
             platformerAIOptions.setLevelRandSeed(seed++);
+            Agent astar = new AStarAgent();
+            platformerAIOptions.setAgent(astar);
             basicTask.setOptionsAndReset(platformerAIOptions);
             basicTask.runSingleEpisode(1);
             System.out.println(basicTask.getEnvironment().getEvaluationInfoAsString());
       //      System.out.println("Seed: "+seed+" Try: "+i);
-        } while (basicTask.getEnvironment().getEvaluationInfo().marioStatus != Environment.MARIO_STATUS_WIN);
+        } while (basicTask.getEnvironment().getEvaluationInfo().marioStatus == Environment.MARIO_STATUS_WIN);
     //}
     Runtime rt = Runtime.getRuntime();
    /* try

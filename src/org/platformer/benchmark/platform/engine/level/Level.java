@@ -334,9 +334,11 @@ public class Level implements Serializable {
                         break;
                     case '[': //left pipe
                     case 'p': //left pipe
+                    case 'd': //hanging left pipe
                         shadowMap[x][y] = 26;
                         break;
                     case 'P':
+                    case 'D':
                     case ']': //right pipe
                         shadowMap[x][y] = 27;
                         break;
@@ -346,6 +348,7 @@ public class Level implements Serializable {
                     case 'C': //flower pot or canon
                         shadowMap[x][y] = 30; // or 46
                         break;
+                    case 'h': // should be hammer thrower
                     case 'g': //gumba
                         level.setSpriteTemplate(x,y,new SpriteTemplate(Sprite.KIND_GOOMBA));
                         break;
